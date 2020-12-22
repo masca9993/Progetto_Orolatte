@@ -1,0 +1,88 @@
+
+/*************HEADER******************************/
+
+#menu_1 {
+	display: none;
+}
+
+#menu_mobile{
+	display:block; 
+	float: left;
+	width: 10%;
+}
+
+#menu_mobile ul li img{
+	max-width: 2em;
+	max-height: 2em;
+}
+
+
+#menu_mobile ul li img {
+	width: 100%;
+}
+
+#Links{
+	display: none;
+	background-color: AZURE;
+	border: 2px solid CYAN;
+}
+
+#header{
+	max-height:5em;
+}
+
+.menu{
+  margin-top: 0em;
+}
+
+.menu ul li{
+  display: inline;
+  padding: 0em ;
+}
+
+.menu ul li a{
+  font-size: 0.8em;
+}
+
+.menu ul li img{
+  max-width: 1.1em;
+  max-height: 1.1em;
+}
+
+#titolo{
+	display: none;
+}
+
+#titolo_mobile{
+	display: block;
+	width: 50%;
+}
+
+#logo_mobile{
+  max-height: 2em;
+}
+
+#menu_2{
+	float: right;
+	width: 40%;
+}
+
+
+/************CONTENUTO PAGINA**********************/
+
+.contenutogenerale{
+  padding: 1em 1em 1em 1em;
+}
+
+#contenutoPagina{
+  flex-direction: column;
+}
+
+#box{
+  order: 2;
+  margin-right: 2em;
+}
+
+#contatti{
+  order: 1;
+}

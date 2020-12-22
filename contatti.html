@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Contatti - Gelateria Orolatte</title>
+<meta name="title" content="Orolatte"/>
+<meta name="description" content="sito realizzato per il corso di TecWeb"/>
+<meta name="keywords" content=""/>
+<meta name="author" content="TecWeb class"/>
+<meta name="language" content="italian it"/>
+
+
+<link rel="stylesheet" type ="text/css" href="style/style_desktop.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="style/style_mobile.css" media="handheld , screen and (max-width:640px), only screen and (max-device-width:640px)" />
+
+</head>
+<body>
+<div id="header">
+  <ul>
+  	<li class="aiutiNascosti"><a href="#menu">vai al menù</a></li>
+  	<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
+  </ul>
+  <div class="menu" id="menu_mobile">
+  	<ul>
+  		<li>
+  			<img id="stile" src="img/menu.png" alt="menù" onclick="myFunction()"/> 
+  		</li>
+  	</ul>
+  	<div id="Links">
+  		<ul>
+  			<li>
+    			<a href="#">HOME</a>
+    		</li>
+    		<li>
+    			<a href="#">GELATI</a>
+    		</li>
+    		<li>
+    			<a href="#">GALLERY</a>
+    		</li>
+    		<li>
+    			<a href="#">CONTATTI</a>
+    		</li>
+    	</ul>
+    </div>
+  </div>
+  <div class="menu" id="menu_1">
+  	<ul>
+  		<li>
+  			<a href="#">HOME</a>
+  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
+  		</li>
+  		<li>
+  			<a href="#">GELATI</a>
+  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
+  		</li>
+  		<li>
+  			<a href="#">GALLERY</a>
+  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
+  		</li>
+  		<li>
+  			<a href="#">CONTATTI</a>
+  		</li>
+  	</ul>
+  </div>
+  <div class="menu" id="menu_2">
+  	<ul>
+  		<li>
+  			<img id="stile" src="img/login.png" alt=""/>
+  			<a href="#">LOGIN</a>
+  			<img id="stile" src="img/barra_verticale.png" alt=""/>
+  		</li>
+  		<li>
+			<img id="stile" src="img/carrello.png" alt=""/>
+  			<a href="#">CARRELLO</a>
+  		</li>
+  	</ul>
+  </div>
+  <div id="titolo">
+ 	<img id="logo" src="img/logo_1.png" alt="Logo"/>
+	<h1> Gelateria Orolatte </h1>
+  </div>
+  <div class="menu" id="titolo_mobile">
+  	<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
+  </div>
+</div>
+<div id="percorso">
+	<p>Ti trovi in: Contatti</p>
+</div>
+<div id="contenutoPagina" class="contenutogenerale">
+	<div class="flex" id="box">
+		<iframe id="mappa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22443.421582594376!2d10.572727529212067!3d45.31998517325374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781c722eea8dd5d%3A0xc384123efe3a9f44!2sOrolatte%20Pasticceria%20Gelateria%20Caff%C3%A8!5e0!3m2!1sit!2sit!4v1608072328104!5m2!1sit!2sit" ></iframe>
+	</div>
+	<div class="flex" id="contatti">
+		<h2>Contatti</h2>	
+		<ul>
+			<li><strong>Tel:</strong> 347 792 6494</li>
+			<li><strong>Indicazioni:</strong> Via Matteotti 7, Guidizzolo (92,83 km) 46040 Guidizzolo, Lombardia</li>
+			<li><strong>Facebook:</strong> <a href="https://it-it.facebook.com/OrolatteGelateriaCafe/">OrolatteGelateriaCaffè </a></li>
+		</ul>
+	</div>
+</div>
+<div id="footer">
+	<img id="imgvalidcode" src="img/valid-xhtml10.png" alt="" />
+  	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
+  	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
+</div>
+<script>
+function myFunction() {
+  var x = document.getElementById("Links");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+</body>
+</html>
