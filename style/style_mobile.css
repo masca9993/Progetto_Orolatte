@@ -11,10 +11,6 @@
 	width: 10%;
 }
 
-#menu_mobile ul li img{
-	max-width: 2em;
-	max-height: 2em;
-}
 
 
 #menu_mobile ul li img {
@@ -41,12 +37,12 @@
 }
 
 .menu ul li a{
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 
 .menu ul li img{
-  max-width: 1.1em;
-  max-height: 1.1em;
+	max-width: 2em;
+	max-height: 2em;
 }
 
 #titolo{

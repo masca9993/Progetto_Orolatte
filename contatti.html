@@ -11,18 +11,20 @@
 <meta name="author" content="TecWeb class"/>
 <meta name="language" content="italian it"/>
 
-
+<link rel=“icon” href=“img/icona_logo.png” type="image/png"/>
+<link rel=“shortcut icon” href=“img/icona_logo.png”   type="image/png" />
 <link rel="stylesheet" type ="text/css" href="style/style_desktop.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="style/style_mobile.css" media="handheld , screen and (max-width:640px), only screen and (max-device-width:640px)" />
+<link rel="stylesheet" type ="text/css" href="style/style_stampa.css" media="print" />
 
 </head>
 <body>
 <div id="header">
   <ul>
-  	<li class="aiutiNascosti"><a href="#menu">vai al menù</a></li>
+  	<li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
   	<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
   </ul>
-  <div class="menu" id="menu_mobile">
+  <em class="menu" id="menu_mobile">
   	<ul>
   		<li>
   			<img id="stile" src="img/menu.png" alt="menù" onclick="myFunction()"/> 
@@ -44,8 +46,8 @@
     		</li>
     	</ul>
     </div>
-  </div>
-  <div class="menu" id="menu_1">
+  </em>
+  <em class="menu" id="menu_1">
   	<ul>
   		<li>
   			<a href="#">HOME</a>
@@ -63,8 +65,8 @@
   			<a href="#">CONTATTI</a>
   		</li>
   	</ul>
-  </div>
-  <div class="menu" id="menu_2">
+  </em>
+  <em class="menu" id="menu_2">
   	<ul>
   		<li>
   			<img id="stile" src="img/login.png" alt=""/>
@@ -76,14 +78,15 @@
   			<a href="#">CARRELLO</a>
   		</li>
   	</ul>
-  </div>
-  <div id="titolo">
- 	<img id="logo" src="img/logo_1.png" alt="Logo"/>
-	<h1> Gelateria Orolatte </h1>
-  </div>
-  <div class="menu" id="titolo_mobile">
+  </em>
+  <em id="titolo">
+ 	  <img id="logo" src="img/logo_1.png" alt="Logo"/>
+	   <h1> Gelateria Orolatte </h1>
+  </em>
+  <em class="menu" id="titolo_mobile">
   	<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
-  </div>
+    <h1> Gelateria Orolatte </h1>
+  </em>
 </div>
 <div id="percorso">
 	<p>Ti trovi in: Contatti</p>
@@ -95,9 +98,9 @@
 	<div class="flex" id="contatti">
 		<h2>Contatti</h2>	
 		<ul>
-			<li><strong>Tel:</strong> 347 792 6494</li>
-			<li><strong>Indicazioni:</strong> Via Matteotti 7, Guidizzolo (92,83 km) 46040 Guidizzolo, Lombardia</li>
-			<li><strong>Facebook:</strong> <a href="https://it-it.facebook.com/OrolatteGelateriaCafe/">OrolatteGelateriaCaffè </a></li>
+			<li><span class="grassetto maiuscolo"> Tel:</span> 347 792 6494</li>
+			<li><span class="grassetto maiuscolo">Indicazioni:</span> Via Matteotti 7, Guidizzolo (92,83 km) 46040 Guidizzolo, Lombardia</li>
+			<li><span class="grassetto maiuscolo">Facebook:</span><a href="https://it-it.facebook.com/OrolatteGelateriaCafe/"> OrolatteGelateriaCaffè </a></li>
 		</ul>
 	</div>
 </div>

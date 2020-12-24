@@ -9,10 +9,25 @@ html{
 }
 
 body {
+  font-size: 1em;
   max-width: 1280px;
   margin: auto;
   background-color: #FFF;
   font-family: "Times New Roman", cursive, serif;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}
+
+a:link{
+  color: red;
+}
+
+a:hover{
+  color: orange;
+}
+
+a:visited{
+  color: brown;
 }
 
 /****************HEADER******************/
@@ -86,6 +101,7 @@ body {
 /***********BREADCRUMB***************/
 
 #percorso {
+  font-size: 0.7em;
   background-color:LIGHTCYAN;
   color: black;
   padding:0.5em 0 0.5em 1.0em;
@@ -95,6 +111,13 @@ body {
 
 /*************CONTENUTO PAGINA****************************/
 
+.grassetto{
+  font-weight: bold;
+}
+
+.maiuscolo{
+  text-transform: uppercase;
+}
 .contenutogenerale{
   width:100%;
   padding: 1em 1em 1em 1em;
@@ -107,6 +130,7 @@ body {
   frameborder :0; 
   aria-hidden : false; 
   tabindex : 0 ;
+  border-radius: 0.5em;
 }
 
 #contenutoPagina{
@@ -132,6 +156,7 @@ body {
 .contenutogenerale ul {
   list-style-type: none;
 }
+
 .contenutogenerale h2{
   font-size: 2em;
 }
@@ -143,7 +168,7 @@ body {
   border-top:3px solid CYAN ;
   background-color: AZURE;
   text-align:center;
-  font-size:0.7em;
+  font-size:0.6em;
   padding:0.5em;
   min-height:4em;
   
