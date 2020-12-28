@@ -5,16 +5,31 @@
 	display: none;
 }
 
-#menu_mobile{
+#icona_mobile{
 	display:block; 
 	float: left;
 	width: 10%;
 }
 
+#icona_mobile img {
+	width: 100%;
+}
 
+#menu_mobile{
+	display: block;
+	width: 100%;
+	font-size: 1.4em;
+	text-align: center;
+	background-color: azure;
+	border-top: 2px solid CYAN; 
+}
+#menu_mobile ul li{
+	padding: 0.2em;
+	border-bottom: 1px solid CYAN;
+}
 
 #menu_mobile ul li img {
-	width: 100%;
+	max-width: 1em;
 }
 
 #Links{
@@ -31,19 +46,6 @@
   margin-top: 0em;
 }
 
-.menu ul li{
-  display: inline;
-  padding: 0em ;
-}
-
-.menu ul li a{
-  font-size: 0.7em;
-}
-
-.menu ul li img{
-	max-width: 2em;
-	max-height: 2em;
-}
 
 #titolo{
 	display: none;
@@ -55,12 +57,16 @@
 }
 
 #logo_mobile{
-  max-height: 2em;
+  max-height: 1.5em;
 }
 
 #menu_2{
 	float: right;
 	width: 40%;
+}
+
+.menu ul li a{
+  font-size: 0.5em;
 }
 
 
@@ -82,3 +88,4 @@
 #contatti{
   order: 1;
 }
+

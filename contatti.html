@@ -20,38 +20,21 @@
 
 </head>
 <body>
+<div id="container">
 <div id="header">
   <ul>
   	<li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
   	<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
   </ul>
-  <em class="menu" id="menu_mobile">
-  	<ul>
-  		<li>
-  			<img id="stile" src="img/menu.png" alt="menù" onclick="myFunction()"/> 
-  		</li>
-  	</ul>
-  	<div id="Links">
-  		<ul>
-  			<li>
-    			<a href="#">HOME</a>
-    		</li>
-    		<li>
-    			<a href="#">GELATI</a>
-    		</li>
-    		<li>
-    			<a href="#">GALLERY</a>
-    		</li>
-    		<li>
-    			<a href="#">CONTATTI</a>
-    		</li>
-    	</ul>
-    </div>
+  <em class="menu" id="icona_mobile">
+  	<a href="#menu_mobile">
+      <img id="stile" src="img/menu.png" alt="menù" onclick="myFunction()"/>
+    </a>
   </em>
   <em class="menu" id="menu_1">
   	<ul>
   		<li>
-  			<a href="#">HOME</a>
+  			<a href="#" >HOME</a>
   			<img id="stile" src="img/barra_verticale.png" alt=""/> 
   		</li>
   		<li>
@@ -105,20 +88,32 @@
 		</ul>
 	</div>
 </div>
+<div id="menu_mobile">
+  <ul>
+    <li>
+      <a href="#">HOME</a>
+    </li>
+    <li>
+     <a href="#">GELATI</a>
+    </li>
+    <li>
+      <a href="#">GALLERY</a>
+    </li>
+    <li>
+      <a href="#">CONTATTI</a>
+    </li>
+    <li>
+      <a href="#logo_mobile"><img src="img/freccia_su.png"/></a>
+    </li>
+  </ul>
+</div>
+<div id="push">
+</div>
+</div>
 <div id="footer">
 	<img id="imgvalidcode" src="img/valid-xhtml10.png" alt="" />
   	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
   	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
 </div>
-<script>
-function myFunction() {
-  var x = document.getElementById("Links");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-</script>
 </body>
 </html>
