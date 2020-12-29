@@ -12,7 +12,8 @@
 }
 
 #icona_mobile img {
-	width: 100%;
+	width: 90%;
+	max-width: 2.5em;
 }
 
 #menu_mobile{
@@ -22,6 +23,7 @@
 	text-align: center;
 	background-color: azure;
 	border-top: 2px solid CYAN; 
+	padding-bottom: 0em;
 }
 #menu_mobile ul li{
 	padding: 0.2em;
@@ -29,7 +31,8 @@
 }
 
 #menu_mobile ul li img {
-	max-width: 1em;
+	max-width: 0.7em;
+	max-height: 5em;
 }
 
 #Links{
@@ -57,7 +60,7 @@
 }
 
 #logo_mobile{
-  max-height: 1.5em;
+  max-height: 1.7em;
 }
 
 #menu_2{

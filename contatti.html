@@ -27,8 +27,8 @@
   	<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
   </ul>
   <em class="menu" id="icona_mobile">
-  	<a href="#menu_mobile">
-      <img id="stile" src="img/menu.png" alt="menù" onclick="myFunction()"/>
+  	<a onclick="myFunction()" href="#menu_mobile">
+      <img id="stile" src="img/menu.png" alt="menù"/>
     </a>
   </em>
   <em class="menu" id="menu_1">
@@ -103,7 +103,7 @@
       <a href="#">CONTATTI</a>
     </li>
     <li>
-      <a href="#logo_mobile"><img src="img/freccia_su.png"/></a>
+      <a href="#logo_mobile" onclick="myFunction1()"><img src="img/freccia_su.png"/></a>
     </li>
   </ul>
 </div>
@@ -115,5 +115,15 @@
   	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
   	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
 </div>
+<script type="text/javascript">
+  function myFunction() {
+    var x=document.getElementById("footer");
+    x.style.height="55%";
+  }
+  function myFunction1(){
+    var x=document.getElementById("footer");
+    x.style.height="50px";
+  }
+</script>
 </body>
 </html>
