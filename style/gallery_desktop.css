@@ -1,0 +1,96 @@
+@import "header.css";
+
+@import "bredcrumb.css";
+
+@import "footer.css";
+
+/* CONTENUTON PAGINA */
+.contenutogenerale h2 {
+	display: block;
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-left: 1em
+}
+
+
+
+
+.galleryItem img {
+	width: 250px;
+	height:150px;
+	object-fit: cover;
+	opacity: 1;
+	transition: 0.5s ease;
+	margin-bottom: -0.5em;
+}
+
+
+.galleryItem:hover img{
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+#flex-gallery{
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #f3e6d8;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 1em;
+}
+
+.galleryItem{
+	padding:0.2em;		
+}
+
+/* MODAL */
+
+/* pulsante di chiusura */
+.close {
+    position: absolute;
+    	top: 10px;
+    	right: 25px;
+    	color: white;
+    	font-size: 40px;
+    	font-weight: bold;
+    	background-color: transparent;
+    	border: none;
+}
+
+.close:hover,
+.close:focus {
+    	color: #bbb;
+    	text-decoration: none;
+    	cursor: pointer;
+}
+
+
+.modal{
+	display: none;
+	position: fixed;
+  	z-index: 1;
+	padding-top: 1em;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  	margin: auto;
+    	display: block;
+    	max-width: 35%;
+    	margin-top: 1em;
+    	
+}
+
+.modal-content img{
+	width: 100%;
+}
+
+.slide{
+	display: none;
+}
