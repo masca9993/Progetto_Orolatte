@@ -42,7 +42,10 @@ a:visited{
 /****************HEADER******************/
 
 #header{
-  padding:0.5em;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5em;
   background-color: AZURE; 
   text-align: center;
   border-bottom: 3px solid CYAN;
@@ -55,21 +58,20 @@ a:visited{
 #icona_mobile{
   display: none;
 }
-#menu_mobile{
-  display: none;
+#menu_1 ul li a:hover, #menu_2 ul li a:hover {
+  background-color: yellow;
 }
 
 #menu_1 {
   float: left;
 }
 
-.menu ul li a:hover{
-  background-color: yellow;
-}
+
 
 .menu ul li{
   display: inline;
   padding: 0em ;
+  text-decoration: none;
 }
 
 .menu ul li a{
@@ -181,13 +183,12 @@ a:visited{
 /***********FOOTER***************************/
 
 #footer{
-  width: 100%;
   border-top:3px solid CYAN ;
   background-color: AZURE;
   text-align:center;
   font-size:0.6em;
   padding:0.5em;
-  min-height:4em;
+  height:4em;
 }
 
 #imgvalidcode{
@@ -202,7 +203,3 @@ a:visited{
   display: flex;
 }
 
-#footer, #push {
-  height: 50px;
-  clear: both;
-}

@@ -2,7 +2,35 @@
 /*************HEADER******************************/
 
 #menu_1 {
+	display:none;
+	position: absolute;
+	margin-top: 0;
+	top: 2em;
+	left: 0;
+	width: 100%;
+	height:95%;
+	background-color: cyan;
+	font-size: 2em;
+}
+
+#menu_1 ul li img{
 	display: none;
+}
+
+#menu_1 ul li{
+	display: block;
+	padding:0.3em 0em; 
+	text-align: center;
+	width: 100%;
+	border-bottom: 2px solid azure;
+}
+
+#menu_1 ul li:hover{
+  background-color: yellow;
+}
+
+#menu_2 ul li a:hover{
+	background-color: yellow;
 }
 
 #icona_mobile{
@@ -13,7 +41,8 @@
 
 #icona_mobile img {
 	width: 90%;
-	max-width: 2.5em;
+	max-width: 3em;
+	max-height: 3em;
 }
 
 #menu_mobile{
@@ -42,7 +71,7 @@
 }
 
 #header{
-	max-height:5em;
+	height:3em;
 }
 
 .menu{
@@ -60,7 +89,7 @@
 }
 
 #logo_mobile{
-  max-height: 1.7em;
+  max-height: 2.7em;
 }
 
 #menu_2{
@@ -69,7 +98,8 @@
 }
 
 .menu ul li a{
-  font-size: 0.5em;
+  font-size: 0.8em;
+  max-height: 3em;
 }
 
 

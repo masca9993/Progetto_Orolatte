@@ -26,12 +26,12 @@
   	<li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
   	<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
   </ul>
-  <em class="menu" id="icona_mobile">
-  	<a onclick="myFunction()" href="#menu_mobile">
-      <img id="stile" src="img/menu.png" alt="menù"/>
+  <div  class="menu" id="icona_mobile">
+  	<a  href="#menu_mobile">
+      <img onclick="menu()" id="stile" src="img/menu.png" alt="menù"/>
     </a>
-  </em>
-  <em class="menu" id="menu_1">
+  </div>
+  <div class="menu" id="menu_1">
   	<ul>
   		<li>
   			<a href="#" >HOME</a>
@@ -49,8 +49,8 @@
   			<a href="#">CONTATTI</a>
   		</li>
   	</ul>
-  </em>
-  <em class="menu" id="menu_2">
+  </div>
+  <div class="menu" id="menu_2">
   	<ul>
   		<li>
   			<img id="stile" src="img/login.png" alt=""/>
@@ -62,15 +62,15 @@
   			<a href="#">CARRELLO</a>
   		</li>
   	</ul>
-  </em>
-  <em id="titolo">
+  </div>
+  <div id="titolo">
  	  <img id="logo" src="img/logo_1.png" alt="Logo"/>
 	   <h1> Gelateria Orolatte </h1>
-  </em>
-  <em class="menu" id="titolo_mobile">
+  </div>
+  <div class="menu" id="titolo_mobile">
   	<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
     <h1> Gelateria Orolatte </h1>
-  </em>
+  </div>
 </div>
 <div id="percorso">
 	<p>Ti trovi in: Contatti</p>
@@ -88,25 +88,6 @@
 		</ul>
 	</div>
 </div>
-<div id="menu_mobile">
-  <ul>
-    <li>
-      <a href="#">HOME</a>
-    </li>
-    <li>
-     <a href="#">GELATI</a>
-    </li>
-    <li>
-      <a href="#">GALLERY</a>
-    </li>
-    <li>
-      <a href="#">CONTATTI</a>
-    </li>
-    <li>
-      <a href="#logo_mobile" onclick="myFunction1()"><img src="img/freccia_su.png"/></a>
-    </li>
-  </ul>
-</div>
 <div id="push">
 </div>
 </div>
@@ -116,14 +97,15 @@
   	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
 </div>
 <script type="text/javascript">
-  function myFunction() {
-    var x=document.getElementById("footer");
-    x.style.height="55%";
-  }
-  function myFunction1(){
-    var x=document.getElementById("footer");
-    x.style.height="50px";
-  }
+ function menu() {
+   var x=document.getElementById("menu_1");
+   if(x.style.display=="none"){
+      x.style.display="block";
+   }
+  else{
+      x.style.display="none";
+    }
+ }
 </script>
 </body>
 </html>
