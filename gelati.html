@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Gelateria Padovana</title>
+<meta name="title" content="Gelateria Padovana"/>
+<meta name="description" content="sito realizzato per il progetto di TecWeb"/>
+<meta name="keywords" content=""/>
+<meta name="author" content="Gruppo Progetto"/>
+<meta name="language" content="italian it"/>
+
+<link rel="stylesheet" type ="text/css" href="style/style_desktop.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="style/gelati_style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="style/style_mobile.css" media="handheld , screen and (max-width:640px), only screen and (max-device-width:640px)" />
+
+</head>
+
+<body>
+	<div id="header">
+		 <ul>
+  	<li class="aiutiNascosti"><a href="#menu">vai al menù</a></li>
+  	<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
+  </ul>
+  <div class="menu" id="menu_mobile">
+  	<ul>
+  		<li>
+  			<img id="stile" src="img/menu.png" alt="menù" onclick="myFunction()"/> 
+  		</li>
+  	</ul>
+  	<div id="Links">
+  		<ul>
+  			<li>
+    			<a href="#">HOME</a>
+    		</li>
+    		<li>
+    			<a href="#">GELATI</a>
+    		</li>
+    		<li>
+    			<a href="#">GALLERY</a>
+    		</li>
+    		<li>
+    			<a href="#">CONTATTI</a>
+    		</li>
+    	</ul>
+    </div>
+  </div>
+  <div class="menu" id="menu_1">
+  	<ul>
+  		<li>
+  			<a href="#">HOME</a>
+  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
+  		</li>
+  		<li>
+  			<a href="#">GELATI</a>
+  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
+  		</li>
+  		<li>
+  			<a href="#">GALLERY</a>
+  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
+  		</li>
+  		<li>
+  			<a href="#">CONTATTI</a>
+  		</li>
+  	</ul>
+  </div>
+  <div class="menu" id="menu_2">
+  	<ul>
+  		<li>
+  			<img id="stile" src="img/login.png" alt=""/>
+  			<a href="#">LOGIN</a>
+  			<img id="stile" src="img/barra_verticale.png" alt=""/>
+  		</li>
+  		<li>
+			<img id="stile" src="img/carrello.png" alt=""/>
+  			<a href="#">CARRELLO</a>
+  		</li>
+  	</ul>
+  </div>
+  <div id="titolo">
+ 	<img id="logo" src="img/logo_1.png" alt="Logo"/>
+	<h1> Gelateria Orolatte </h1>
+  </div>
+  <div class="menu" id="titolo_mobile">
+  	<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
+  </div>
+	</div>
+
+	<div id="breadcrumbs"> 
+		<p> Ti trovi in <span xml:lang="en">Home</span> >> Gelati</p>
+	</div>
+
+	<div id="carrello">
+		<h2>Il tuo ordine</h2>	
+		<p> inserisci gli item </p>	
+	</div>
+
+	<div id="contenuto">
+		
+			
+			<div id="yogurt" class="prodotto">
+				<h2 xml:lang="en">Frozen Yogurt</h2>
+			<form action="">
+  	<h3>Grandezza</h3>
+  <label for="piccola"> Piccola 150g</label>
+  <input type="checkbox" id="piccola" name="piccola"> <br>
+  <label for="media"> Media 250g</label>
+  <input type="checkbox" id="media" name="media"><br>
+  <label for="grande"> Grande 500g</label>
+  <input type="checkbox" id="grande" name="grande"><br>
+  	<h3>Seleziona massimo due toppings</h3>
+  <label for="t1"> Nutella</label>
+  <input type="checkbox" id="t1" name="nutella"><br>
+  <label for="t2"> Amarena</label>
+  <input type="checkbox" id="t2" name="amarena"><br>
+  <label for="t3"> Miele</label>
+  <input type="checkbox" id="t3" name="miele"><br>
+  <label for="t4"> Caramello </label>
+  <input type="checkbox" id="t4" name="caramello"><br>
+  <label for="t5">Smarties</label>
+  <input type="checkbox" id="t5" name="smarties"><br>
+  <label for="t6">Granella di Pistacchio </label>
+  <input type="checkbox" id="t6" name="granella di pistacchio"><br>
+  <label for="t7">Granella di Nocciole</label>
+  <input type="checkbox" id="t7" name="granella di nocciole"><br>
+  <label for="t8">Scaglie di Cocco </label>
+  <input type="checkbox" id="t8" name="scaglie di cocco">
+   
+
+  <input type="submit" id="button1" value="Aggiungi al Carrello">
+
+</form>
+			</div>
+
+			<div id="gelato" class="prodotto">
+			<h2>Coppa Gelato</h2>
+			<h3>Scegli i gusti</h3>
+			<form action="">
+  <label for="cioccolato"> Cioccolato </label>
+  <input type="number" id="cioccolato" name="cioccolato" min="0" max="5"><br>
+  <label for="stracciatella">Stracciatella </label>
+  <input type="number" id="stracciatella" name="stracciatella" min="0" max="5" ><br>
+  <label for="fiordilatte">Fiordilatte </label>
+  <input type="number" id="fiordilatte" name="fiordilatte" min="0" max="5"><br>
+  <label for="fragola">Fragola </label>
+  <input type="number" id="fragola" name="fragola" min="0" max="5" ><br>
+  <label for="limone"> Limone </label>
+  <input type="number" id="limone" name="limone" min="0" max="5" ><br>
+  <label for="vaniglia"> Vaniglia </label>
+  <input type="number" id="vaniglia" name="vaniglia" min="0" max="5" ><br>
+  <label for="bacio">Bacio </label>
+  <input type="number" id="bacio" name="bacio" min="0" max="5" ><br>
+  <label for="menta"> Menta </label>
+  <input type="number" id="menta" name="menta" min="0" max="5" ><br>
+
+  <input type="submit" id="button2" value="Aggiungi al Carrello">
+
+</form>
+
+			</div>
+
+			<div id="torte" class="prodotto">
+				
+			<h2>Pasticceria</h2>
+			<h3>Seleziona Grandezza</h3>
+			<form action="">
+
+		<div class="col">
+  <label for="size1"> Media-10 persone</label>
+  <input type="checkbox" id="size1" name="media">
+</div>
+<div class="col">
+  <label for="size2"> Grande-20 persone</label>
+  <input type="checkbox" id="size2" name="grande">
+</div>
+  <h3>Scegli la Torta</h3>
+  <div class="col">
+  <label for="cheesecake" xml:lang="en"> Cheesecake</label>
+  <input type="checkbox" id="cheesecake" name="cheesecake">
+</div>
+<div class="col">
+  <label for="meringata">Meringata</label>
+  <input type="checkbox" id="meringata" name="meringata">
+</div>
+<div class="col">
+  <label for="frutta">Frutti di Bosco</label>
+  <input type="checkbox" id="frutta" name="frutta">
+</div>
+<div class="col">
+  <label for="tiramisu">Scaglie di Cocco </label>
+  <input type="checkbox" id="tiramisu" name="tiramisu">
+</div>
+
+
+
+  <input type="submit" id="button3" value="Aggiungi al Carrello">
+
+
+</form>
+
+
+			</div>
+		
+	</div>
+
+	<div id="footer">
+		<img id="imgvalidcode" src="img/valid-xhtml10.png" alt="" />
+  	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
+  	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+#carrello{
+font-size: 0.7em;
+width: 15%;
+height:30em;
+float: right;
+border-top: 1px solid cyan;
+
+}
+
+#contenuto {
+	display: flex;
+	border: 1px solid #ddd;
+}
+
+
+#contenuto h2{
+  padding: 1em;
+  text-align: center;
+}
+
+.prodotto{
+	border: 1px solid cyan;
+	height:30em;
+}
+
+#yogurt{
+flex:1;
+}
+
+#yogurt h3{
+  padding: 1em;
+  font-size: 16px;
+}
+
+#yogurt label{
+  margin-left: 2em;
+  margin-bottom: 0.7em;
+}
+
+#gelato{
+flex:1;
+}
+
+
+#gelato h3{
+  padding: 1em;
+  font-size: 16px;
+}
+
+#gelato label{
+  margin-left: 2em;
+  margin-top:  1em;
+}
+
+#torte{
+flex:1;
+
+}
+
+
+
+.col{
+	display: block;
+	padding: 0.7em;
+}
+
+#torte h3{
+  padding: 1em;
+  font-size: 16px;
+}
+
+#torte label{
+  margin-left: 2em;
+  margin-bottom: 0.7em;
+}
+
+#button1{
+	float: right;
+	margin-top: 5.5em;
+	margin-right: 1.5em;
+}
+
+#button2{
+	float: right;
+	margin-top: 10.5em;
+	margin-right: 1.5em;
+}
+
+#button3{
+	float: right;
+	margin-top: 0.5em;
+	margin-right: 1.5em;
+}
