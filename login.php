@@ -26,6 +26,7 @@
 		$password = mysqli_real_escape_string($con, $_POST["password"]);
 
 		$password = sha1($password);
+		printf($password);
 
 		$login_check_query = "SELECT * FROM user WHERE username='$username' AND password='$password';";
 		$result = mysqli_query($con, $login_check_query);
@@ -34,6 +35,16 @@
 			$_SESSION["loggedin"] = true;
 			$_SESSION["username"] = $username;
 			$_SESSION["email"] = $email;
+			$_SESSION["admin"] = false;
+
+			$row = mysqli_fetch_array($result);
+
+			if ($row) {
+				if ($row["admin"] == true) {
+					$_SESSION["admin"] = true;
+				}
+			}
+
 			header("location: index.php");
 		}
 	}

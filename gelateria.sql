@@ -98,8 +98,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `username`, `password`, `admin`) VALUES
-('admi@gmail.com', 'admin', 'admin', 1),
-('user@gmail.com', 'user', 'user', 0);
+('admi@gmail.com', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1),
+('user@gmail.com', 'user', '12dea96fec20593566ab75692c9949596833adc9', 0);
 
 --
 -- Indici per le tabelle scaricate

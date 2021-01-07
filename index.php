@@ -63,6 +63,10 @@
 				<?php endif; ?>
 				<?php if ($_SESSION["loggedin"] == true) : ?>
 					<p> CIAO <?php echo $_SESSION["username"] ?> </p>
+					<img id="stile" src="img/barra_verticale.png" alt=""/>
+						</li>
+						<li>
+							<a href="logout.php">LOGOUT</a>
 				<?php endif; ?>
 				<img id="stile" src="img/barra_verticale.png" alt=""/>
 			</li>

@@ -35,6 +35,10 @@
 				<?php endif; ?>
 				<?php if (session_status() == "PHP_SESSION_ACTIVE" and $_SESSION["loggedin"] == true) : ?>
 					<p> CIAO <?php echo $_SESSION["username"] ?> </p>
+					<img id="stile" src="img/barra_verticale.png" alt=""/>
+						</li>
+						<li>
+							<a href="LOGOUT.php">logout</a>
 				<?php endif; ?>
 				<img id="stile" src="img/barra_verticale.png" alt=""/>
 			</li>
