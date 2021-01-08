@@ -42,7 +42,7 @@
 				<img id="stile" src="img/barra_verticale.png" alt=""/> 
 			</li>
 			<li>
-				<a href="gelati.php">GELATI</a>
+				<a href="prodotti.php">GELATI</a>
 				<img id="stile" src="img/barra_verticale.png" alt=""/> 
 			</li>
 			<li>

@@ -8,7 +8,7 @@ session_start();
 
 //aggiorna la zona carrello nella pagina
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . "dbConnectionCarrello.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "dbConnection.php";
 use DB\DBAccess;
 
 $paginaHTML = file_get_contents('carrello.html');

@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . "dbConnectionCarrello.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "dbConnection.php";
 use DB\DBAccess;
 
 $paginaHTML = file_get_contents('delivery.html');	//delivery dovrebbe essere la pagina da cui prende le info

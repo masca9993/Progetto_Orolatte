@@ -1,16 +1,23 @@
 <?php
-include "dbconnection.php";
-use DB\dbAccess;
 
-$dbAccess=new DBAccess();
-$connessioneRiuscita= $dbAccess->openDBConnection();
-$paginaHTML=file_get_contents('prodotti.html');
+session_start();
+
+	ini_set("display_errors", 1);
+	ini_set("display_startup_errors", 1);
+	error_reporting(E_ALL);
+
+require_once __DIR__ . DIRECTORY_SEPARATOR . "dbConnection.php";
+use DB\DBAccess;
+
+$dbAccess = new DBAccess();
+$connessioneRiuscita = $dbAccess->openDBConnection();
+$paginaHTML = file_get_contents('prodotti.html');
 
 if($connessioneRiuscita == false){
   die("Errore nell'apertura del DB");
 }
 else{
-	$listaProdotti= $dbAccess->getListaProdotti();
+	$listaProdotti= $dbAccess->getListaProdotti($_SESSION["email"]);
 
 	$dbAccess->closeDBConnection();
 	
