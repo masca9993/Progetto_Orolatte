@@ -26,20 +26,19 @@
 		$password = mysqli_real_escape_string($con, $_POST["password"]);
 
 		$password = sha1($password);
-		printf($password);
 
 		$login_check_query = "SELECT * FROM user WHERE username='$username' AND password='$password';";
 		$result = mysqli_query($con, $login_check_query);
 
 		if ($result && mysqli_num_rows($result) == 1) {
-			$_SESSION["loggedin"] = true;
-			$_SESSION["username"] = $username;
-			$_SESSION["email"] = $email;
-			$_SESSION["admin"] = false;
-
 			$row = mysqli_fetch_array($result);
-
 			if ($row) {
+
+				$_SESSION["loggedin"] = true;
+				$_SESSION["username"] = $row["username"];
+				$_SESSION["email"] = $row["email"];
+				$_SESSION["admin"] = false;
+
 				if ($row["admin"] == true) {
 					$_SESSION["admin"] = true;
 				}
