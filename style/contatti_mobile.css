@@ -1,0 +1,124 @@
+
+/*************HEADER******************************/
+
+#menu_1 {
+	display:none;
+	position: absolute;
+	margin-top: 0;
+	top: 2em;
+	left: 0;
+	width: 100%;
+	height:95%;
+	background-color: cyan;
+	font-size: 2em;
+}
+
+#menu_1 ul li img{
+	display: none;
+}
+
+#menu_1 ul li{
+	display: block;
+	padding:0.3em 0em; 
+	text-align: center;
+	width: 100%;
+	border-bottom: 2px solid azure;
+}
+
+#menu_1 ul li:hover{
+  background-color: yellow;
+}
+
+#menu_2 ul li a:hover{
+	background-color: yellow;
+}
+
+#icona_mobile{
+	display:block; 
+	float: left;
+	width: 10%;
+}
+
+#icona_mobile img {
+	width: 90%;
+	max-width: 3em;
+	max-height: 3em;
+}
+
+#menu_mobile{
+	display: block;
+	width: 100%;
+	font-size: 1.4em;
+	text-align: center;
+	background-color: azure;
+	border-top: 2px solid CYAN; 
+	padding-bottom: 0em;
+}
+#menu_mobile ul li{
+	padding: 0.2em;
+	border-bottom: 1px solid CYAN;
+}
+
+#menu_mobile ul li img {
+	max-width: 0.7em;
+	max-height: 5em;
+}
+
+#Links{
+	display: none;
+	background-color: AZURE;
+	border: 2px solid CYAN;
+}
+
+#header{
+	height:3em;
+}
+
+.menu{
+  margin-top: 0em;
+}
+
+
+#titolo{
+	display: none;
+}
+
+#titolo_mobile{
+	display: block;
+	width: 50%;
+}
+
+#logo_mobile{
+  max-height: 2.7em;
+}
+
+#menu_2{
+	float: right;
+	width: 40%;
+}
+
+.menu ul li a{
+  font-size: 0.8em;
+  max-height: 3em;
+}
+
+
+/************CONTENUTO PAGINA**********************/
+
+.contenutogenerale{
+  padding: 1em 1em 1em 1em;
+}
+
+#contenutoPagina{
+  flex-direction: column;
+}
+
+#box{
+  order: 2;
+  margin-right: 2em;
+}
+
+#contatti{
+  order: 1;
+}
+

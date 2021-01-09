@@ -1,0 +1,30 @@
+/***********FOOTER***************************/
+
+#footer {
+	width: 100%;
+	border-top: 3px solid CYAN ;
+	background-color: AZURE;
+	text-align: center;
+	font-size: 0.6em;
+	padding: 0.5em;
+	min-height: 4em;
+}
+
+#imgvalidcode{
+	float:left;
+}
+
+#imgvalidcss{
+	float:right;
+}
+
+/*
+#contenutoPagina{
+	display: flex;
+}
+
+#footer, #push {
+	height: 50px;
+	clear: both;
+}
+*/

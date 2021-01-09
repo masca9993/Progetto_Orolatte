@@ -1,0 +1,9 @@
+/***********BREADCRUMB***************/
+
+#percorso {
+	font-size: 0.7em;
+	background-color:LIGHTCYAN;
+	color: black;
+	padding:0.5em 0 0.5em 1.0em;
+	font-weight:bold;
+}
