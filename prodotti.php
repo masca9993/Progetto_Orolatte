@@ -77,7 +77,7 @@ else{
 				$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
 				$definitionListProdotti.='<label for="Immagine"> Modifica Immagine: </label>
-		<input type="text" id="immagine" name="immagine" value="'.$prodotto['immagine'].'/"></br>';
+		<input type="text" id="immagine" name="immagine" value="'.$prodotto['immagine'].'"/></br>';
 		$definitionListProdotti.='<label for="Descrizione"> Modifica Descrizione: </label>
 		<textarea name="descrizione" rows="5" id="descrizione" >"'.$prodotto['descrizione'].'" </textarea></br>';
 				$definitionListProdotti.='<input type="submit" name="modifica" value="Modifica" id="modifica"/></form>';

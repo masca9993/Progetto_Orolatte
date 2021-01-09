@@ -48,14 +48,14 @@ class DBAccess {
   }
   public function rimuovi($nome){
     $query="DELETE FROM item WHERE item.nome ='".$nome."'";
-    return $this->connection->query($query);
-    //$queryResult=mysqli_query($this->connection, $query);
-    //return $queryResult;
+    
+    $queryResult=mysqli_query($this->connection, $query);
+    return $queryResult;
   }
   public function modifica($nome,$immagine,$descrizione){
     $query="UPDATE item SET descrizione ='".$descrizione."', foto = '".$immagine."' WHERE item.nome ='".$nome."';";
-    echo $query;
-    return $this->connection->query($query);
+    $queryResult=mysqli_query($this->connection, $query);
+    return $queryResult;
   }
 }
 ?>
