@@ -125,6 +125,52 @@ a:visited{
   font-weight:bold;
 }
 
+<<<<<<< HEAD
+=======
+/***********INPUT********************/
+#admin{
+  padding: 1em;
+  display: block;
+}
+.row{
+  margin: 1em 1em 1em 1em;
+}
+
+input{
+  margin-left: 0.5em;
+}
+
+fieldset{
+  border: 1px solid blue;
+}
+
+h2{
+  font-size: 2em;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+.row label {
+  display: inline-block;
+  font-weight: bold;
+  text-align:left;
+  width:30%;
+}
+
+#errori p{
+  color: red;
+}
+
+#submit{
+  margin-bottom: 1em;
+  margin-left: 2em;
+}
+
+#mex p{
+  color: green;
+}
+
+>>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
 
 /*************CONTENUTO PAGINA****************************/
 #contenutoPagina dt{
@@ -163,27 +209,86 @@ a:visited{
 }
 
 #contenutoPagina dd button{
+<<<<<<< HEAD
   background-color:blue;
+=======
+>>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
   font-size: 1em;
   color:white;
   font-weight: bold;
   padding: 0.3em;
   margin-top:0.2em;
   border-radius: 0.5em;
+<<<<<<< HEAD
   align-content: right;
   cursor: pointer;
 }
+=======
+  cursor: pointer;
+}
+#carrello{
+  float:left;
+  margin-right: 1em;
+}
+>>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
 
 #contenutoPagina{
   display: flex;
   flex-wrap: wrap;
+<<<<<<< HEAD
+=======
+  justify-content: center;
+>>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
 }
 
 .flex{
   flex-basis: 30%;
   padding: 1em;
   flex-shrink: 1;
+<<<<<<< HEAD
   flex-grow: 1;
+=======
+}
+
+#rimuovi, #cancella{
+  background-color: red;
+  font-size: 1em;
+  color:white;
+  font-weight: bold;
+  padding: 0.3em;
+  margin-top:0.2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+
+#modifica , #submit{
+  float: left;
+  margin-right: 1em;
+  background-color: blue;
+  font-size: 1em;
+  color:white;
+  font-weight: bold;
+  padding: 0.3em;
+  margin-top:0.2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+
+
+#nome{
+  display: none;
+}
+#immagine{
+  margin-top: 0.8em;
+}
+#descrizione{
+  margin-top: 0.8em;
+}
+#categoria{
+  display:none;
+>>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
 }
 
 
