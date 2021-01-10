@@ -1,0 +1,5 @@
+# ingore all .o files
+*.o
+
+# ingore all vim temporary files
+*.swp

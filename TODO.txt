@@ -5,3 +5,6 @@ seprazione php e gestione header
 Aggiungere funzioni a pulsanti in carrello
 link attuale deve essere coerente
 dimensione carattere in particolare breadcrumb
+sistemare homepage immaginie ??? nel testo
+rimuovere php debug
+abbastanza javascript?
