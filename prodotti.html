@@ -15,6 +15,7 @@
 <link rel=“shortcut icon” href=“img/icona_logo.png”   type="image/png" />
 <!--Responsive design: vengono definiti dei punti di rottura e viene creato un layout per ogni livello, ogni layaut deve essere acessibile e tenere conto della variabilità -->
 <link rel="stylesheet" type ="text/css" href="style/prodotti_desktop.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="style/header_mobile.css" media="handheld , screen and (max-width:640px), only screen and (max-device-width:640px)" />
 <link rel="stylesheet" type ="text/css" href="style/style_stampa.css" media="print" />
 
 </head>
@@ -22,69 +23,83 @@
 <div id="container">
 <div id="header">
   <ul>
-  	<li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
-  	<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
+    <li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
+    <li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
   </ul>
   <div  class="menu" id="icona_mobile">
-  	<a  href="#menu_mobile">
+    <a  href="#menu_mobile">
       <img onclick="menu()" id="stile" src="img/menu.png" alt="menù"/>
     </a>
   </div>
   <div class="menu" id="menu_1">
-  	<ul>
-  		<li>
-  			<a href="index.php" >HOME</a>
-  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
-  		</li>
-  		<li>
-  			<a href="#">GELATI</a>
-  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
-  		</li>
-  		<li>
-  			<a href="gallery.php">GALLERY</a>
-  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
-  		</li>
-  		<li>
-  			<a href="contatti.php">CONTATTI</a>
-  		</li>
-  	</ul>
+    <ul>
+    <li>
+      <a href="index.php" >HOME</a>
+      <img id="stile" src="img/barra_verticale.png" alt=""/> 
+    </li>
+    <li>
+      GELATI
+      <img id="stile" src="img/barra_verticale.png" alt=""/> 
+    </li>
+    <li>
+      <a href="gallery.php">GALLERY</a>
+      <img id="stile" src="img/barra_verticale.png" alt=""/> 
+    </li>
+    <li>
+      <a href="contatti.php">CONTATTI</a>
+    </li>
+  </ul>
   </div>
   <div class="menu" id="menu_2">
-  	<ul>
-  		<li>
-  			<img id="stile" src="img/login.png" alt=""/>
-  			<a href="login.php">LOGIN</a>
-  			<img id="stile" src="img/barra_verticale.png" alt=""/>
-  		</li>
-  		<li>
-			<img id="stile" src="img/carrello.png" alt=""/>
-  			<a href="#">CARRELLO</a>
-  		</li>
-  	</ul>
+  <ul>
+    <li>
+      <img id="stile" src="img/login.png" alt=""/>
+      <a href="login.php">LOGIN</a>
+      <img id="stile" src="img/barra_verticale.png" alt=""/>
+    </li>
+    <li>
+    <img id="stile" src="img/carrello.png" alt=""/>
+      <a href="#">CARRELLO</a>
+    </li>
+ </ul>
   </div>
   <div id="titolo">
- 	  <img id="logo" src="img/logo_1.png" alt="Logo"/>
-	   <h1> Gelateria Orolatte </h1>
+    <img id="logo" src="img/logo_1.png" alt="Logo"/>
+     <h1> Gelateria Orolatte </h1>
   </div>
   <div class="menu" id="titolo_mobile">
-  	<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
+    <img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
     <h1> Gelateria Orolatte </h1>
   </div>
 </div>
 <div id="percorso">
-	<p>Ti trovi in: Prodotti</p>
+  <p>Ti trovi in: Prodotti</p>
 </div>
 <insert/>
+<h2>Modifica Prodotti</h2>
 <div id="contenutoPagina" class="contenutogenerale">
-	<prodotti/>
+  <prodotti/>
 </div>
 <div id="push">
 </div>
 </div>
 <div id="footer">
-	<img id="imgvalidcode" src="img/valid-xhtml10.png" alt="" />
-  	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
-  	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
+  <img id="imgvalidcode" src="img/valid-xhtml10.png" alt="" />
+    <img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
+    <p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
 </div>
 </body>
+
+<script type="text/javascript">
+ function menu() {
+   var x=document.getElementById("menu_1");
+   if(x.style.display=="none"){
+      x.style.display="block";
+   }
+  else{
+      x.style.display="none";
+    }
+ }
+</script>
+  
 </html>
