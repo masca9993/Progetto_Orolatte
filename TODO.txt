@@ -1,0 +1,7 @@
+accessibilita
+relazione
+
+seprazione php e gestione header
+Aggiungere funzioni a pulsanti in carrello
+link attuale deve essere coerente
+dimensione carattere in particolare breadcrumb
