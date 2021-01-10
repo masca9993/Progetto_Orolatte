@@ -1,12 +1,7 @@
 <?php
-include "dbConnection.php";
-use DB\DBAccess;
+include "dbconnection.php";
+use DB\dbAccess;
 session_start();
-
-	ini_set("display_errors", 1);
-	ini_set("display_startup_errors", 1);
-	error_reporting(E_ALL);
-
 $dbAccess=new DBAccess();
 $connessioneRiuscita= $dbAccess->openDBConnection();
 $paginaHTML=file_get_contents('prodotti.html');
@@ -59,7 +54,7 @@ if($connessioneRiuscita == false){
   die("Errore nell'apertura del DB");
 }
 else{
-	$listaProdotti= $dbAccess->getListaItem();
+	$listaProdotti= $dbAccess->getListaProdotti();
 
 	$dbAccess->closeDBConnection();
 	
@@ -68,32 +63,36 @@ if(isset($_SESSION["admin"]) && $_SESSION["admin"])
 		$insert_form='<div id="admin">
   <h2>Inserisci un Nuovo Prodotto</h2>
   <form action="prodotti.php" method="POST" id="admin_form">
+    <fieldset>
     <div class="row">
-     <label for="item">Nome Prodotto</label>
-     <input type="text" name="item" id="item" required>
+     <label for="item">Nome Prodotto:</label>
+     <input type="text" name="item" id="item" required/>
    </div>
    <div class="row">
-   <label for="descrizione">Descrizione</label>
-   <input type="text" name="descrizione" id="descrizione" required>
+   <label for="descrizione">Descrizione:</label>
+   <input type="text" name="descrizione" id="descrizione" required/>
   </div>
    <div class="row">
-   <label for="foto">Percorso Foto</label>
-   <input type="text" name="foto" id="foto" required>
+   <label for="foto">Percorso Foto:</label>
+   <input type="text" name="foto" id="foto" required/>
   </div>
    <div class="row">
-   <label for="nome_category">Categoria</label>
+   <label for="nome_category">Categoria:</label>
    <select name="nome_category" id="nome_category">
   <option value="gelato">Gelato</option>
   <option value="torta">Torta</option>
   </select>
+  </form> 
+</div>
   <div id="mex">
     <mex/>
   </div>
   <div id="errors">
     <errori/>
   </div>
-  <input id="submit" type="submit" name="submit" value="Inserisci">
-
+  <input id="submit" type="submit" name="submit" value="Inserisci"/>
+  <input id="cancella" type="reset" name="submit" value="Cancella"/>
+</fieldset>
   </form> 
 </div>';
  $paginaHTML=str_replace("<insert/>", $insert_form, $paginaHTML);
