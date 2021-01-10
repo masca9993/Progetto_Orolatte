@@ -1,6 +1,7 @@
 accessibilita
 relazione
 
+unificare css
 seprazione php e gestione header
 Aggiungere funzioni a pulsanti in carrello
 link attuale deve essere coerente
