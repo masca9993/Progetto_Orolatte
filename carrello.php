@@ -13,8 +13,6 @@ use DB\DBAccess;
 
 $paginaHTML = file_get_contents('carrello.html');
 
-$email_user = $_SESSION["email"];	
-
 $dbAccess = new DBAccess();	
 $connessioneRiuscita = $dbAccess->openDBConnection();
 
@@ -22,29 +20,34 @@ if ($connessioneRiuscita == false) {
 	die ("Errore nell'apertura del DB");	
 }
 else {
-	$listaProdotti = $dbAccess->getListaProdotti($email_user);
-	
-	$dbAccess->closeDBConnection();
-	
-	$dlProdotti = "";
-	
-	if($listaProdotti != null) {
-		
-		//inserisco i prodotti nella zona carrello come lista di definizioni
-		$dlProdotti = '<dl id="Prodotti">';
-		
-		foreach ($listaProdotti as $prodotto) {
-			$dlProdotti .= '<dt>' . $prodotto['nome_item'] . '</dt>';	
-			$dlProdotti .= '<dd>';
-			$dlProdotti .= '<p>' . $prodotto['grandezza'] . '</p>';
-			$dlProdotti .= '</dd>';
-		}
-		
-		$dlProdotti = $dlProdotti . "</dl>";
-		
+	if ($_SESSION["loggedin"] == false) {
+		$dlProdotti = "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
 	}
 	else {
-		$dlProdotti = "<p>Nessun prodotto nel carrello</p>";
+		$listaProdotti = $dbAccess->getListaProdotti($_SESSION["email"]);
+		
+		$dbAccess->closeDBConnection();
+		
+		$dlProdotti = "";
+		
+		if($listaProdotti != null) {
+			
+			//inserisco i prodotti nella zona carrello come lista di definizioni
+			$dlProdotti = '<dl id="Prodotti">';
+			
+			foreach ($listaProdotti as $prodotto) {
+				$dlProdotti .= '<dt>' . $prodotto['nome_item'] . '</dt>';	
+				$dlProdotti .= '<dd>';
+				$dlProdotti .= '<p>' . $prodotto['grandezza'] . '</p>';
+				$dlProdotti .= '</dd>';
+			}
+			
+			$dlProdotti = $dlProdotti . "</dl>";
+			
+		}
+		else {
+			$dlProdotti = "<p>Nessun prodotto nel carrello</p>";
+		}
 	}
 	
 	$paginaHTML = str_replace("<listaProdotti />", $dlProdotti, $paginaHTML);	//tag da aggiungere nella zona carrello
