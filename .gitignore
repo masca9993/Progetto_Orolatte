@@ -3,3 +3,7 @@
 
 # ingore all vim temporary files
 *.swp
+
+#ingore all latex (and maybe other) files
+*.log
+*.aux
