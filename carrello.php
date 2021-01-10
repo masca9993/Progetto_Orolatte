@@ -33,16 +33,13 @@ else {
 		if($listaProdotti != null) {
 			
 			//inserisco i prodotti nella zona carrello come lista di definizioni
-			$dlProdotti = '<dl id="Prodotti">';
+			$dlProdotti = '<ul id="Prodotti">';
 			
 			foreach ($listaProdotti as $prodotto) {
-				$dlProdotti .= '<dt>' . $prodotto['nome_item'] . '</dt>';	
-				$dlProdotti .= '<dd>';
-				$dlProdotti .= '<p>' . $prodotto['grandezza'] . '</p>';
-				$dlProdotti .= '</dd>';
+				$dlProdotti .= '<li><p>' . $prodotto['nome_item'] . " " . $prodotto['grandezza'] . "<a href=''><button class='delete'>Rimuovi</button></a></p></li>";	
 			}
 			
-			$dlProdotti = $dlProdotti . "</dl>";
+			$dlProdotti = $dlProdotti . "</ul>";
 			
 		}
 		else {

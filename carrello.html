@@ -12,9 +12,9 @@
 	<meta name="author" content="Luca Biasotto, Nicla Faccioli" />
 	<meta name="language" content="italian it" />
 
-	<link rel="stylesheet" type="text/css" href="style/index_desktop.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="style/index_mobile.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/>
-	<link rel="stylesheet" type="text/css" href="style/index_stampa.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="style/carrello_desktop.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="style/carrello_mobile.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/>
+	<link rel="stylesheet" type="text/css" href="style/carrello_stampa.css" media="print"/>
 
 </head>
 
@@ -81,13 +81,17 @@
 	</em>
 </div>
 
+<div id="percorso">
+	<p> Ti trovi in: Carrello</p>
+</div>
+
 	<!-- CONTENUTO PAGINA -->
 	<div id="contenutoPagina" class="contenutogenerale">
 	<h2> Carrello </h2>
 	
 	<listaProdotti />	<!-- str_replace da php -->
 	
-	<button id="ordina">Procedi all'ordine</button>
+	<a href=""><button id="ordina">Procedi all'ordine</button></a>
 	
 	</div>
 
