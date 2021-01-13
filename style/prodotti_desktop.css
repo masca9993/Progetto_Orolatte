@@ -125,6 +125,49 @@ a:visited{
   font-weight:bold;
 }
 
+/***********INPUT********************/
+#admin{
+  padding: 1em;
+  display: block;
+}
+.row{
+  margin: 1em 1em 1em 1em;
+}
+
+input{
+  margin-left: 0.5em;
+}
+
+fieldset{
+  border: 1px solid blue;
+}
+
+h2{
+  font-size: 2em;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+.row label {
+  display: inline-block;
+  font-weight: bold;
+  text-align:left;
+  width:30%;
+}
+
+#errori p{
+  color: red;
+}
+
+#submit{
+  margin-bottom: 1em;
+  margin-left: 2em;
+}
+
+#mex p{
+  color: green;
+}
+
 
 /*************CONTENUTO PAGINA****************************/
 #contenutoPagina dt{
@@ -163,30 +206,96 @@ a:visited{
 }
 
 #contenutoPagina dd button{
-  background-color:blue;
   font-size: 1em;
   color:white;
   font-weight: bold;
   padding: 0.3em;
   margin-top:0.2em;
   border-radius: 0.5em;
-  align-content: right;
   cursor: pointer;
 }
 
 #contenutoPagina{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .flex{
   flex-basis: 30%;
   padding: 1em;
   flex-shrink: 1;
-  flex-grow: 1;
+}
+
+#rimuovi, #cancella, #aggiungi{
+  background-color: red;
+  font-size: 1em;
+  color:white;
+  font-weight: bold;
+  padding: 0.3em;
+  margin-top:0.2em;
+  border-radius: 0.5em;
+  cursor: pointer;
 }
 
 
+#modifica , #submit{
+  float: left;
+  margin-right: 1em;
+  background-color: blue;
+  font-size: 1em;
+  color:white;
+  font-weight: bold;
+  padding: 0.3em;
+  margin-top:0.2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+
+#nome{
+  display: none;
+}
+#immagine{
+  margin-top: 0.8em;
+}
+#descrizione{
+  margin-top: 0.8em;
+}
+#categoria{
+  display:none;
+}
+
+#filtri{
+  font-weight: bold;
+  font-size: 1.3em;
+  background-color: #FFF;
+}
+
+#filtri input{
+  font-weight: bold;
+  background-color: #0FF;
+  border: 2px solid blue;
+  border-radius: 8px;
+  padding: 1em 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.3em;
+  transition-duration: 0.4s;
+}
+
+#filtri input:hover{
+  cursor: pointer;
+  background-color: #FFF;
+  border: 2px solid #0FF;
+}
+
+#filtri #selezionato{
+  cursor:initial;
+  background-color: #FFF;
+  border: 2px solid #0FF;
+}
 /***********FOOTER***************************/
 
 #footer{
