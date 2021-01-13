@@ -1,6 +1,5 @@
 <?php
-
-session_start();
+	session_start();
 
 	ini_set("display_errors", 1);
 	ini_set("display_startup_errors", 1);
@@ -20,7 +19,7 @@ if ($connessioneRiuscita == false) {
 	die ("Errore nell'apertura del DB");	
 }
 else {
-	if ($_SESSION["loggedin"] == false) {
+	if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 		$dlProdotti = "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
 	}
 	else {
@@ -47,7 +46,24 @@ else {
 		}
 	}
 	
+	$stringaLogin = "";
+	$stringaPulsanteOrdine = "";
+
+	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
+		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
+	}
+	else {
+		$stringaLogin .= "<p> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<img id='stile' src='img/barra_verticale.png' alt=''/>" . "\n";
+		$stringaLogin .= "\t</li>\n";
+		$stringaLogin .= "\t<li>\n";
+		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
+		$stringaPulsanteOrdine = "<a href=''><button id='ordina'>Procedi all'ordine</button></a>";
+	}
+
+	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
 	$paginaHTML = str_replace("<listaProdotti />", $dlProdotti, $paginaHTML);	//tag da aggiungere nella zona carrello
+	$paginaHTML = str_replace("<ProcediAllordine />", $stringaPulsanteOrdine, $paginaHTML);	//tag da aggiungere nella zona carrello
 	echo $paginaHTML;
 }
 

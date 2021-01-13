@@ -2,11 +2,15 @@
 
 	session_start();
 
+	ini_set("display_errors", 1);
+	ini_set("display_startup_errors", 1);
+	error_reporting(E_ALL);
+
 	$paginaHTML = file_get_contents('index.html');
 
 	$stringaLogin = "";
 
-	if ($_SESSION['loggedin'] == false) {
+	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
 	}
 	else {

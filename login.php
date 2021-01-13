@@ -5,7 +5,6 @@
 	ini_set("display_startup_errors", 1);
 	error_reporting(E_ALL);
 
-
 	$_SESSION["loggedin"] = false;
 
 	define("DB_SERVER", "localhost");
@@ -59,7 +58,7 @@
 
 	$stringaLogin = "";
 
-	if ($_SESSION['loggedin'] == false) {
+	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
 	}
 	else {

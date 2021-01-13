@@ -53,16 +53,7 @@
 		<ul>
 			<li>
 				<img id="stile" src="img/login.png" alt=""/>
-				<?php if ($_SESSION["loggedin"] == false) : ?>
-					<a href="login.php">LOGIN</a>
-				<?php endif; ?>
-				<?php if ($_SESSION["loggedin"] == true) : ?>
-					<p> CIAO <?php echo $_SESSION["username"] ?> </p>
-					<img id="stile" src="img/barra_verticale.png" alt=""/>
-						</li>
-						<li>
-							<a href="logout.php">LOGOUT</a>
-				<?php endif; ?>
+				<ControlloLogin />
 				<img id="stile" src="img/barra_verticale.png" alt=""/>
 			</li>
 			<li>
@@ -91,7 +82,7 @@
 	
 	<listaProdotti />	<!-- str_replace da php -->
 	
-	<a href=""><button id="ordina">Procedi all'ordine</button></a>
+	<ProcediAllordine />
 	
 	</div>
 
