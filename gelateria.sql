@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 26, 2020 alle 13:03
+-- Creato il: Gen 10, 2021 alle 17:44
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.0
 
@@ -76,9 +76,11 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`nome`, `descrizione`, `foto`, `nome_category`) VALUES
-('albicocca', 'Gelato con polpa di albicocche fresche.', 'img/albicocca.jpeg', 'gelato'),
-('arancia rossa', 'Delicato gelato ottenuto dalla spremitura di polpa d’arancia rossa.', 'img/arancia_rossa.jpeg', 'gelato'),
-('cioccocake', 'Cremoso pan di Spagna al cacao e semifreddo al bacio racchiudono un’anima di cioccolato e nocciole.', 'img/cioccocake.jpeg', 'torta');
+('albicocca', 'Gelato con polpa di albicocche fresche.                    ', 'img/albicocca.jpg', 'gelato'),
+('arancia rossa', 'Delicato gelato ottenuto dalla spremitura di polpa d\'arancia .', 'img/aranciarossa.jpg', 'gelato'),
+('biancaneve', 'Tortino alla panna cotta con cuore di lamponi, decorato con visciole e frutti di bosco. ', 'img/biancaneve.jpg', 'torta'),
+('cachi', 'Gelato con dolce polpa gialla di cachi.', 'img/cachi.jpg', 'gelato'),
+('cioccocake', 'Cremoso pan di Spagna al cacao e semifreddo al bacio racchiudono un\'anima di cioccolato e nocciole.', 'img/cioccocake.jpg', 'torta');
 
 -- --------------------------------------------------------
 
@@ -100,7 +102,6 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`email`, `username`, `password`, `admin`) VALUES
 ('admi@gmail.com', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1),
 ('user@gmail.com', 'user', '12dea96fec20593566ab75692c9949596833adc9', 0);
-
 --
 -- Indici per le tabelle scaricate
 --
@@ -142,7 +143,7 @@ ALTER TABLE `user`
 --
 ALTER TABLE `carrello`
   ADD CONSTRAINT `carrello_ibfk_1` FOREIGN KEY (`email_user`) REFERENCES `user` (`email`),
-  ADD CONSTRAINT `carrello_ibfk_2` FOREIGN KEY (`nome_item`) REFERENCES `item` (`nome`);
+  ADD CONSTRAINT `carrello_ibfk_2` FOREIGN KEY (`nome_item`) REFERENCES `item` (`nome`) ON DELETE CASCADE;
 
 --
 -- Limiti per la tabella `item`
