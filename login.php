@@ -7,6 +7,8 @@
 
 	$_SESSION["loggedin"] = false;
 
+	$paginaHTML = file_get_contents('login.html');
+
 	define("DB_SERVER", "localhost");
 	define("DB_USERNAME", "root");
 	define("DB_PASSWORD", "root");
@@ -20,6 +22,7 @@
 
 	$username = "";
 	$password = "";
+	$erroreLogin = false;
 
 	if (isset($_POST["submit"])) {
 		$username = mysqli_real_escape_string($con, $_POST["username"]);
@@ -45,18 +48,20 @@
 			}
 
 			header("location: index.php");
+		} else {
+			$erroreLogin = true;
 		}
 	}
 
 	$pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 	if ($pageWasRefreshed) {
+		$erroreLogin = false;
 	}
 
 	mysqli_close($con);
 
-	$paginaHTML = file_get_contents('login.html');
-
 	$stringaLogin = "";
+	$stringaErroreLogin = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
@@ -68,7 +73,11 @@
 		$stringaLogin .= "\t<li>\n";
 		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
 	}
+	if ($erroreLogin == true) {
+		$stringaErroreLogin = "<p class='errors'>Le credenziali inserite non risultano valide</p>";
+	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
+	$paginaHTML = str_replace("<ErroreLogin />", $stringaErroreLogin, $paginaHTML);
 	echo $paginaHTML;
 ?>
