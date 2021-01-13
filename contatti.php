@@ -10,7 +10,7 @@
 
 	$stringaLogin = "";
 
-	if (!isset($_SESSION('loggedin']) || $_SESSION['loggedin'] == false) {
+	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
 	}
 	else {
