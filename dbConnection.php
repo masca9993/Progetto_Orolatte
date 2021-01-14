@@ -48,6 +48,86 @@ class DBAccess {
 		}
 	}
 	
+	public function getListaGelati(){
+		$querySelect="SELECT * FROM item WHERE nome_category='gelato' ORDER BY nome ASC";
+		$queryResult=mysqli_query($this->connection, $querySelect);
+
+		if(mysqli_num_rows($queryResult)==0) {
+			return null;
+		}
+		else{
+			$listaProdotti= array();
+			while($riga = mysqli_fetch_assoc($queryResult)){
+				$singoloProdotto=array(
+					"nome" => $riga['nome'],
+					"descrizione" => $riga['descrizione'],
+					"immagine" => $riga['foto'],
+					"categoria" => $riga['nome_category']
+				);
+
+				array_push($listaProdotti,$singoloProdotto);
+			}
+			return $listaProdotti;
+		}
+	}
+
+	//
+	public function getListaTorte(){
+		$querySelect="SELECT * FROM item WHERE nome_category='torta' ORDER BY nome ASC";
+		$queryResult=mysqli_query($this->connection, $querySelect);
+
+		if(mysqli_num_rows($queryResult)==0) {
+			return null;
+		}
+		else{
+			$listaProdotti = array();
+			while($riga = mysqli_fetch_assoc($queryResult)){
+				$singoloProdotto = array (
+					"nome" => $riga['nome'],
+					"descrizione" => $riga['descrizione'],
+					"immagine" => $riga['foto'],
+					"categoria" => $riga['nome_category']
+				);
+
+				array_push($listaProdotti,$singoloProdotto);
+			}
+			return $listaProdotti;
+		}
+	}
+
+	//
+	public function insert($item, $descrizione, $foto, $nome_category){
+		$query="INSERT INTO item (nome, descrizione, foto, nome_category)
+		VALUES ('".$item."', '".$descrizione."', '".$foto."','".$nome_category."')";
+		$queryResult=mysqli_query($this->connection, $query);
+		/* if ($queryResult==false) {
+			$queryResult=mysqli_error($this->connection);
+		}*/
+		return $queryResult;
+	}
+
+	//
+	public function rimuovi($nome){
+		$query="DELETE FROM item WHERE item.nome ='".$nome."'";
+		$queryResult=mysqli_query($this->connection, $query);
+		return $queryResult;
+	}
+
+	//
+	public function modifica($nome,$immagine,$descrizione){
+		$query="UPDATE item SET descrizione ='".$descrizione."', foto = '".$immagine."' WHERE item.nome ='".$nome."';";
+		$queryResult=mysqli_query($this->connection, $query);
+		return $queryResult;
+  }
+
+	//
+	public function aggiungi($nome,$utente){
+		$query="INSERT INTO carrello (email_user,nome_item,grandezza) 
+		VALUES ('".$utente."','".$nome."','grande')";
+		$queryResult=mysqli_query($this->connection, $query);
+		return $queryResult;
+	}
+
 	// inserisce un prodotto nel carrello
 	public function inserisciProdotto($email_user, $nome_item, $grandezza) {
 		$queryInserimento= "INSERT INTO carrello(email_user, nome_item, grandezza) VALUES (\"$email_user\", \"$nome_item\", \"$grandezza\")";
