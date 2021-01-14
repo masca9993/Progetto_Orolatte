@@ -35,19 +35,25 @@ a:visited{
 /* HEADER */
 
 #header{
+	top: 0;
+	left: 0;
+	right: 0;
 	padding:0.5em;
 	background-color: AZURE; 
 	text-align: center;
 	border-bottom: 3px solid CYAN;
 }
+
 .menu{
 	margin-top: 3em;
 	text-align: center;
 	width: 33%;
 }
+
 #icona_mobile{
 	display: none;
 }
+
 #menu_mobile{
 	display: none;
 }
@@ -83,6 +89,7 @@ a:visited{
 .menu ul li img{
 	max-width: 0.7em;
 }
+
 #stile{
 	width: 5%;
 }
@@ -99,6 +106,7 @@ a:visited{
 #menu_2{
 	float: right;
 }
+
 #menu_2 ul li{
 	display: inline;
 }
