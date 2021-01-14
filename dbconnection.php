@@ -31,7 +31,7 @@ public function getListaProdotti_Carrello($email) {
     $querySelect = "SELECT nome_item, prezzo, COUNT(*) as quantità FROM carrello, item WHERE email_user='$email' AND $escape_dots GROUP BY nome_item;"; 
     $queryResult = mysqli_query($this->connection, $querySelect);
     
-    if(mysqli_num_rows($queryResult) == 0) {
+    if(!$queryResult) {
       return null;
     }
     else {
