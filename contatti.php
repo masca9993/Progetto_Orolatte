@@ -30,6 +30,11 @@
 		<li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
 		<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
 	</ul>
+	<div  class="menu" id="icona_mobile">
+		<a  href="#menu_mobile">
+			<img onclick="menu()" id="stile" src="img/menu.png" alt="menù"/>
+		</a>
+	</div>
 	<div class="menu" id="menu_1">
 		<ul>
 			<li>
@@ -48,30 +53,6 @@
 				CONTATTI
 			</li>
 		</ul>
-	</div>
-	<div  class="menu" id="icona_mobile">
-		<button onclick="menu()">
-			<img id="stile" src="img/menu.png" alt="menù"/>
-		</button>
-		<div class="menu" id="menu_mobile">
-			<ul>
-				<li>
-					<a href="index.php" >HOME</a>
-					<img id="stile" src="img/barra_verticale.png" alt=""/> 
-				</li>
-				<li>
-					<a href="prodotti.php">GELATI</a>
-					<img id="stile" src="img/barra_verticale.png" alt=""/> 
-				</li>
-				<li>
-					<a href="gallery.php">GALLERY</a>
-					<img id="stile" src="img/barra_verticale.png" alt=""/> 
-				</li>
-				<li>
-					CONTATTI
-				</li>
-			</ul>
-		</div>
 	</div>
 	<div class="menu" id="menu_2">
 		<ul>
@@ -126,7 +107,7 @@
 </div>
 <script type="text/javascript">
  function menu() {
-   var x=document.getElementById("menu_mobile");
+   var x=document.getElementById("menu_1");
    if(x.style.display=="none"){
       x.style.display="block";
    }

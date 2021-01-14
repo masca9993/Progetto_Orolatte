@@ -23,93 +23,92 @@
 <div id="container">
 <div id="header">
   <ul>
-  	<li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
-  	<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
+    <li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
+    <li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
   </ul>
   <div  class="menu" id="icona_mobile">
-  	<a  href="#menu_mobile">
+    <a  href="#menu_mobile">
       <img onclick="menu()" id="stile" src="img/menu.png" alt="menù"/>
     </a>
   </div>
   <div class="menu" id="menu_1">
-  	<ul>
-  		<li>
-  			<a href="index.php" >HOME</a>
-  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
-  		</li>
-  		<li>
-  			GELATI
-  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
-  		</li>
-  		<li>
-  			<a href="gallery.php">GALLERY</a>
-  			<img id="stile" src="img/barra_verticale.png" alt=""/> 
-  		</li>
-  		<li>
-  			<a href="contatti.php">CONTATTI</a>
-  		</li>
-  	</ul>
+    <ul>
+    <li>
+      <a href="index.php" >HOME</a>
+      <img id="stile" src="img/barra_verticale.png" alt=""/> 
+    </li>
+    <li>
+      GELATI
+      <img id="stile" src="img/barra_verticale.png" alt=""/> 
+    </li>
+    <li>
+      <a href="gallery.php">GALLERY</a>
+      <img id="stile" src="img/barra_verticale.png" alt=""/> 
+    </li>
+    <li>
+      <a href="contatti.php">CONTATTI</a>
+    </li>
+  </ul>
   </div>
   <div class="menu" id="menu_2">
-  	<ul>
-  		<li>
-  			<img id="stile" src="img/login.png" alt=""/>
-  			<a href="#">LOGIN</a>
-  			<img id="stile" src="img/barra_verticale.png" alt=""/>
-  		</li>
-  		<li>
-			<img id="stile" src="img/carrello.png" alt=""/>
-  			<a href="#">CARRELLO</a>
-  		</li>
-  	</ul>
+  <ul>
+    <li>
+      <img id="stile" src="img/login.png" alt=""/>
+      <a href="login.php">LOGIN</a>
+      <img id="stile" src="img/barra_verticale.png" alt=""/>
+    </li>
+    <li>
+    <img id="stile" src="img/carrello.png" alt=""/>
+      <a href="#">CARRELLO</a>
+    </li>
+ </ul>
   </div>
   <div id="titolo">
- 	  <img id="logo" src="img/logo_1.png" alt="Logo"/>
-	   <h1> Gelateria Orolatte </h1>
+    <img id="logo" src="img/logo_1.png" alt="Logo"/>
+     <h1> Gelateria Orolatte </h1>
   </div>
   <div class="menu" id="titolo_mobile">
-  	<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
+    <img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
     <h1> Gelateria Orolatte </h1>
   </div>
 </div>
 <div id="percorso">
-	<p>Ti trovi in: Prodotti</p>
+  <p>Ti trovi in: Prodotti <categoria/></p>
 </div>
-<div id="admin">
-  <h2>Inserisci un Nuovo Prodotto</h2>
-  <form action="prodotti.php" method="POST" id="admin_form">
-    <fieldset>
-    <div class="row">
-     <label for="item">Nome Prodotto:</label>
-     <input type="text" name="item" id="item" required/>
-   </div>
-   <div class="row">
-   <label for="descrizione">Descrizione:</label>
-   <input type="text" name="descrizione" id="descrizione" required/>
+<div id="carrello">
+  <h2> Carrello </h2>
+    <shopping_cart/>
+  <!--
+    <div class="item">
+      <div class="nome_prodotto">
+        <p> Nome_Prodotto </p>
+      </div>
+      <div class="info">
+        <div class="prezzo">
+        <p> Prezzo </p>
+        </div>
+        <div class="qta">
+            <button onclick="" type="button">
+              -
+            </button>    
+            <p> qta </p> 
+            <button onclick="" type="button">
+              +
+            </button>          
+        </div>
+      </div>
+    </div> 
+  -->
+  <div id="riepilogo" class="item">
+    <p>Totale:</p>
   </div>
-   <div class="row">
-   <label for="foto">Percorso Foto:</label>
-   <input type="text" name="foto" id="foto" required/>
+  <div id="concludi" class="item">
+    <a href="carrello.php">
+    <p>Vai al Carrello</p> </a>
   </div>
-   <div class="row">
-   <label for="nome_category">Categoria:</label>
-   <select name="nome_category" id="nome_category">
-  <option value="gelato">Gelato</option>
-  <option value="torta">Torta</option>
-  </select>
-  </div>
-  <div id="mex">
-    <mex/>
-  </div>
-  <div id="errors">
-    <errori/>
-  </div>
-  <input id="submit" type="submit" name="submit" value="Inserisci"/>
-  <input id="cancella" type="reset" name="submit" value="Cancella"/>
-</fieldset>
-  </form> 
 </div>
-<h2>Modifica Prodotti</h2>
+<insert/>
+<titolo/>
 <div id="contenutoPagina" class="contenutogenerale">
   <prodotti/>
 </div>
@@ -117,10 +116,12 @@
 </div>
 </div>
 <div id="footer">
-	<img id="imgvalidcode" src="img/valid-xhtml10.png" alt="" />
-  	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
-  	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
+  <img id="imgvalidcode" src="img/valid-xhtml10.png" alt="" />
+    <img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
+    <p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
 </div>
+</body>
+
 <script type="text/javascript">
  function menu() {
    var x=document.getElementById("menu_1");
@@ -131,6 +132,7 @@
       x.style.display="none";
     }
  }
+
 </script>
-</body>
+  
 </html>

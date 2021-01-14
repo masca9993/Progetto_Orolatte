@@ -9,7 +9,7 @@
 
 	define("DB_SERVER", "localhost");
 	define("DB_USERNAME", "root");
-	define("DB_PASSWORD", "root");
+	define("DB_PASSWORD", "");
 	define("DB_NAME", "gelateria");
 
 	$con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -31,9 +31,19 @@
 		$result = mysqli_query($con, $login_check_query);
 
 		if ($result && mysqli_num_rows($result) == 1) {
-			$_SESSION["loggedin"] = true;
-			$_SESSION["username"] = $username;
-			$_SESSION["email"] = $email;
+			$row = mysqli_fetch_array($result);
+			if ($row) {
+
+				$_SESSION["loggedin"] = true;
+				$_SESSION["username"] = $row["username"];
+				$_SESSION["email"] = $row["email"];
+				$_SESSION["admin"] = false;
+
+				if ($row["admin"] == true) {
+					$_SESSION["admin"] = true;
+				}
+			}
+
 			header("location: index.php");
 		}
 	}
@@ -83,7 +93,7 @@
 				<img id="stile" src="img/barra_verticale.png" alt=""/> 
 			</li>
 			<li>
-				<a href="gelati.php">GELATI</a>
+				<a href="prodotti.php">GELATI</a>
 				<img id="stile" src="img/barra_verticale.png" alt=""/> 
 			</li>
 			<li>

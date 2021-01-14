@@ -1,6 +1,11 @@
 <?php
 include "dbconnection.php";
 use DB\dbAccess;
+session_start();
+
+ini_set("display_errors", 1);
+	ini_set("display_startup_errors", 1);
+	error_reporting(E_ALL);
 
 $dbAccess=new DBAccess();
 $connessioneRiuscita= $dbAccess->openDBConnection();
@@ -16,7 +21,7 @@ if (isset($_POST["modifica"])){
 	$queryResult=$dbAccess->modifica($nome,$immagine,str_replace('"',"",$descrizione));
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
-		str_replace("</errelimina>", "<p id=elimina>modifica non riuscita</p></errelimina>", $paginaHTML);
+		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>modifica non riuscita</p></errelimina>", $paginaHTML);
 	}
 	else{
 		header("Refresh:0");
@@ -24,29 +29,37 @@ if (isset($_POST["modifica"])){
 }
 if(isset($_POST['submit'])){
 	$errori="";
-	$mex="";
 	$con=$dbAccess->getConnection();
 		if (isset($_POST['item']) && isset($_POST['descrizione']) && isset($_POST['foto']) && isset($_POST['nome_category']))
 		{
-		$sql= "INSERT INTO item (nome, descrizione, foto, nome_category)
-		VALUES ('".$_POST['item']."', '".$_POST['descrizione']."', '".$_POST['foto']."','".$_POST['nome_category']."')";
-
-		if ($con->query($sql) === TRUE) {
-			$mex= "<p> Inserimento avvenuto con successo</p>";
+        $result=$dbAccess->insert($_POST['item'], $_POST['descrizione'], $_POST['foto'],$_POST['nome_category']);
+		if ($result === TRUE) {
+			header("Refresh:0");
 		} 
 		else {
-  		$errori= "<p> Error: " . $sql . "<br>" . $con->error. "</p>";
+  		$errori= "<p> Errore nell'inserimento</p>";
   		}
 }
-str_replace("<errori/>", $errori, $paginaHTML);
-str_replace("<mex/>", $mex, $paginaHTML);
+$paginaHTML=str_replace("<errori/>", $errori, $paginaHTML);
+
 }
 if (isset($_POST["rimuovi"])){
 	$nome=$_POST['name'];
 	$queryResult=$dbAccess->rimuovi($nome);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
-		str_replace("</errelimina>", "<p id=elimina>rimozione non riuscita</p>", $paginaHTML);
+		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>rimozione non riuscita</p>", $paginaHTML);
+	}
+	else{
+		header("Refresh:0");
+	}
+}
+if (isset($_POST["aggiungi"])){
+	$nome=$_POST['name'];
+	$queryResult=$dbAccess->aggiungi($nome,$_SESSION['email']);
+	$dbAccess->closeDBConnection();
+	if($queryResult==false){
+		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>operazione non riuscita</p>", $paginaHTML);
 	}
 	else{
 		header("Refresh:0");
@@ -58,9 +71,90 @@ if($connessioneRiuscita == false){
 }
 else{
 	$listaProdotti= $dbAccess->getListaProdotti();
-
+	if(isset($_POST['tutti'])){
+		$listaProdotti= $dbAccess->getListaProdotti();
+	}
+	else if(isset($_POST['gelati'])){
+		$listaProdotti= $dbAccess->getListaGelati();
+	}
+	else if(isset($_POST['torte'])){
+		$listaProdotti= $dbAccess->getListaTorte();
+	}
 	$dbAccess->closeDBConnection();
 	
+	if(isset($_SESSION["admin"]) && $_SESSION["admin"])
+	{
+			$insert_form='<div id="admin">
+	  <h2>Inserisci un Nuovo Prodotto</h2>
+	  <form action="prodotti.php" method="POST" id="admin_form">
+	    <fieldset>
+	    <div class="row">
+	     <label for="item">Nome Prodotto:</label>
+	     <input type="text" name="item" id="item" required/>
+	   </div>
+	   <div class="row">
+	   <label for="descrizione">Descrizione:</label>
+	   <input type="text" name="descrizione" id="descrizione" required/>
+	  </div>
+	   <div class="row">
+	   <label for="foto">Percorso Foto:</label>
+	   <input type="text" name="foto" id="foto" required/>
+	  </div>
+	   <div class="row">
+	   <label for="nome_category">Categoria:</label>
+	   <select name="nome_category" id="nome_category">
+	  <option value="gelato">Gelato</option>
+	  <option value="torta">Torta</option>
+	  </select>
+	  </form> 
+	</div>
+	  <div id="mex">
+	    <mex/>
+	  </div>
+	  <div id="errors">
+	    <errori/>
+	  </div>
+	  <input id="submit" type="submit" name="submit" value="Inserisci"/>
+	  <input id="cancella" type="reset" name="submit" value="Cancella"/>
+	</fieldset>
+	  </form> 
+	</div>';
+	 $paginaHTML=str_replace("<insert/>", $insert_form, $paginaHTML);
+	}
+	if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
+		$paginaHTML=str_replace("<titolo/>", "<h2>Modifica Prodotti</h2>", $paginaHTML);
+	}
+	else{
+		$intestazione="<h2>I Nostri Prodotti</h2>";
+		$intestazione.='<div id="filtri">
+		<form method="post" action="prodotti.php">
+		<p> Applica filtri:';
+		if(isset($_POST['tutti'])){
+			$intestazione.='<input type="submit" name="tutti" value="Tutti" id="selezionato"/>';
+			$paginaHTML=str_replace("<categoria/>", ">> Tutti", $paginaHTML);
+		}
+		else{
+			$intestazione.='<input type="submit" name="tutti" value="Tutti"/>';
+		}
+		if(isset($_POST['gelati'])){
+			$intestazione.='<input type="submit" name="gelati" value="Gelati" id="selezionato"/>';
+			$paginaHTML=str_replace("<categoria/>", ">> Gelati", $paginaHTML);
+		}
+		else{
+			$intestazione.='<input type="submit" name="gelati" value="Gelati"/>';
+		}
+		if(isset($_POST['torte'])){
+			$intestazione.='<input type="submit" name="torte" value="Torte" id="selezionato"/>';
+			$paginaHTML=str_replace("<categoria/>", ">> Torte", $paginaHTML);
+		}
+		else{
+			$intestazione.='<input type="submit" name="torte" value="Torte"/>';
+		}
+		$intestazione.='</p>
+		</form>
+		</div>';
+		$paginaHTML=str_replace("<titolo/>", $intestazione, $paginaHTML);
+	}
 	if($listaProdotti != null){
 
 		$definitionListProdotti='';
@@ -69,11 +163,7 @@ else{
 			$definitionListProdotti.='</dt>';
 			$definitionListProdotti.='<dd>';
 			$definitionListProdotti.='<img src="'.$prodotto['immagine'].'"/>';
-			//if($session['admin']==false)
-			//$definitionListProdotti.='<p>'.$prodotto['descrizione'].'</p>';
-			//if($prodotto['categoria']=="torta")
-			//	$definitionListProdotti.='<button id="carrello">Aggiungi al carrello</button>';
-			//else
+			if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
 				$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
 				$definitionListProdotti.='<label for="Immagine"> Modifica Immagine: </label>
@@ -85,16 +175,70 @@ else{
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
 				$definitionListProdotti.='<input type="submit" name="rimuovi" value="Rimuovi" id="rimuovi" /></form>';
 				$definitionListProdotti.='</errelimina>';
+			}
+			else{
+				$definitionListProdotti.='<p>'.$prodotto['descrizione'].'</p>';
+				if($prodotto['categoria']=="torta"){
+					$definitionListProdotti.='<form method="post" action="prodotti.php">';
+				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
+				$definitionListProdotti.='<input type="submit" name="aggiungi" value="Aggiungi al carrello" id="aggiungi" /></form>';
+				$definitionListProdotti.='</errelimina>';
+				}
+			}
 			$definitionListProdotti.='</dd> </dl> </div>';
 		}
-		
 	}
 	else{
 
 		// messaggi che non son presenti prodotti
 		$definitionListProdotti='<p>Nessun prodotto presente</p>';
 	}
-	echo str_replace("<prodotti/>", $definitionListProdotti, $paginaHTML);
+	 $paginaHTML=str_replace("<prodotti/>", $definitionListProdotti, $paginaHTML);
 }
+
+if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
+		$dlProdotti = "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
+	}
+	else {
+
+		$dbAccess->openDBConnection();
+		$listaProdotti = $dbAccess->getListaProdotti_Carrello($_SESSION["email"]);
+		
+		$dbAccess->closeDBConnection();
+		
+		$shopping_cart = "";
+		
+		if($listaProdotti != null) {
+			
+			//inserisco i prodotti nella zona carrello come lista di definizioni
+			$shopping_cart = '';
+			
+			foreach ($listaProdotti as $prodotto) {
+				$shopping_cart .= '<div class="item"> 
+				<div class="nome_prodotto"> <p>' . $prodotto['nome_item'] . '  </p>
+      </div>
+      <div class="info">
+        <div class="prezzo">
+        <p> ' . $prodotto['prezzo'] . ' </p>
+        </div>
+        <div class="qta">
+            <button onclick="" type="button">
+              -
+            </button>    
+            <p> '. $prodotto['quantità'] . '</p> 
+            <button onclick="" type="button">
+              +
+            </button>          
+        </div>
+      </div>
+    </div>';	
+			}
+		}
+		else {
+			$shopping_cart = "<p>Nessun prodotto nel carrello</p>";
+		}
+		$paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
+	}
+	echo $paginaHTML;
 
 ?>
