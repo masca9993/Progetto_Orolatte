@@ -69,9 +69,6 @@ a:visited{
   float: left;
 }
 
-#menu_mobile{
-  display:none;
-}
 
 
 .menu ul li{
@@ -90,8 +87,6 @@ a:visited{
 .menu ul li img{
   max-width: 0.7em;
 }
-
-
 #stile{
   width: 5%;
 }
