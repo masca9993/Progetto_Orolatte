@@ -12,6 +12,8 @@ $connessioneRiuscita= $dbAccess->openDBConnection();
 $paginaHTML=file_get_contents('prodotti.html');
 $nome="";
 $immagine="";
+$alt_foto="";
+$prezzo="";
 $descrizione="";
 $categoria="";
 if (isset($_POST["modifica"])){
@@ -30,9 +32,9 @@ if (isset($_POST["modifica"])){
 if(isset($_POST['submit'])){
 	$errori="";
 	$con=$dbAccess->getConnection();
-		if (isset($_POST['item']) && isset($_POST['descrizione']) && isset($_POST['foto']) && isset($_POST['nome_category']))
+		if (isset($_POST['item']) && isset($_POST['descrizione']) && isset($_POST['foto']) && isset($_POST['nome_category']) && isset($_POST['alt_foto']) && isset($_POST['prezzo']))
 		{
-        $result=$dbAccess->insert($_POST['item'], $_POST['descrizione'], $_POST['foto'],$_POST['nome_category']);
+        $result=$dbAccess->insert($_POST['item'], $_POST['descrizione'], $_POST['foto'], $_POST['alt_foto'], $_POST['nome_category'], $_POST['prezzo']);
 		if ($result === TRUE) {
 			header("Refresh:0");
 		} 
@@ -70,6 +72,7 @@ if($connessioneRiuscita == false){
   die("Errore nell'apertura del DB");
 }
 else{
+	$dbAccess->openDBConnection();
 	$listaProdotti= $dbAccess->getListaProdotti();
 	if(isset($_POST['tutti'])){
 		$listaProdotti= $dbAccess->getListaProdotti();
@@ -85,8 +88,8 @@ else{
 	if(isset($_SESSION["admin"]) && $_SESSION["admin"])
 	{
 			$insert_form='<div id="admin">
-	  <h2>Inserisci un Nuovo Prodotto</h2>
 	  <form action="prodotti.php" method="POST" id="admin_form">
+	  <h2>Inserisci un Nuovo Prodotto</h2>
 	    <fieldset>
 	    <div class="row">
 	     <label for="item">Nome Prodotto:</label>
@@ -99,6 +102,14 @@ else{
 	   <div class="row">
 	   <label for="foto">Percorso Foto:</label>
 	   <input type="text" name="foto" id="foto" required/>
+	  </div>
+	  <div class="row">
+	   <label for="alt_foto">Descrizione Immagine:</label>
+	   <input type="text" name="alt_foto" id="alt_foto" required/>
+	  </div>
+	  <div class="row">
+	   <label for="prezzo">Prezzo:</label>
+	   <input type="text" name="Prezzo" id="prezzo" required/>
 	  </div>
 	   <div class="row">
 	   <label for="nome_category">Categoria:</label>
@@ -195,11 +206,10 @@ else{
 	}
 	 $paginaHTML=str_replace("<prodotti/>", $definitionListProdotti, $paginaHTML);
 }
-
 if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 		$dlProdotti = "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
 	}
-	else {
+	else if (isset($_SESSION['admin']) && $_SESSION["admin"] == false){
 
 		$dbAccess->openDBConnection();
 		$listaProdotti = $dbAccess->getListaProdotti_Carrello($_SESSION["email"]);
@@ -211,34 +221,38 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 		if($listaProdotti != null) {
 			
 			//inserisco i prodotti nella zona carrello come lista di definizioni
-			$shopping_cart = '';
+			$shopping_cart = '<div id="carrello">
+  							<h2> Il tuo Ordine </h2>
+  							<ul id="cart">';
 			
 			foreach ($listaProdotti as $prodotto) {
-				$shopping_cart .= '<div class="item"> 
-				<div class="nome_prodotto"> <p>' . $prodotto['nome_item'] . '  </p>
-      </div>
-      <div class="info">
-        <div class="prezzo">
-        <p> ' . $prodotto['prezzo'] . ' </p>
-        </div>
-        <div class="qta">
+				$shopping_cart .= '<li>  <p class="item">' . $prodotto['nome_item'] . '</p>
+        <p class="prz">' . $prodotto['prezzo'] . '</p>    
+      <div class="qta">
             <button onclick="" type="button">
               -
             </button>    
-            <p> '. $prodotto['quantità'] . '</p> 
+            <p>'. $prodotto['quantità'] . '</p> 
             <button onclick="" type="button">
               +
             </button>          
         </div>
-      </div>
-    </div>';	
+    </li>';	
 			}
+			$shopping_cart.='</ul>
+			<div id="riepilogo" >
+    <p>Totale:<span>tot</span></p>
+  </div>
+  <div id="concludi">
+    <a href="carrello.php">
+    <p>Vai al Carrello</p> </a>
+  </div>';
 		}
 		else {
 			$shopping_cart = "<p>Nessun prodotto nel carrello</p>";
 		}
 		$paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
-	}
-	echo $paginaHTML;
+}
+echo $paginaHTML;
 
 ?>

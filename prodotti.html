@@ -75,19 +75,13 @@
 <div id="percorso">
   <p>Ti trovi in: Prodotti <categoria/></p>
 </div>
-<div id="carrello">
-  <h2> Carrello </h2>
     <shopping_cart/>
   <!--
-    <div class="item">
-      <div class="nome_prodotto">
-        <p> Nome_Prodotto </p>
-      </div>
-      <div class="info">
-        <div class="prezzo">
-        <p> Prezzo </p>
-        </div>
-        <div class="qta">
+  <ul id="cart">
+    <li>
+        <p class="item">Nome_Prodotto</p>
+        <p class="prz"> Prezzo</p>    
+      <div class="qta">
             <button onclick="" type="button">
               -
             </button>    
@@ -96,16 +90,23 @@
               +
             </button>          
         </div>
-      </div>
-    </div> 
+    </li>
+
+    <li>   
+        <p class="item">Nome_Prodotto_1</p>
+        <p class="prz"> Prezzo_1</p>
+      <div class="qta">
+            <button onclick="" type="button">
+              -
+            </button>    
+            <p> qta </p> 
+            <button onclick="" type="button">
+              +
+            </button>          
+        </div>
+    </li>
+  </ul>
   -->
-  <div id="riepilogo" class="item">
-    <p>Totale:</p>
-  </div>
-  <div id="concludi" class="item">
-    <a href="carrello.php">
-    <p>Vai al Carrello</p> </a>
-  </div>
 </div>
 <insert/>
 <titolo/>

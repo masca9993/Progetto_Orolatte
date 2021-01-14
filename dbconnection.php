@@ -26,12 +26,12 @@ class DBAccess {
   }
 
 public function getListaProdotti_Carrello($email) {
-  
+
   $escape_dots='carrello.nome_item=item.nome';
     $querySelect = "SELECT nome_item, prezzo, COUNT(*) as quantità FROM carrello, item WHERE email_user='$email' AND $escape_dots GROUP BY nome_item;"; 
     $queryResult = mysqli_query($this->connection, $querySelect);
     
-    if(!$queryResult) {
+    if(mysqli_num_rows($queryResult) == 0) {
       return null;
     }
     else {
@@ -139,9 +139,9 @@ public function getListaProdotti_Carrello($email) {
       return $listaProdotti;
     }
   }
-  public function insert($item, $descrizione, $foto, $nome_category){
-    $query="INSERT INTO item (nome, descrizione, foto, nome_category)
-    VALUES ('".$item."', '".$descrizione."', '".$foto."','".$nome_category."')";
+  public function insert($item, $descrizione, $foto, $alt_foto, $nome_category, $prezzo){
+    $query="INSERT INTO item (nome, descrizione, foto, alt_foto, nome_category, prezzo)
+    VALUES ('".$item."', '".$descrizione."', '".$foto."','".$alt_foto."','".$nome_category."','".$prezzo."')";
     
     $queryResult=mysqli_query($this->connection, $query);
    /* if ($queryResult==false)
@@ -162,8 +162,8 @@ public function getListaProdotti_Carrello($email) {
     return $queryResult;
   }
   public function aggiungi($nome,$utente){
-    $query="INSERT INTO carrello (email_user,nome_item,grandezza) 
-    VALUES ('".$utente."','".$nome."','grande')";
+    $query="INSERT INTO carrello (email_user,nome_item) 
+    VALUES ('".$utente."','".$nome."')";
     $queryResult=mysqli_query($this->connection, $query);
     return $queryResult;
   }
