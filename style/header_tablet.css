@@ -1,0 +1,71 @@
+/*************HEADER******************************/
+button {
+	background-color: azure;
+	border:none;
+	cursor: pointer;
+}
+#menu_1{
+	display:none;
+}
+
+#menu_mobile {
+	display:none;
+	position: absolute;
+	margin-top: 0;
+	top: 5.6em;
+	left: 0;
+	width: 40%;
+	background-color: cyan;
+	opacity: 0.95;
+	font-size: 1.8em;
+}
+
+#menu_mobile ul li img{
+	display: none;
+}
+
+#menu_mobile ul li{
+	display: block;
+	padding:0.3em 0em; 
+	text-align: center;
+	width: 100%;
+	border-bottom: 2px solid azure;
+}
+
+#menu_mobile ul li:hover{
+  background-color: yellow;
+}
+
+#menu_2 ul li a:hover{
+	background-color: yellow;
+}
+
+#icona_mobile{
+	display:block; 
+	float: left;
+	width: 10%;
+}
+
+#icona_mobile  img {
+	width: 100%;
+	max-width: 3em;
+	max-height: 3em;
+}
+
+#Links{
+	display: none;
+	background-color: AZURE;
+	border: 2px solid CYAN;
+}
+
+.menu ul li a{
+  font-size: 0.8em;
+  max-height: 3em;
+}
+/*****CONTENUTO******/
+
+.flex{
+  flex-basis: 40%;
+  padding: 1em;
+  flex-grow:1;
+}

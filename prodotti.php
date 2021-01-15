@@ -20,7 +20,8 @@ if (isset($_POST["modifica"])){
 	$nome=$_POST["name"];
 	$immagine=$_POST["immagine"];
 	$descrizione=$_POST["descrizione"];
-	$queryResult=$dbAccess->modifica($nome,$immagine,str_replace('"',"",$descrizione));
+	$alt=$_POST["alt"];
+	$queryResult=$dbAccess->modifica($nome,$immagine,str_replace('"',"",$descrizione),str_replace('"',"",$alt));
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
 		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>modifica non riuscita</p></errelimina>", $paginaHTML);
@@ -179,6 +180,8 @@ else{
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
 				$definitionListProdotti.='<label for="Immagine"> Modifica Immagine: </label>
 		<input type="text" id="immagine" name="immagine" value="'.$prodotto['immagine'].'"/></br>';
+		$definitionListProdotti.='<label for="Descrizione immagine"> Modifica Descrizione immagine: </label>
+		<textarea name="alt" rows="3" id="alt" >"'.$prodotto['alt'].'" </textarea></br>';
 		$definitionListProdotti.='<label for="Descrizione"> Modifica Descrizione: </label>
 		<textarea name="descrizione" rows="5" id="descrizione" >"'.$prodotto['descrizione'].'" </textarea></br>';
 				$definitionListProdotti.='<input type="submit" name="modifica" value="Modifica" id="modifica"/></form>';
@@ -216,19 +219,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 		
 		$dbAccess->closeDBConnection();
 		
-		$shopping_cart = "";
+		$shopping_cart = '<div id="carrello">
+  							<h2> Il tuo Ordine </h2>';
 		
 		if($listaProdotti != null) {
 			
 			//inserisco i prodotti nella zona carrello come lista di definizioni
-			$shopping_cart = '<div id="carrello">
-  							<h2> Il tuo Ordine </h2>
-  							<ul id="cart">';
-			
+			$shopping_cart .= '<ul id="cart">';
 			foreach ($listaProdotti as $prodotto) {
 				$shopping_cart .= '<li>  <p class="item">' . $prodotto['nome_item'] . '</p>
-        <p class="prz">' . $prodotto['prezzo'] . '</p>    
-      <div class="qta">
+        <p class="prz">' . $prodotto['prezzo'] . '&euro;</p>    
+        <div class="qta">
             <button onclick="" type="button">
               -
             </button>    
@@ -246,10 +247,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
   <div id="concludi">
     <a href="carrello.php">
     <p>Vai al Carrello</p> </a>
-  </div>';
+  </div></div>';
 		}
 		else {
-			$shopping_cart = "<p>Nessun prodotto nel carrello</p>";
+			$shopping_cart .= '<p>Nessun prodotto nel carrello</p></div>';
 		}
 		$paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 }

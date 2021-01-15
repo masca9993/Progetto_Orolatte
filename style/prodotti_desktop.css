@@ -131,18 +131,37 @@ a:visited{
 #carrello{
   float: right;
   padding: 0.5em;
-  margin-left: 1em;
+  margin-left: 0.5em;
   width: 15%;
+  border-left: 1px solid blue;
+  height: 100%;
+  background-color: azure;
+}
+
+.item{
+  text-transform: uppercase;
+  margin-top:0.8em;
+}
+
+
+ #cart{
+  text-decoration: none;
+  list-style: none;
+ }
+
+#cart li {
+  text-decoration: none;
+  border-bottom: 1px solid red;
 }
 
 #carrello h2{
-  font-size: 24px;
-  color: black;
+  font-size: 1.5em;
+  margin-bottom: 1em;
 }
 
 
 #riepilogo {
- margin-top: 3em;
+ margin-top: 1.5em;
   margin-left:0.5em;
   font-weight: bold;
   font-size: 18px;
@@ -160,26 +179,45 @@ a:visited{
   padding: 1em;
   text-align: center;
 }
-.item{
-  display: block;
-}
-.nome_prodotto{
-  float: left;
-}
-.info {
-  float: right;
+#cart li{
+margin-top:2em;
 }
 
-.prezzo{
-  text-align: right;
+#cart .item{
+  font-weight: bold;
+}
+
+#cart .prz{
+  padding: 0.8em;
+  float: left;
+  margin-right: 2.5em;
 }
 
 .qta{
+  padding: 0.8em;
   display: flex;
-  margin-top: 1em;
-  margin-bottom: 2em;
+}
+.qta p{
+  padding-left: 0.2em;
+  padding-right: 0.3em;
 }
 
+.qta button{
+  width: 0.3em;
+  font-weight: bold;
+  background-color: #0FF;
+  border: 1px solid blue;
+  border-radius: 8px;
+  padding: 0.8em 0.8em;
+  text-decoration: none;
+  margin: 0.1em;
+  transition-duration: 0.4s;
+}
+.qta button:hover{
+  cursor: pointer;
+  background-color: #FFF;
+  border: 2px solid #0FF;
+}
 /***********INPUT********************/
 #admin{
   padding: 1em;
@@ -225,6 +263,9 @@ h2{
 
 
 /*************CONTENUTO PAGINA****************************/
+#contenutoPagina{
+  width: 80%;
+}
 #contenutoPagina dt{
   font-weight:bold;
   background-color:cyan;
@@ -315,9 +356,17 @@ h2{
 #immagine{
   margin-top: 0.8em;
 }
-#descrizione{
+#descrizione, #alt{
   margin-top: 0.8em;
 }
+
+#prodotti dd form label{
+  display: inline-block;
+  font-weight: bold;
+  text-align:left;
+  width:30%;
+}
+
 #categoria{
   display:none;
 }

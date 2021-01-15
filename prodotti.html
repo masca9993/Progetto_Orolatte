@@ -15,22 +15,17 @@
 <link rel=“shortcut icon” href=“img/icona_logo.png”   type="image/png" />
 <!--Responsive design: vengono definiti dei punti di rottura e viene creato un layout per ogni livello, ogni layaut deve essere acessibile e tenere conto della variabilità -->
 <link rel="stylesheet" type ="text/css" href="style/prodotti_desktop.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="style/header_tablet.css" media="handheld , screen and (max-width:1024px), only screen and (max-device-width:1024px)" />
 <link rel="stylesheet" type="text/css" href="style/header_mobile.css" media="handheld , screen and (max-width:640px), only screen and (max-device-width:640px)" />
 <link rel="stylesheet" type ="text/css" href="style/style_stampa.css" media="print" />
 
 </head>
 <body>
-<div id="container">
 <div id="header">
   <ul>
     <li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
     <li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
   </ul>
-  <div  class="menu" id="icona_mobile">
-    <a  href="#menu_mobile">
-      <img onclick="menu()" id="stile" src="img/menu.png" alt="menù"/>
-    </a>
-  </div>
   <div class="menu" id="menu_1">
     <ul>
     <li>
@@ -48,7 +43,31 @@
     <li>
       <a href="contatti.php">CONTATTI</a>
     </li>
-  </ul>
+    </ul>
+  </div>
+  <div  class="menu" id="icona_mobile">
+    <button onclick="menu()">
+      <img id="stile" src="img/menu.png" alt="menù"/>
+    </button>
+    <div class="menu" id="menu_mobile">
+      <ul>
+        <li>
+          <a href="index.php" >HOME</a>
+          <img id="stile" src="img/barra_verticale.png" alt=""/> 
+        </li>
+        <li>
+          GELATI
+          <img id="stile" src="img/barra_verticale.png" alt=""/> 
+        </li>
+        <li>
+          <a href="gallery.php">GALLERY</a>
+          <img id="stile" src="img/barra_verticale.png" alt=""/> 
+        </li>
+        <li>
+         <a href="contatti.php">CONTATTI</a>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="menu" id="menu_2">
   <ul>
@@ -107,7 +126,6 @@
     </li>
   </ul>
   -->
-</div>
 <insert/>
 <titolo/>
 <div id="contenutoPagina" class="contenutogenerale">
@@ -125,7 +143,7 @@
 
 <script type="text/javascript">
  function menu() {
-   var x=document.getElementById("menu_1");
+   var x=document.getElementById("menu_mobile");
    if(x.style.display=="none"){
       x.style.display="block";
    }
