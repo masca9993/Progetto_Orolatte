@@ -86,8 +86,31 @@ a:visited{
 	text-decoration: none;
 }
 
-.menu ul li img{
-	max-width: 0.7em;
+.menu ul li div {
+	width: 0.8em;
+	height: 0.8em;
+}
+
+.barraVerticale {
+	background-image: url(../img/barra_verticale.png);
+	display: inline-block;
+	height: 5%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#carrello {
+	background-image: url(../img/carrello.png);
+	display: inline-block;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#login {
+	background-image: url(../img/login.png);
+	display: inline-block;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 #stile{
