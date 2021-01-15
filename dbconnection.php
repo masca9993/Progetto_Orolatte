@@ -162,6 +162,11 @@ public function getListaProdotti_Carrello($email) {
     $queryResult=mysqli_query($this->connection, $query);
     return $queryResult;
   }
+  public function diminuisci($nome){
+  $query="DELETE FROM carrello WHERE carrello.nome_item='biancaneve' LIMIT 1";
+  $queryResult=mysqli_query($this->connection, $query);
+    return $queryResult;
+  }
   public function modifica($nome,$immagine,$alt,$descrizione, $prezzo){
     $query="UPDATE item SET descrizione ='".$descrizione."', foto = '".$immagine."', alt_foto='".$alt."', prezzo='".$prezzo."' WHERE item.nome ='".$nome."';";
     $queryResult=mysqli_query($this->connection, $query);

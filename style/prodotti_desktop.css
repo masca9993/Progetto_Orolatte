@@ -204,7 +204,7 @@ margin-top:2em;
   padding-right: 0.3em;
 }
 
-.qta button{
+.qta input{
   width: 0.3em;
   font-weight: bold;
   background-color: #0FF;
@@ -215,7 +215,7 @@ margin-top:2em;
   margin: 0.1em;
   transition-duration: 0.4s;
 }
-.qta button:hover{
+.qta input:hover{
   cursor: pointer;
   background-color: #FFF;
   border: 2px solid #0FF;
@@ -242,6 +242,7 @@ h2{
   color: red;
   font-weight: bold;
   text-align: center;
+  padding:0.5em;
 }
 .row label {
   display: inline-block;
@@ -374,9 +375,13 @@ h2{
 }
 
 #filtri{
+  padding:0.5em;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1em;
   background-color: #FFF;
+  border-bottom: 1px solid blue;
+  border-top: 1px solid blue;
+  background-color: azure;
 }
 
 #filtri input{
@@ -402,6 +407,10 @@ h2{
   cursor:initial;
   background-color: #FFF;
   border: 2px solid #0FF;
+}
+
+#filtri p{
+  text-transform: uppercase;
 }
 
 #aggiungi{

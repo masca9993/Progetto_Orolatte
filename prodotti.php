@@ -31,6 +31,28 @@ if (isset($_POST["modifica"])){
 		header("Refresh:0");
 	}
 }
+if (isset($_POST["meno"])){
+	$nome=$_POST['name'];
+	$queryResult=$dbAccess->diminuisci($nome);
+	$dbAccess->closeDBConnection();
+	if($queryResult==false){
+		//$paginaHTML=str_replace("</errelimina>", "<p id=elimina>rimozione non riuscita</p>", $paginaHTML);
+	}
+	else{
+		header("Refresh:0");
+	}
+}
+if (isset($_POST["piu"])){
+	$nome=$_POST['name'];
+	$queryResult=$dbAccess->aumenta($nome);
+	$dbAccess->closeDBConnection();
+	if($queryResult==false){
+		//$paginaHTML=str_replace("</errelimina>", "<p id=elimina>rimozione non riuscita</p>", $paginaHTML);
+	}
+	else{
+		header("Refresh:0");
+	}
+}
 if(isset($_POST['submit'])){
 	$errori="";
 	$con=$dbAccess->getConnection();
@@ -235,16 +257,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 			foreach ($listaProdotti as $prodotto) {
 				$shopping_cart .= '<li>  <p class="item">' . $prodotto['nome_item'] . '</p>
         <p class="prz">' . $prodotto['prezzo'] . '&euro;</p>    
-        <div class="qta">
-            <button class="minus" onclick="" type="button">
-            -
-            </button>    
-            <p>'. $prodotto['quantità'] . '</p> 
-            <button class="plus" onclick="" type="button">
-            +
-            </button>          
-        </div>
-    </li>';	
+        <div class="qta">';
+
+        $shopping_cart.='<form method="post" action="prodotti.php"><input type="text" id="nome" name="name" value="'.$prodotto['nome_item'].'" />';
+		$shopping_cart.='<input type="submit" name="meno" value="-" class="minus"/></form> <p>'. $prodotto['quantità'] . '</p>';
+        $shopping_cart.='<form method="post" action="prodotti.php"><input type="text" id="nome" name="name" value="'.$prodotto['nome_item'].'" />';
+		$shopping_cart.='<input type="submit" name="piu" value="+" class="plus"/></form> </div></li>';	
 			}
 			$shopping_cart.='</ul>
 			<div id="riepilogo" >
