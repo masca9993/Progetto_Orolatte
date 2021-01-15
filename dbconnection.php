@@ -87,6 +87,7 @@ public function getListaProdotti_Carrello($email) {
           "nome" => $riga['nome'],
           "descrizione" => $riga['descrizione'],
           "immagine" => $riga['foto'],
+          "prezzo" => $riga['prezzo'],
           "alt" => $riga['alt_foto'],
           "categoria" => $riga['nome_category']
         );
@@ -110,6 +111,7 @@ public function getListaProdotti_Carrello($email) {
           "nome" => $riga['nome'],
           "descrizione" => $riga['descrizione'],
           "immagine" => $riga['foto'],
+          "prezzo" => $riga['prezzo'],
            "alt" => $riga['alt_foto'],
           "categoria" => $riga['nome_category']
         );
@@ -134,6 +136,7 @@ public function getListaProdotti_Carrello($email) {
           "descrizione" => $riga['descrizione'],
           "immagine" => $riga['foto'],
           "alt" => $riga['alt_foto'],
+          "prezzo" => $riga['prezzo'],
           "categoria" => $riga['nome_category']
         );
 
@@ -159,8 +162,8 @@ public function getListaProdotti_Carrello($email) {
     $queryResult=mysqli_query($this->connection, $query);
     return $queryResult;
   }
-  public function modifica($nome,$immagine,$alt,$descrizione){
-    $query="UPDATE item SET descrizione ='".$descrizione."', foto = '".$immagine."', alt_foto='".$alt."' WHERE item.nome ='".$nome."';";
+  public function modifica($nome,$immagine,$alt,$descrizione, $prezzo){
+    $query="UPDATE item SET descrizione ='".$descrizione."', foto = '".$immagine."', alt_foto='".$alt."', prezzo='".$prezzo."' WHERE item.nome ='".$nome."';";
     $queryResult=mysqli_query($this->connection, $query);
     return $queryResult;
   }

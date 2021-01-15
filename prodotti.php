@@ -21,7 +21,8 @@ if (isset($_POST["modifica"])){
 	$immagine=$_POST["immagine"];
 	$descrizione=$_POST["descrizione"];
 	$alt=$_POST["alt"];
-	$queryResult=$dbAccess->modifica($nome,$immagine,str_replace('"',"",$descrizione),str_replace('"',"",$alt));
+	$prezzo=$_POST["prezzo"];
+	$queryResult=$dbAccess->modifica($nome,$immagine,str_replace('"',"",$descrizione),str_replace('"',"",$alt), $prezzo);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
 		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>modifica non riuscita</p></errelimina>", $paginaHTML);
@@ -178,6 +179,8 @@ else{
 			if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
 				$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
+				$definitionListProdotti.='<label for="prezzo"> Modifica Prezzo: </label>
+		<input type="text" id="prezzo" name="prezzo" value="'.$prodotto['prezzo'].'"/></br>';
 				$definitionListProdotti.='<label for="Immagine"> Modifica Immagine: </label>
 		<input type="text" id="immagine" name="immagine" value="'.$prodotto['immagine'].'"/></br>';
 		$definitionListProdotti.='<label for="Descrizione immagine"> Modifica Descrizione immagine: </label>
@@ -230,12 +233,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 				$shopping_cart .= '<li>  <p class="item">' . $prodotto['nome_item'] . '</p>
         <p class="prz">' . $prodotto['prezzo'] . '&euro;</p>    
         <div class="qta">
-            <button onclick="" type="button">
-              -
+            <button class="minus" onclick="" type="button">
+            -
             </button>    
             <p>'. $prodotto['quantità'] . '</p> 
-            <button onclick="" type="button">
-              +
+            <button class="plus" onclick="" type="button">
+            +
             </button>          
         </div>
     </li>';	
