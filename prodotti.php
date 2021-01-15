@@ -133,7 +133,7 @@ else{
 	  </div>
 	  <div class="row">
 	   <label for="prezzo">Prezzo:</label>
-	   <input type="text" name="Prezzo" id="prezzo" required/>
+	   <input type="text" name="prezzo" id="prezzo" required/>
 	  </div>
 	   <div class="row">
 	   <label for="nome_category">Categoria:</label>
