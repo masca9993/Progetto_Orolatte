@@ -1,6 +1,4 @@
-<?php
-	session_start();
-?>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
@@ -38,15 +36,15 @@
 			<ul>
 				<li>
 					<a href="index.php" >HOME</a>
-					<img id="stile" src="img/barra_verticale.png" alt=""/> 
+					<div class="barraVerticale"></div> 
 				</li>
 				<li>
 					<a href="prodotti.php">GELATI</a>
-					<img id="stile" src="img/barra_verticale.png" alt=""/> 
+					<div class="barraVerticale"></div>
 				</li>
 				<li>
 					GALLERY
-					<img id="stile" src="img/barra_verticale.png" alt=""/> 
+					<div class="barraVerticale"></div> 
 				</li>
 				<li>
 					<a href="contatti.php">CONTATTI</a>
@@ -56,12 +54,12 @@
 		<em class="menu" id="menu_2">
 			<ul>
 				<li>
-					<img id="stile" src="img/login.png" alt=""/>
+					<div class="login"></div>
 					<ControlloLogin />
-					<img id="stile" src="img/barra_verticale.png" alt=""/>
+					<div class="barraVerticale"></div>
 				</li>
 				<li>
-					<img id="stile" src="img/carrello.png" alt=""/>
+					<div class="carrello"></div>
 					<a href="carrello.php">CARRELLO</a>
 				</li>
 			</ul>
@@ -84,81 +82,84 @@
 	<!-- CONTENUTO PAGINA -->
 	<div id="contenutoPagina" class="contenutogenerale">
 		<h2> GALLERY </h2>
+
+		<noscript>Javascript non è attivo sul tuo Browser! Alcune funzionalità potrebbero non essere disponibili.</noscript>
+
 		<div id="flex-gallery">
 			<div class="galleryItem">
-				<a onclick="openModal('cuore_frutta')">
+				<a href="#" onclick="openModal('cuore_frutta')">
 			    		<img src="img/cuore_frutta.jpeg" alt="torta a forma di cuore con sopra frutti rossi">
 			    	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('monica')">
+				<a href="#" onclick="openModal('monica')">
 			    		<img src="img/monica.jpeg" alt="donna sorridente con in mano un cono gelato">
 			    	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('cassetta_frutta')">	
+				<a href="#" onclick="openModal('cassetta_frutta')">	
 			    		<img src="img/cassetta_frutta.jpeg" alt="torta a forma di cassetta di frutta">
 			    	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('anelliMonaco')">
+				<a href="#" onclick="openModal('anelliMonaco')">
 			    		<img src="img/anelliMonaco.jpeg" alt="Anelli di Monoaco artigianali">
 			    	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('cannoli')">
+				<a href="#" onclick="openModal('cannoli')">
 			    		<img src="img/cannoli.jpeg" alt="cannoli siciliani">
 			  	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('fruttiRossi')">
+				<a href="#" onclick="openModal('fruttiRossi')">
 			    		<img src="img/fruttiRossi.jpeg" alt="frutti rossi: lamponi, mirtilli e more">
 			  	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('tortaOceano')">
+				<a href="#" onclick="openModal('tortaOceano')">
 			    		<img src="img/tortaOceano.jpeg" alt="torta che rappresenta un fondale di un oceano">
 			  	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('torte_rosa')">
+				<a href="#" onclick="openModal('torte_rosa')">
 			    		<img src="img/torte_rosa.jpeg" alt="torte alla fragola eleganti">
 			  	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('gelato_amarena')">
+				<a href="#" onclick="openModal('gelato_amarena')">
 			    		<img src="img/gelato_amarena.jpeg" alt="gelato gusto variegato amarena">
 			  	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('panettone')">
+				<a href="#" onclick="openModal('panettone')">
 			    		<img src="img/panettone.jpeg" alt="Panettone artigianale con confezione natalizia">
 			  	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('tokyo')">
+				<a href="#" onclick="openModal('tokyo')">
 			    		<img src="img/tokyo.jpeg" alt="Tronchetto Tokyo">
 			  	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('danese')">
+				<a href="#" onclick="openModal('danese')">
 			    		<img src="img/danese.jpeg" alt="brioche danese con fragole e crema">
 			  	</a>
 			</div>
 			
 			<div class="galleryItem">
-				<a onclick="openModal('brioches')">
+				<a href="#" onclick="openModal('brioches')">
 			    		<img src="img/brioches.jpeg" alt="brioche varie">
 			  	</a>
 			</div>
@@ -167,7 +168,7 @@
 		
 		<!--modal-->
 		<div id="myModal" class="modal">
-			<button class="close" onclick="closeModal()">&times;</button>
+			<button id="close" onclick="closeModal()">&times;</button>
 			<div class="modal-content">
 				<div class="slide" id="cuore_frutta">
 					<img src="img/cuore_frutta.jpeg" alt="torta a forma di cuore con sopra frutti rossi">
@@ -260,6 +261,7 @@
 		function openModal(id){
 			document.getElementById("myModal").style.display="block";
 			document.getElementById(id).style.display="block";
+			document.getElementById("close").focus();
 		}
 						
 		//chiude ingrandimento immagine
