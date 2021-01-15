@@ -188,16 +188,18 @@ margin-top:2em;
 }
 
 #cart .prz{
-  padding: 0.8em;
+  padding-left: 0em;
+  padding-top: 0.5em;
   float: left;
-  margin-right: 2.5em;
+  margin-right: 2em;
 }
 
 .qta{
-  padding: 0.8em;
+  padding: 0.2em;
   display: flex;
 }
 .qta p{
+  padding-top: 0.5em;
   padding-left: 0.2em;
   padding-right: 0.3em;
 }
@@ -227,7 +229,7 @@ margin-top:2em;
   margin: 1em 1em 1em 1em;
 }
 
-input{
+input, textarea{
   margin-left: 0.5em;
 }
 
@@ -400,6 +402,16 @@ h2{
   cursor:initial;
   background-color: #FFF;
   border: 2px solid #0FF;
+}
+
+#aggiungi{
+  float:left;
+  margin-right: 1em;
+}
+.costo p{
+  font-weight: bold;
+  color: blue;
+  text-align: center;
 }
 /***********FOOTER***************************/
 

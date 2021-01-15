@@ -301,7 +301,7 @@ h2{
   flex-shrink: 1;
 }
 
-#rimuovi, #cancella, #aggiungi{
+#rimuovi, #cancella, #aggiungi{;
   background-color: red;
   font-size: 1em;
   color:white;
@@ -369,6 +369,12 @@ h2{
   cursor:initial;
   background-color: #FFF;
   border: 2px solid #0FF;
+}
+
+.costo p {
+  float:right;
+  background-color: blue;
+  font-weight: bold;
 }
 /***********FOOTER***************************/
 

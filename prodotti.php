@@ -22,7 +22,7 @@ if (isset($_POST["modifica"])){
 	$descrizione=$_POST["descrizione"];
 	$alt=$_POST["alt"];
 	$prezzo=$_POST["prezzo"];
-	$queryResult=$dbAccess->modifica($nome,$immagine,str_replace('"',"",$descrizione),str_replace('"',"",$alt), $prezzo);
+	$queryResult=$dbAccess->modifica($nome,$immagine,$alt,$descrizione, $prezzo);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
 		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>modifica non riuscita</p></errelimina>", $paginaHTML);
@@ -99,7 +99,7 @@ else{
 	   </div>
 	   <div class="row">
 	   <label for="descrizione">Descrizione:</label>
-	   <input type="text" name="descrizione" id="descrizione" required/>
+	   <textarea name="descrizione" rows="3" id="descrizione" required></textarea>
 	  </div>
 	   <div class="row">
 	   <label for="foto">Percorso Foto:</label>
@@ -107,7 +107,7 @@ else{
 	  </div>
 	  <div class="row">
 	   <label for="alt_foto">Descrizione Immagine:</label>
-	   <input type="text" name="alt_foto" id="alt_foto" required/>
+	   <textarea name="alt_foto" rows="3" id="alt_foto" required></textarea>
 	  </div>
 	  <div class="row">
 	   <label for="prezzo">Prezzo:</label>
@@ -179,14 +179,16 @@ else{
 			if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
 				$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
-				$definitionListProdotti.='<label for="prezzo"> Modifica Prezzo: </label>
-		<input type="text" id="prezzo" name="prezzo" value="'.$prodotto['prezzo'].'"/></br>';
+				if($prodotto['categoria']=="torta"){
+					$definitionListProdotti.='<label for="prezzo"> Modifica Prezzo: </label>
+					<input type="text" id="prezzo" name="prezzo" value="'.$prodotto['prezzo'].'"/></br>';
+				}
 				$definitionListProdotti.='<label for="Immagine"> Modifica Immagine: </label>
-		<input type="text" id="immagine" name="immagine" value="'.$prodotto['immagine'].'"/></br>';
-		$definitionListProdotti.='<label for="Descrizione immagine"> Modifica Descrizione immagine: </label>
-		<textarea name="alt" rows="3" id="alt" >"'.$prodotto['alt'].'" </textarea></br>';
-		$definitionListProdotti.='<label for="Descrizione"> Modifica Descrizione: </label>
-		<textarea name="descrizione" rows="5" id="descrizione" >"'.$prodotto['descrizione'].'" </textarea></br>';
+				<input type="text" id="immagine" name="immagine" value="'.$prodotto['immagine'].'"/></br>';
+				$definitionListProdotti.='<label for="Descrizione immagine"> Modifica Descrizione immagine: </label>
+				<textarea name="alt" rows="3" id="alt" >'.$prodotto['alt'].' </textarea></br>';
+				$definitionListProdotti.='<label for="Descrizione"> Modifica Descrizione: </label>
+				<textarea name="descrizione" rows="5" id="descrizione" >'.$prodotto['descrizione'].' </textarea></br>';
 				$definitionListProdotti.='<input type="submit" name="modifica" value="Modifica" id="modifica"/></form>';
 				$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
@@ -200,6 +202,7 @@ else{
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
 				$definitionListProdotti.='<input type="submit" name="aggiungi" value="Aggiungi al carrello" id="aggiungi" /></form>';
 				$definitionListProdotti.='</errelimina>';
+				$definitionListProdotti.='<div class="costo"><p>'. $prodotto['prezzo'].'&euro;</p></div>';
 				}
 			}
 			$definitionListProdotti.='</dd> </dl> </div>';
