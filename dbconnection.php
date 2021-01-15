@@ -156,15 +156,18 @@ public function getListaProdotti_Carrello($email) {
     }*/
     return $queryResult;
   }
+
+  public function diminuisci($nome){
+    $escape_dots='carrello.nome_item';
+    $query="DELETE FROM carrello WHERE $escape_dots='".$nome."'LIMIT 1";
+    $queryResult=mysqli_query($this->connection, $query);
+    return $queryResult;
+  }
+
   public function rimuovi($nome){
     $query="DELETE FROM item WHERE item.nome ='".$nome."'";
     
     $queryResult=mysqli_query($this->connection, $query);
-    return $queryResult;
-  }
-  public function diminuisci($nome){
-  $query="DELETE FROM carrello WHERE carrello.nome_item='biancaneve' LIMIT 1";
-  $queryResult=mysqli_query($this->connection, $query);
     return $queryResult;
   }
   public function modifica($nome,$immagine,$alt,$descrizione, $prezzo){
@@ -179,4 +182,7 @@ public function getListaProdotti_Carrello($email) {
     return $queryResult;
   }
 }
+
+
 ?>
+
