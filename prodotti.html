@@ -151,7 +151,16 @@
       x.style.display="none";
     }
  }
-
+function totale(){
+  var v=document.forms["dati"];
+  document.getElementById("riepilogo").innerHTML="<p>Totale: " +v.elements[0].value +" </p>";
+}
+function nascondiCarrello(){
+  var v=document.getElementById("carrello");
+  v.style.display="none";
+  var x=document.getElementById("contenutoPagina");
+  x.style.width="100%";
+}
 </script>
   
 </html>
