@@ -202,9 +202,13 @@ else{
 			if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
 				$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
-				if($prodotto['categoria']=="torta"){
+				if($prodotto['categoria']=="gelato"){
+					$definitionListProdotti.='<div id="nome">';
+				}
 					$definitionListProdotti.='<label for="prezzo"> Modifica Prezzo: </label>
 					<input type="text" id="prezzo" name="prezzo" value="'.$prodotto['prezzo'].'"/></br>';
+				if($prodotto['categoria']=="gelato"){
+					$definitionListProdotti.='</div>';	
 				}
 				$definitionListProdotti.='<label for="Immagine"> Modifica Immagine: </label>
 		<input type="text" id="immagine" name="immagine" value="'.$prodotto['immagine'].'"/></br>';
