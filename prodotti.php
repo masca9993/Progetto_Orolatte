@@ -22,6 +22,9 @@ if (isset($_POST["modifica"])){
 	$descrizione=$_POST["descrizione"];
 	$alt=$_POST["alt"];
 	$prezzo=$_POST["prezzo"];
+	//pulizia input
+	$descrizione=str_replace("'", "`", $descrizione);
+	$alt=str_replace("'", "`", $alt);
 	$queryResult=$dbAccess->modifica($nome,$immagine,$alt,$descrizione, $prezzo);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
