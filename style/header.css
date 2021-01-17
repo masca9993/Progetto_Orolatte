@@ -1,9 +1,9 @@
-*{
+* {
 	padding: 0em;
-	margin:0em;
+	margin: 0em;
 }
 
-html{
+html {
 	background-color: lemonchiffon;
 	width: 100%;
 	height: 100%;
@@ -30,6 +30,13 @@ a:hover{
 
 a:visited{
 	color: brown;
+}
+
+#container {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -50px; 
 }
 
 /* HEADER */
@@ -62,8 +69,8 @@ a:visited{
 	float: left;
 }
 
-.menu ul li a:hover{
-	background-color: yellow;
+#menu_1 ul li a:hover, #menu_2 ul li a:hover {
+  background-color: yellow;
 }
 
 .menu ul li{
@@ -86,9 +93,8 @@ a:visited{
 	text-decoration: none;
 }
 
-.menu ul li div {
-	width: 0.8em;
-	height: 0.8em;
+.menu ul li img{
+  max-width: 0.7em;
 }
 
 .barraVerticale {
@@ -113,16 +119,12 @@ a:visited{
 	background-repeat: no-repeat;
 }
 
-#stile{
-	width: 5%;
-}
-
 #titolo_mobile{
 	display: none;
 }
 
 #logo{
-	width:33%;
+	width: 33%;
 	max-width: 15em; 
 }
 

@@ -12,7 +12,8 @@
 	<meta name="author" content="Luca Biasotto, Nicla Faccioli" />
 	<meta name="language" content="italian it" />
 
-	<link rel="stylesheet" type="text/css" href="style/carrello_desktop.css" media="screen"/>
+	<!-- <link rel="stylesheet" type="text/css" href="style/carrello_desktop.css" media="screen"/> -->
+	<link rel="stylesheet" type="text/css" href="style/definitivo_desktop.css" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="style/carrello_mobile.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/>
 	<link rel="stylesheet" type="text/css" href="style/carrello_stampa.css" media="print"/>
 
@@ -20,10 +21,11 @@
 
 
 <body>
+<div id="container">
 <div id="header">
 	<ul>
 		<li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
-		<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
+		<li class="aiutiNascosti"><a href="contenutoPagina-carrello">Vai al contenuto</a></li>
 	</ul>
 	<em class="menu" id="icona_mobile">
 		<a onclick="myFunction()" href="#menu_mobile">
@@ -77,7 +79,7 @@
 </div>
 
 	<!-- CONTENUTO PAGINA -->
-	<div id="contenutoPagina" class="contenutogenerale">
+	<div id="contenutoPagina-carrello" class="contenutogenerale">
 	<h2> Carrello </h2>
 	
 	<listaProdotti />	<!-- str_replace da php -->

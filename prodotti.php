@@ -255,7 +255,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 		
 		$dbAccess->closeDBConnection();
 		$totale=0;
-		$shopping_cart = '<div id="carrello">
+		$shopping_cart = '<div id="carrello-prodotti">
   							<h2> Il tuo Ordine </h2>';
 		
 		if($listaProdotti != null) {

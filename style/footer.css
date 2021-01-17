@@ -11,20 +11,18 @@
 }
 
 #imgvalidcode{
-	float:left;
+	float: left;
 }
 
 #imgvalidcss{
-	float:right;
+	float: right;
 }
 
-/*
 #contenutoPagina{
 	display: flex;
 }
 
 #footer, #push {
-	height: 50px;
-	clear: both;
+  height: 50px; 
+  clear: both;
 }
-*/

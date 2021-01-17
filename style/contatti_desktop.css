@@ -206,11 +206,7 @@ a:visited{
   float:right;
 }
 
-#contenutoPagina{
-  display: flex;
-}
-
-#footer, #push {
-  height: 50px;
-  clear: both;
+#push, #footer {
+	height: 50px;
+	clear: both;
 }
