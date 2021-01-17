@@ -59,21 +59,18 @@ if (isset($_POST["piu"])){
 }
 if(isset($_POST['submit'])){
 	$errori="";
-	$messaggio="";
 	$con=$dbAccess->getConnection();
 		if (isset($_POST['item']) && isset($_POST['descrizione']) && isset($_POST['foto']) && isset($_POST['nome_category']) && isset($_POST['alt_foto']) && isset($_POST['prezzo']))
 		{
         $result=$dbAccess->insert($_POST['item'], $_POST['descrizione'], $_POST['foto'], $_POST['alt_foto'], $_POST['nome_category'], $_POST['prezzo']);
 		if ($result === TRUE) {
-			$messaggio="<div><p>Prodotto inserito con successo<p/></div>";
-			//header("Refresh:0");
+			header("Refresh:0");
 		} 
 		else {
   		$errori= "<p> Errore nell'inserimento</p>";
   		}
 }
 $paginaHTML=str_replace("<errori/>", $errori, $paginaHTML);
-$paginaHTML=str_replace("<messaggiForm/>", $messaggio, $paginaHTML);
 
 }
 if (isset($_POST["rimuovi"])){
@@ -92,7 +89,7 @@ if (isset($_POST["aggiungi"])){
 	$queryResult=$dbAccess->aggiungi($nome,$_SESSION['email']);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
-		$paginaHTML=str_replace("</errelimina>", '<p id="elimina">operazione non riuscita</p>', $paginaHTML);
+		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>operazione non riuscita</p>", $paginaHTML);
 	}
 	else{
 		header("Refresh:0");
@@ -122,7 +119,6 @@ else{
 	  <form action="prodotti.php" method="POST" id="admin_form">
 	  <h2>Inserisci un Nuovo Prodotto</h2>
 	    <fieldset>
-	    <messaggiForm/>
 	    <div class="row">
 	     <label for="item">Nome Prodotto:</label>
 	     <input type="text" name="item" id="item" required/>
@@ -284,8 +280,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
     <a onclick="totale()">
     <p>Vai al Carrello</p> </a>
   </div>
-  <!--<div id="nascondi">
-  <button onclick="nascondiCarrello()">Nascondi Carrello</button></div>--></div>';
+ </div>';
 		}
 		else {
 			$shopping_cart .= '<p>Nessun prodotto nel carrello</p><div id="nascondi">
