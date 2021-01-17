@@ -23,7 +23,7 @@ else {
 		$dlProdotti = "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
 	}
 	else {
-		$listaProdotti = $dbAccess->getListaProdotti($_SESSION["email"]);
+		$listaProdotti = $dbAccess->getListaProdotti_Carrello($_SESSION["email"]);
 		
 		$dbAccess->closeDBConnection();
 		

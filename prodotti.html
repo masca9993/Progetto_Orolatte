@@ -4,13 +4,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title>Contatti - Gelateria Orolatte</title>
+<title>Prodotti - Gelateria Orolatte</title>
 <meta name="title" content="Orolatte"/>
 <meta name="description" content="sito realizzato per il corso di TecWeb"/>
 <meta name="keywords" content=""/>
 <meta name="author" content="TecWeb class"/>
 <meta name="language" content="italian it"/>
 
+
+<script type="text/javascript" src="javascript.js"></script>
 <link rel=“icon” href=“img/icona_logo.png” type="image/png"/>
 <link rel=“shortcut icon” href=“img/icona_logo.png”   type="image/png" />
 <!--Responsive design: vengono definiti dei punti di rottura e viene creato un layout per ogni livello, ogni layaut deve essere acessibile e tenere conto della variabilità -->
@@ -33,7 +35,7 @@
       <img id="stile" src="img/barra_verticale.png" alt=""/> 
     </li>
     <li>
-      GELATI
+      PRODOTTI
       <img id="stile" src="img/barra_verticale.png" alt=""/> 
     </li>
     <li>
@@ -45,8 +47,8 @@
     </li>
     </ul>
   </div>
-  <div  class="menu" id="icona_mobile">
-    <button onclick="menu()">
+  <div onclick="menu()" class="menu" id="icona_mobile">
+    <button >
       <img id="stile" src="img/menu.png" alt="menù"/>
     </button>
     <div class="menu" id="menu_mobile">
@@ -56,7 +58,7 @@
           <img id="stile" src="img/barra_verticale.png" alt=""/> 
         </li>
         <li>
-          GELATI
+          PRODOTTI
           <img id="stile" src="img/barra_verticale.png" alt=""/> 
         </li>
         <li>
@@ -73,12 +75,12 @@
   <ul>
     <li>
       <img id="stile" src="img/login.png" alt=""/>
-      <a href="login.php">LOGIN</a>
+      <ControlloLogin />
       <img id="stile" src="img/barra_verticale.png" alt=""/>
     </li>
     <li>
     <img id="stile" src="img/carrello.png" alt=""/>
-      <a href="carrello.php">CARRELLO</a>
+      <a href="carrello">CARRELLO</a>
     </li>
  </ul>
   </div>
@@ -95,37 +97,6 @@
   <p>Ti trovi in: Prodotti <categoria/></p>
 </div>
     <shopping_cart/>
-  <!--
-  <ul id="cart">
-    <li>
-        <p class="item">Nome_Prodotto</p>
-        <p class="prz"> Prezzo</p>    
-      <div class="qta">
-            <button onclick="" type="button">
-              -
-            </button>    
-            <p> qta </p> 
-            <button onclick="" type="button">
-              +
-            </button>          
-        </div>
-    </li>
-
-    <li>   
-        <p class="item">Nome_Prodotto_1</p>
-        <p class="prz"> Prezzo_1</p>
-      <div class="qta">
-            <button onclick="" type="button">
-              -
-            </button>    
-            <p> qta </p> 
-            <button onclick="" type="button">
-              +
-            </button>          
-        </div>
-    </li>
-  </ul>
-  -->
 <insert/>
 <titolo/>
 <div id="contenutoPagina" class="contenutogenerale">
@@ -140,29 +111,5 @@
     <p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
 </div>
 </body>
-
-<script type="text/javascript">
- function menu() {
-   var x=document.getElementById("menu_mobile");
-   if(x.style.display=="none"){
-      x.style.display="block";
-   }
-  else{
-      x.style.display="none";
-    }
- }
-function totale(){
-  var v=document.forms["dati"];
-  document.getElementById("riepilogo").innerHTML="<p>Totale: " +v.elements[0].value +" </p>";
-}
-/*
-function nascondiCarrello(){
-  var v=document.getElementById("carrello");
-  v.style.display="none";
-  var x=document.getElementById("contenutoPagina");
-  x.style.width="100%";
-}
-*/
-</script>
   
 </html>

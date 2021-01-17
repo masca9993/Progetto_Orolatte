@@ -193,6 +193,7 @@ public function getListaProdotti_Carrello($email) {
 	}
 
 	//funzione per popolare la pagina prodotti
+	/*
 	public function getListaItem() {
 		$querySelect = "SELECT * FROM item";	
 		$queryResult = mysqli_query($this->connection, $querySelect);
@@ -216,6 +217,32 @@ public function getListaProdotti_Carrello($email) {
 			return $listaItem;
 		}
 	}
+	*/
+
+  public function getListaItem(){
+    $querySelect="SELECT * FROM item ORDER BY nome ASC";
+    $queryResult=mysqli_query($this->connection, $querySelect);
+
+    if(mysqli_num_rows($queryResult)==0) {
+      return null;
+    }
+    else{
+      $listaProdotti = array();
+      while($riga = mysqli_fetch_assoc($queryResult)){
+        $singoloProdotto=array(
+          "nome" => $riga['nome'],
+          "descrizione" => $riga['descrizione'],
+          "immagine" => $riga['foto'],
+          "prezzo" => $riga['prezzo'],
+          "alt" => $riga['alt_foto'],
+          "categoria" => $riga['nome_category']
+        );
+
+        array_push($listaProdotti,$singoloProdotto);
+      }
+      return $listaProdotti;
+    }
+  }
 
 }
 

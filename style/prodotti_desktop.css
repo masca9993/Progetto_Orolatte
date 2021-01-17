@@ -81,6 +81,14 @@ a:visited{
 
 }
 
+.menu ul li p {
+	display: inline;
+	color: red;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
 .menu ul li img{
   max-width: 0.7em;
 }
