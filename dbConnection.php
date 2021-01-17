@@ -25,6 +25,31 @@ class DBAccess {
 		mysqli_close($this->connection);
 	}
 	
+public function getListaProdotti_Carrello($email) {
+
+  $escape_dots='carrello.nome_item=item.nome';
+    $querySelect = "SELECT nome_item, prezzo, COUNT(*) as quantità FROM carrello, item WHERE email_user='$email' AND $escape_dots GROUP BY nome_item;"; 
+    $queryResult = mysqli_query($this->connection, $querySelect);
+    
+    if(!$queryResult) {
+      return null;
+    }
+    else {
+      $listaProdotti = array();
+      while($riga = mysqli_fetch_assoc($queryResult)) {
+        $prodotto = array(
+          "nome_item" => $riga['nome_item'],
+          "quantità" =>  $riga['quantità'],
+          "prezzo" =>  $riga['prezzo'],
+        );
+        
+        array_push($listaProdotti, $prodotto);
+      }
+      
+      return $listaProdotti;
+    }
+  }
+
 	// per popolare la pagina carrello
 	public function getListaProdotti($email) {
 		$querySelect = "SELECT * FROM carrello WHERE email_user='$email';";	

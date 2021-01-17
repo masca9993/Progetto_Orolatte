@@ -1,7 +1,244 @@
-@import "header.css";
+*{
+  padding: 0em;
+  margin:0em;
+}
 
-@import "bredcrumb.css";
+html{
+  background-color: lemonchiffon;
+  width: 100%;
+  height: 100%;
+}
 
+body {
+  font-size: 1em;
+  max-width: 1280px;
+  margin: auto;
+  background-color: #FFF;
+  font-family: "Times New Roman", cursive, serif;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}
+
+a:link{
+  color: red;
+}
+
+a:hover{
+  color: orange;
+}
+
+a:visited{
+  color: brown;
+}
+
+#container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -50px; 
+}
+
+
+/****************HEADER******************/
+
+#header{
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5em;
+  background-color: AZURE; 
+  text-align: center;
+  border-bottom: 3px solid CYAN;
+}
+.menu{
+  margin-top: 3em;
+  text-align: center;
+  width: 33%;
+}
+#icona_mobile{
+  display: none;
+}
+#menu_1 ul li a:hover, #menu_2 ul li a:hover {
+  background-color: yellow;
+}
+
+#menu_1 {
+  float: left;
+}
+
+
+
+.menu ul li{
+  display: inline;
+  padding: 0em ;
+  text-decoration: none;
+}
+
+.menu ul li a{
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+.menu ul li img{
+  max-width: 0.7em;
+}
+#stile{
+  width: 5%;
+}
+
+#titolo_mobile{
+  display: none;
+}
+
+#logo{
+  width:33%;
+  max-width: 15em; 
+}
+
+#menu_2{
+  float: right;
+}
+#menu_2 ul li{
+  display: inline;
+}
+
+#header h1{
+  display: none;
+}
+
+.aiutiNascosti{
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow:hidden;
+  clip:rect(1px,1px,1px,1px);
+}
+
+/***********BREADCRUMB***************/
+
+#percorso {
+  font-size: 0.7em;
+  background-color:LIGHTCYAN;
+  color: black;
+  padding:0.5em 0 0.5em 1.0em;
+  font-weight:bold;
+}
+
+/***********CARRELLO***************/
+
+#carrello{
+  float: right;
+  padding: 0.5em;
+  margin-left: 0.5em;
+  width: 15%;
+  border-left: 1px solid blue;
+  height: 100%;
+  background-color: azure;
+}
+
+.item{
+  text-transform: uppercase;
+  margin-top:0.8em;
+}
+
+
+ #cart{
+  text-decoration: none;
+  list-style: none;
+ }
+
+#cart li {
+  text-decoration: none;
+  border-bottom: 1px solid red;
+}
+
+#carrello h2{
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+
+#riepilogo {
+ margin-top: 1.5em;
+  margin-left:0.5em;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#concludi {
+  margin-top: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid blue;
+  border-radius: 8px;
+  cursor:pointer;
+}
+
+#concludi a p{
+  padding: 1em;
+  text-align: center;
+}
+#cart li{
+margin-top:2em;
+}
+
+#cart .item{
+  font-weight: bold;
+}
+
+#cart .prz{
+  padding-left: 0em;
+  padding-top: 0.5em;
+  float: left;
+  margin-right: 2em;
+}
+
+.qta{
+  padding: 0.2em;
+  display: flex;
+}
+.qta p{
+  padding-top: 0.5em;
+  padding-left: 0.2em;
+  padding-right: 0.3em;
+}
+
+.qta input{
+  width: 0.3em;
+  font-weight: bold;
+  background-color: #0FF;
+  border: 1px solid blue;
+  border-radius: 8px;
+  padding: 0.8em 0.8em;
+  text-decoration: none;
+  margin: 0.1em;
+  transition-duration: 0.4s;
+}
+.qta input:hover{
+  cursor: pointer;
+  background-color: #FFF;
+  border: 2px solid #0FF;
+}
+
+#nascondi button{
+  width: 100%;
+  font-weight: bold;
+  color: blue;
+  background-color: red;
+  border: 2px solid blue;
+  border-radius: 8px;
+  padding: 1em 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.3em;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+#nascondi button:hover{
+  background-color: #ec8888;
+}
 /***********INPUT********************/
 #admin{
   padding: 1em;
@@ -11,7 +248,7 @@
   margin: 1em 1em 1em 1em;
 }
 
-input{
+input, textarea{
   margin-left: 0.5em;
 }
 
@@ -24,6 +261,7 @@ h2{
   color: red;
   font-weight: bold;
   text-align: center;
+  padding:0.5em;
 }
 .row label {
   display: inline-block;
@@ -47,6 +285,9 @@ h2{
 
 
 /*************CONTENUTO PAGINA****************************/
+#contenutoPagina{
+  width: 80%;
+}
 #contenutoPagina dt{
   font-weight:bold;
   background-color:cyan;
@@ -136,17 +377,29 @@ h2{
 #immagine{
   margin-top: 0.8em;
 }
-#descrizione{
+#descrizione, #alt{
   margin-top: 0.8em;
 }
+
+#prodotti dd form label{
+  display: inline-block;
+  font-weight: bold;
+  text-align:left;
+  width:30%;
+}
+
 #categoria{
   display:none;
 }
 
 #filtri{
+  padding:0.5em;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1em;
   background-color: #FFF;
+  border-bottom: 1px solid blue;
+  border-top: 1px solid blue;
+  background-color: azure;
 }
 
 #filtri input{
@@ -172,6 +425,20 @@ h2{
   cursor:initial;
   background-color: #FFF;
   border: 2px solid #0FF;
+}
+
+#filtri p{
+  text-transform: uppercase;
+}
+
+#aggiungi{
+  float:left;
+  margin-right: 1em;
+}
+.costo p{
+  font-weight: bold;
+  color: blue;
+  text-align: center;
 }
 /***********FOOTER***************************/
 
