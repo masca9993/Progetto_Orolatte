@@ -7,6 +7,7 @@ Aggiungere funzioni a pulsanti in carrello
 link attuale deve essere coerente
 dimensione carattere in particolare breadcrumb
 sistemare homepage immaginie ??? nel testo
+immagini stile --> non id ma class
 sistemare head html
 rimuovere php debug
 abbastanza javascript?

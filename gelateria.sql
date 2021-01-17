@@ -28,17 +28,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `carrello` (
+  `id` int AUTO_INCREMENT PRIMARY KEY,
   `email_user` varchar(50) NOT NULL,
-  `nome_item` varchar(20) NOT NULL,
-  `grandezza` varchar(20) NOT NULL
+  `nome_item` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `carrello`
 --
 
-INSERT INTO `carrello` (`email_user`, `nome_item`, `grandezza`) VALUES
-('user@gmail.com', 'cioccocake', 'piccola');
+INSERT INTO `carrello` (`id`, `email_user`, `nome_item`) VALUES
+('1', 'user@gmail.com', 'cioccocake');
 
 -- --------------------------------------------------------
 
@@ -68,19 +68,21 @@ CREATE TABLE `item` (
   `nome` varchar(20) NOT NULL,
   `descrizione` varchar(500) NOT NULL,
   `foto` varchar(100) NOT NULL,
-  `nome_category` varchar(20) NOT NULL
+  `alt_foto` varchar(100) NOT NULL,
+  `nome_category` varchar(20) NOT NULL,
+  `prezzo` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `item`
 --
 
-INSERT INTO `item` (`nome`, `descrizione`, `foto`, `nome_category`) VALUES
-('albicocca', 'Gelato con polpa di albicocche fresche.                    ', 'img/albicocca.jpg', 'gelato'),
-('arancia rossa', 'Delicato gelato ottenuto dalla spremitura di polpa d\'arancia .', 'img/aranciarossa.jpg', 'gelato'),
-('biancaneve', 'Tortino alla panna cotta con cuore di lamponi, decorato con visciole e frutti di bosco. ', 'img/biancaneve.jpg', 'torta'),
-('cachi', 'Gelato con dolce polpa gialla di cachi.', 'img/cachi.jpg', 'gelato'),
-('cioccocake', 'Cremoso pan di Spagna al cacao e semifreddo al bacio racchiudono un\'anima di cioccolato e nocciole.', 'img/cioccocake.jpg', 'torta');
+INSERT INTO `item` (`nome`, `descrizione`, `foto`, `alt_foto`, `nome_category`, `prezzo`) VALUES
+('albicocca', 'Gelato con polpa di albicocche fresche.                    ', 'img/albicocca.jpg', 'foto del gelato al gusto di albicocca in una coppa', 'gelato', '2'),
+('arancia rossa', 'Delicato gelato ottenuto dalla spremitura di polpa d\'arancia .', 'img/aranciarossa.jpg', 'foto del gelato al gusto arancia rossa', 'gelato', '2'),
+('biancaneve', 'Tortino alla panna cotta con cuore di lamponi, decorato con visciole e frutti di bosco. ', 'img/biancaneve.jpg', 'foto della torta con la frutta sul contorno', 'torta', '30'),
+('cachi', 'Gelato con dolce polpa gialla di cachi.', 'img/cachi.jpg', 'foto di una coppa gelato al gusto cachi', 'gelato', '2'),
+('cioccocake', 'Cremoso pan di Spagna al cacao e semifreddo al bacio racchiudono un\'anima di cioccolato e nocciole.', 'img/cioccocake.jpg', 'foto della torta al cioccolato', 'torta', '25');
 
 -- --------------------------------------------------------
 
@@ -109,9 +111,8 @@ INSERT INTO `user` (`email`, `username`, `password`, `admin`) VALUES
 --
 -- Indici per le tabelle `carrello`
 --
-ALTER TABLE `carrello`
-  ADD PRIMARY KEY (`email_user`,`nome_item`),
-  ADD KEY `nome_item` (`nome_item`);
+
+
 
 --
 -- Indici per le tabelle `category`
