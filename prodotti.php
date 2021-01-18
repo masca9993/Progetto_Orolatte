@@ -101,9 +101,9 @@ if($connessioneRiuscita == false){
 }
 else{
 	$dbAccess->openDBConnection();
-	$listaProdotti= $dbAccess->getListaItem();
+	$listaProdotti= $dbAccess->getListaProdotti();
 	if(isset($_POST['tutti'])){
-		$listaProdotti= $dbAccess->getListaItem();
+		$listaProdotti= $dbAccess->getListaProdotti();
 	}
 	else if(isset($_POST['gelati'])){
 		$listaProdotti= $dbAccess->getListaGelati();
@@ -280,12 +280,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
     <a onclick="totale()">
     <p>Vai al Carrello</p> </a>
   </div>
- </div>';
+	';
 		}
 		else {
-			$shopping_cart .= '<p>Nessun prodotto nel carrello</p><div id="nascondi">
-  <button onclick="nascondiCarrello()">Nascondi Carrello</button></div></div>';
+			$shopping_cart .= '<p>Nessun prodotto nel carrello</p><div id="nascondi"></div>';
 		}
+		$shopping_cart.='</div>';
 		$paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 }
 
