@@ -5,7 +5,7 @@ namespace DB;
 class DBAccess {
 	private const HOST_DB = "localhost";	
 	private const USERNAME = "root";
-	private const PASSWORD = "root";
+	private const PASSWORD = "";
 	private const DATABASE_NAME = "gelateria";
 	
 	private $connection;
@@ -13,7 +13,7 @@ class DBAccess {
 	public function openDBConnection(){
 		$this->connection = mysqli_connect(DBAccess::HOST_DB, DBAccess::USERNAME, DBAccess::PASSWORD, DBAccess::DATABASE_NAME);	//oggetto di tipo connessione se andato tutto ok, altrimenti contiene FALSE 
 		
-		if(mysqli_connect_errno($this->connection)) {
+		if(!$this->connection) {
 			return false;
 		}
 		else {
@@ -74,62 +74,68 @@ public function getListaProdotti_Carrello($email) {
 	}
 	
 	public function getListaGelati(){
-		$querySelect="SELECT * FROM item WHERE nome_category='gelato' ORDER BY nome ASC";
-		$queryResult=mysqli_query($this->connection, $querySelect);
+    $querySelect="SELECT * FROM item WHERE nome_category='gelato' ORDER BY nome ASC";
+    $queryResult=mysqli_query($this->connection, $querySelect);
 
-		if(mysqli_num_rows($queryResult)==0) {
-			return null;
-		}
-		else{
-			$listaProdotti= array();
-			while($riga = mysqli_fetch_assoc($queryResult)){
-				$singoloProdotto=array(
-					"nome" => $riga['nome'],
-					"descrizione" => $riga['descrizione'],
-					"immagine" => $riga['foto'],
-					"categoria" => $riga['nome_category']
-				);
+    if(mysqli_num_rows($queryResult)==0) {
+      return null;
+    }
+    else{
+      $listaProdotti= array();
+      while($riga = mysqli_fetch_assoc($queryResult)){
+        $singoloProdotto=array(
+          "nome" => $riga['nome'],
+          "descrizione" => $riga['descrizione'],
+          "immagine" => $riga['foto'],
+          "prezzo" => $riga['prezzo'],
+           "alt" => $riga['alt_foto'],
+          "categoria" => $riga['nome_category']
+        );
 
-				array_push($listaProdotti,$singoloProdotto);
-			}
-			return $listaProdotti;
-		}
-	}
+        array_push($listaProdotti,$singoloProdotto);
+      }
+      return $listaProdotti;
+    }
+  }
 
 	//
 	public function getListaTorte(){
-		$querySelect="SELECT * FROM item WHERE nome_category='torta' ORDER BY nome ASC";
-		$queryResult=mysqli_query($this->connection, $querySelect);
+    $querySelect="SELECT * FROM item WHERE nome_category='torta' ORDER BY nome ASC";
+    $queryResult=mysqli_query($this->connection, $querySelect);
 
-		if(mysqli_num_rows($queryResult)==0) {
-			return null;
-		}
-		else{
-			$listaProdotti = array();
-			while($riga = mysqli_fetch_assoc($queryResult)){
-				$singoloProdotto = array (
-					"nome" => $riga['nome'],
-					"descrizione" => $riga['descrizione'],
-					"immagine" => $riga['foto'],
-					"categoria" => $riga['nome_category']
-				);
+    if(mysqli_num_rows($queryResult)==0) {
+      return null;
+    }
+    else{
+      $listaProdotti= array();
+      while($riga = mysqli_fetch_assoc($queryResult)){
+        $singoloProdotto=array(
+          "nome" => $riga['nome'],
+          "descrizione" => $riga['descrizione'],
+          "immagine" => $riga['foto'],
+          "alt" => $riga['alt_foto'],
+          "prezzo" => $riga['prezzo'],
+          "categoria" => $riga['nome_category']
+        );
 
-				array_push($listaProdotti,$singoloProdotto);
-			}
-			return $listaProdotti;
-		}
-	}
+        array_push($listaProdotti,$singoloProdotto);
+      }
+      return $listaProdotti;
+    }
+  }
 
 	//
-	public function insert($item, $descrizione, $foto, $nome_category){
-		$query="INSERT INTO item (nome, descrizione, foto, nome_category)
-		VALUES ('".$item."', '".$descrizione."', '".$foto."','".$nome_category."')";
-		$queryResult=mysqli_query($this->connection, $query);
-		/* if ($queryResult==false) {
-			$queryResult=mysqli_error($this->connection);
-		}*/
-		return $queryResult;
-	}
+	public function insert($item, $descrizione, $foto, $alt_foto, $nome_category, $prezzo){
+    $query="INSERT INTO item (nome, descrizione, foto, alt_foto, nome_category, prezzo)
+    VALUES ('".$item."', '".$descrizione."', '".$foto."','".$alt_foto."','".$nome_category."','".$prezzo."')";
+    
+    $queryResult=mysqli_query($this->connection, $query);
+   /* if ($queryResult==false)
+    {
+      $queryResult=mysqli_error($this->connection);
+    }*/
+    return $queryResult;
+  }
 
 	//
 	public function rimuovi($nome){
@@ -139,19 +145,26 @@ public function getListaProdotti_Carrello($email) {
 	}
 
 	//
-	public function modifica($nome,$immagine,$descrizione){
-		$query="UPDATE item SET descrizione ='".$descrizione."', foto = '".$immagine."' WHERE item.nome ='".$nome."';";
-		$queryResult=mysqli_query($this->connection, $query);
-		return $queryResult;
+	public function modifica($nome,$immagine,$alt,$descrizione,$prezzo){
+    $query="UPDATE item SET descrizione ='".$descrizione."', foto = '".$immagine."', alt_foto='".$alt."', prezzo='".$prezzo."' WHERE item.nome ='".$nome."';";
+    $queryResult=mysqli_query($this->connection, $query);
+    return $queryResult;
   }
 
 	//
 	public function aggiungi($nome,$utente){
-		$query="INSERT INTO carrello (email_user,nome_item,grandezza) 
-		VALUES ('".$utente."','".$nome."','grande')";
-		$queryResult=mysqli_query($this->connection, $query);
-		return $queryResult;
-	}
+    $query="INSERT INTO carrello (email_user,nome_item) 
+    VALUES ('".$utente."','".$nome."')";
+    $queryResult=mysqli_query($this->connection, $query);
+    return $queryResult;
+  }
+
+	public function diminuisci($nome){
+    $escape_dots='carrello.nome_item';
+    $query="DELETE FROM carrello WHERE $escape_dots='".$nome."'LIMIT 1";
+    $queryResult=mysqli_query($this->connection, $query);
+    return $queryResult;
+  }
 
 	// inserisce un prodotto nel carrello
 	public function inserisciProdotto($email_user, $nome_item, $grandezza) {

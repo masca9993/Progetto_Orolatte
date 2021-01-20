@@ -187,7 +187,7 @@ a:visited{
 	margin: 1em;
 	overflow: hidden;
 }
-
+/*
 button {
 	background-color: #0FF;
 	border: 2px solid #FFF;
@@ -201,13 +201,14 @@ button {
 	margin: 1em;
 	transition-duration: 0.4s;
 }
-
+*/
 a:hover > button {
 	color: #000;
 	cursor: pointer;
 	background-color: #FFF;
 	border: 2px solid #0FF;
 }
+
 
 a > button, a:link > button, a:hover > button, a:visited > button {
 	color: #000;
@@ -601,24 +602,6 @@ margin-top:2em;
   border: 2px solid #0FF;
 }
 
-#nascondi button{
-  width: 100%;
-  font-weight: bold;
-  color: blue;
-  background-color: red;
-  border: 2px solid blue;
-  border-radius: 8px;
-  padding: 1em 1em;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 0.3em;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
-#nascondi button:hover{
-  background-color: #ec8888;
-}
 
 #admin{
   padding: 1em;

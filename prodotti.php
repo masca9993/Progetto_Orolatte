@@ -101,9 +101,9 @@ if($connessioneRiuscita == false){
 }
 else{
 	$dbAccess->openDBConnection();
-	$listaProdotti= $dbAccess->getListaProdotti();
+	$listaProdotti= $dbAccess->getListaItem();
 	if(isset($_POST['tutti'])){
-		$listaProdotti= $dbAccess->getListaProdotti();
+		$listaProdotti= $dbAccess->getListaItem();
 	}
 	else if(isset($_POST['gelati'])){
 		$listaProdotti= $dbAccess->getListaGelati();
