@@ -509,6 +509,14 @@ p.errors {
 
 
 /*PRODOTTI*/
+#successo_aggiunta{
+	font-weight: bold;
+	color: black;
+	background-color: lightgreen;
+	padding:0.5em;
+	font-size: 0.9em;
+	text-transform: uppercase;
+}
 
 #errore_aggiunta{
 	font-weight: bold;
@@ -701,10 +709,10 @@ h2{
 #contenutoPagina dd img{
   float:top;
   align-content: center;
-  width:90%;
-  margin-right:0.5em;
+  width:95%;
+  margin-right:0.3em;
   margin-top:0.5em;
-  margin-left:0.5em;
+  margin-left:0.6em;
 }
 
 #contenutoPagina dd p{

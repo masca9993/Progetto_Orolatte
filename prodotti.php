@@ -77,7 +77,8 @@ if (isset($_POST["aggiungi"])){
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		}
 		else{
-			header("Refresh:0");
+		$strerrore="<p id='successo_aggiunta'>".$nome." AGGIUNTO AL CARRELLO CON SUCCESSO</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		}
 	}
 }
