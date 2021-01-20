@@ -28,30 +28,8 @@ if (isset($_POST["modifica"])){
 	$queryResult=$dbAccess->modifica($nome,$immagine,$alt,$descrizione, $prezzo);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
-		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>modifica non riuscita</p></errelimina>", $paginaHTML);
-	}
-	else{
-		header("Refresh:0");
-	}
-}
-if (isset($_POST["meno"])){
-	$nome=$_POST['name'];
-	$queryResult=$dbAccess->diminuisci($nome);
-	$dbAccess->closeDBConnection();
-	if($queryResult==false){
-		//$paginaHTML=str_replace("</errelimina>", "<p id=elimina>rimozione non riuscita</p>", $paginaHTML);
-	}
-	else{
-		header("Refresh:0");
-	}
-}
-if (isset($_POST["piu"])){
-	$nome=$_POST['name'];
-	$utente=$_SESSION['email'];
-	$queryResult=$dbAccess->aggiungi($nome, $utente);
-	$dbAccess->closeDBConnection();
-	if($queryResult==false){
-		//$paginaHTML=str_replace("</errelimina>", "<p id=elimina>rimozione non riuscita</p>", $paginaHTML);
+		$strerrore="<p id='errore_aggiunta'>MODIFICA NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
 		header("Refresh:0");
@@ -78,7 +56,8 @@ if (isset($_POST["rimuovi"])){
 	$queryResult=$dbAccess->rimuovi($nome);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
-		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>rimozione non riuscita</p>", $paginaHTML);
+		$strerrore="<p id='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
 		header("Refresh:0");
@@ -94,11 +73,24 @@ if (isset($_POST["aggiungi"])){
 		$queryResult=$dbAccess->aggiungi($nome,$_SESSION['email']);
 		$dbAccess->closeDBConnection();
 		if($queryResult==false){
-			$paginaHTML=str_replace("</errelimina>", "<p id=elimina>operazione non riuscita</p>", $paginaHTML);
+		$strerrore="<p id='errore_aggiunta'>ERRORE DURANTE L'AGGIUNTA AL CARRELLO, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		}
 		else{
 			header("Refresh:0");
 		}
+	}
+}
+if (isset($_POST["meno"])){
+	$nome=$_POST['name'];
+	$queryResult=$dbAccess->diminuisci($nome);
+	$dbAccess->closeDBConnection();
+	if($queryResult==false){
+		$strerrore="<p id='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+	}
+	else{
+		header("Refresh:0");
 	}
 }
 
@@ -276,7 +268,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
         $shopping_cart.='<form method="post" action="prodotti.php"><input type="text" id="nome" name="name" value="'.$prodotto['nome_item'].'" />';
 		$shopping_cart.='<input type="submit" name="meno" value="-" class="minus"/></form> <p>'. $prodotto['quantità'] . '</p>';
         $shopping_cart.='<form method="post" action="prodotti.php"><input type="text" id="nome" name="name" value="'.$prodotto['nome_item'].'" />';
-		$shopping_cart.='<input type="submit" name="piu" value="+" class="plus"/></form> </div></li>';
+		$shopping_cart.='<input type="submit" name="aggiungi" value="+" class="plus"/></form> </div></li>';
 		$totale+=$prodotto['prezzo']*$prodotto['quantità'];
 			}
 			$shopping_cart.='</ul><form id="dati"><input id="nome"  type="text" value="'.$totale.'"/></form>
