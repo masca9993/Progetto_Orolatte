@@ -20,8 +20,9 @@ button {
 	font-size: 1.8em;
 }
 
-#menu_mobile ul li img{
-	display: none;
+#menu_mobile ul li p{
+	font-size: 0.8em;
+  	max-height: 3em;
 }
 
 #menu_mobile ul li{
@@ -58,11 +59,19 @@ button {
 	border: 2px solid CYAN;
 }
 
+.det_log{
+	display: none;
+}
+#menu_2 p{
+	display: none;
+}
+
 .menu ul li a{
   font-size: 0.8em;
   max-height: 3em;
 }
 /*****CONTENUTO******/
+
 
 .flex{
   flex-basis: 40%;

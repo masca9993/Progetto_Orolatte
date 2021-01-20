@@ -21,9 +21,6 @@ button {
 	font-size: 1.8em;
 }
 
-#menu_mobile ul li img{
-	display: none;
-}
 
 #menu_mobile ul li{
 	display: block;
@@ -48,7 +45,7 @@ button {
 }
 
 #icona_mobile  img {
-	width: 90%;
+	width: 100%;
 	max-width: 3em;
 	max-height: 3em;
 }
@@ -90,6 +87,10 @@ button {
 	width: 40%;
 }
 
+.icone_menu_2 {
+	display: none;
+}
+
 .menu ul li a{
   font-size: 0.8em;
   max-height: 3em;
@@ -100,6 +101,14 @@ button {
 }
 
 /*****CONTENUTO******/
+
+#errore_aggiunta{
+	font-size: 0.8em;
+}
+#errore_aggiunta a{
+	font-size: 0.8em;
+}
+
 #contenutoPagina{
 	width: 100%;
 }

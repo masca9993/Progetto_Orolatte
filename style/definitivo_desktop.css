@@ -510,6 +510,35 @@ p.errors {
 
 /*PRODOTTI*/
 
+#errore_aggiunta{
+	font-weight: bold;
+	color: black;
+	background-color: red;
+	padding:0.5em;
+	font-size: 0.9em;
+}
+
+#errore_aggiunta a{
+	cursor: pointer;
+	font-weight: bold;
+	background-color: #0FF;
+	border: 2px solid blue;
+	border-radius: 8px;
+	color: black;
+	padding: 0.5em 0.5em;
+	font-size: 0.9em;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 0.5em;
+	transition-duration: 0.4s;
+}
+
+#errore_aggiunta a:hover{
+	background-color: white;
+	border-color: cyan;
+}
+
 #carrello-prodotti {
   float: right;
   padding: 0.5em;

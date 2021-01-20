@@ -85,14 +85,20 @@ if (isset($_POST["rimuovi"])){
 	}
 }
 if (isset($_POST["aggiungi"])){
-	$nome=$_POST['name'];
-	$queryResult=$dbAccess->aggiungi($nome,$_SESSION['email']);
-	$dbAccess->closeDBConnection();
-	if($queryResult==false){
-		$paginaHTML=str_replace("</errelimina>", "<p id=elimina>operazione non riuscita</p>", $paginaHTML);
+	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false){
+		$strerrore="<p id='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php'>accedi qui</a></p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
-		header("Refresh:0");
+		$nome=$_POST['name'];
+		$queryResult=$dbAccess->aggiungi($nome,$_SESSION['email']);
+		$dbAccess->closeDBConnection();
+		if($queryResult==false){
+			$paginaHTML=str_replace("</errelimina>", "<p id=elimina>operazione non riuscita</p>", $paginaHTML);
+		}
+		else{
+			header("Refresh:0");
+		}
 	}
 }
 
@@ -295,8 +301,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
 	}
 	else {
-		$stringaLogin .= "<p> CIAO " . $_SESSION['username'] . "</p>" . "\n";
-		$stringaLogin .= "<img id='stile' src='img/barra_verticale.png' alt=''/>" . "\n";
+		$stringaLogin .= "<p class='det_log'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<img class='det_log' id='stile' src='img/barra_verticale.png' alt=''/>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
 		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
