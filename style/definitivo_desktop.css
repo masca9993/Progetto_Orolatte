@@ -95,6 +95,10 @@ a:visited{
 .menu ul li img{
   max-width: 0.7em;
 }
+.menu ul li div{
+	width: 0.8em;
+	height: 0.8em;
+}
 
 .barraVerticale {
 	background-image: url(../img/barra_verticale.png);

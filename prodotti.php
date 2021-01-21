@@ -65,7 +65,7 @@ if (isset($_POST["rimuovi"])){
 }
 if (isset($_POST["aggiungi"])){
 	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false){
-		$strerrore="<p id='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php'>accedi qui</a></p>";
+		$strerrore="<p id='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php' role='button'>accedi qui</a></p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
@@ -295,10 +295,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 	}
 	else {
 		$stringaLogin .= "<p class='det_log'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
-		$stringaLogin .= "<img class='det_log' id='stile' src='img/barra_verticale.png' alt=''/>" . "\n";
+		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
-		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
+		$stringaLogin .= "\t\t<a href='logout.php' role='button'>LOGOUT</a>\n";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);

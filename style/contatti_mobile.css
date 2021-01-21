@@ -86,7 +86,7 @@ button {
 	width: 40%;
 }
 
-.icone_menu_2 {
+#carrello, #login{
 	display: none;
 }
 
