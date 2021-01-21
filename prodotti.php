@@ -16,84 +16,10 @@ $alt_foto="";
 $prezzo="";
 $descrizione="";
 $categoria="";
-if (isset($_POST["modifica"])){
-	$nome=$_POST["name"];
-	$immagine=$_POST["immagine"];
-	$descrizione=$_POST["descrizione"];
-	$alt=$_POST["alt"];
-	$prezzo=$_POST["prezzo"];
-	//pulizia input
-	$descrizione=str_replace("'", "`", $descrizione);
-	$alt=str_replace("'", "`", $alt);
-	$queryResult=$dbAccess->modifica($nome,$immagine,$alt,$descrizione, $prezzo);
-	$dbAccess->closeDBConnection();
-	if($queryResult==false){
-		$strerrore="<p id='errore_aggiunta'>MODIFICA NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
-		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
-	}
-	else{
-		header("Refresh:0");
-	}
-}
-if(isset($_POST['submit'])){
-	$errori="";
-	$con=$dbAccess->getConnection();
-		if (isset($_POST['item']) && isset($_POST['descrizione']) && isset($_POST['foto']) && isset($_POST['nome_category']) && isset($_POST['alt_foto']) && isset($_POST['prezzo']))
-		{
-        $result=$dbAccess->insert($_POST['item'], $_POST['descrizione'], $_POST['foto'], $_POST['alt_foto'], $_POST['nome_category'], $_POST['prezzo']);
-		if ($result === TRUE) {
-			header("Refresh:0");
-		} 
-		else {
-  		$errori= "<p> Errore nell'inserimento</p>";
-  		}
-}
-$paginaHTML=str_replace("<errori/>", $errori, $paginaHTML);
 
-}
-if (isset($_POST["rimuovi"])){
-	$nome=$_POST['name'];
-	$queryResult=$dbAccess->rimuovi($nome);
-	$dbAccess->closeDBConnection();
-	if($queryResult==false){
-		$strerrore="<p id='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
-		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
-	}
-	else{
-		header("Refresh:0");
-	}
-}
-if (isset($_POST["aggiungi"])){
-	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false){
-		$strerrore="<p id='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php' role='button'>accedi qui</a></p>";
-		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
-	}
-	else{
-		$nome=$_POST['name'];
-		$queryResult=$dbAccess->aggiungi($nome,$_SESSION['email']);
-		$dbAccess->closeDBConnection();
-		if($queryResult==false){
-		$strerrore="<p id='errore_aggiunta'>ERRORE DURANTE L'AGGIUNTA AL CARRELLO, RIPROVA PIÙ TARDI</p>";
-		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
-		}
-		else{
-		$strerrore="<p id='successo_aggiunta'>".$nome." AGGIUNTO AL CARRELLO CON SUCCESSO</p>";
-		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
-		}
-	}
-}
-if (isset($_POST["meno"])){
-	$nome=$_POST['name'];
-	$queryResult=$dbAccess->diminuisci($nome);
-	$dbAccess->closeDBConnection();
-	if($queryResult==false){
-		$strerrore="<p id='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
-		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
-	}
-	else{
-		header("Refresh:0");
-	}
-}
+
+
+
 $tabindex=14;
 if($connessioneRiuscita == false){
   die("Errore nell'apertura del DB");
@@ -247,20 +173,111 @@ else{
 	}
 	 $paginaHTML=str_replace("<prodotti/>", $definitionListProdotti, $paginaHTML);
 }
-if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
-		$dlProdotti = "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
+
+if (isset($_POST["modifica"])){
+	$dbAccess->openDBConnection();
+	$nome=$_POST["name"];
+	$immagine=$_POST["immagine"];
+	$descrizione=$_POST["descrizione"];
+	$alt=$_POST["alt"];
+	$prezzo=$_POST["prezzo"];
+	//pulizia input
+	$descrizione=str_replace("'", "`", $descrizione);
+	$alt=str_replace("'", "`", $alt);
+	$queryResult=$dbAccess->modifica($nome,$immagine,$alt,$descrizione, $prezzo);
+	$dbAccess->closeDBConnection();
+	if($queryResult==false){
+		$strerrore="<p id='errore_aggiunta'>MODIFICA NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
-	else if (isset($_SESSION['admin']) && $_SESSION["admin"] == false){
+	else{
+		header("Refresh:0");
+	}
+}
+
+
+if(isset($_POST['submit'])){
+	$errori="";
+	$mex="";
+	$dbAccess->openDBConnection();
+		if (isset($_POST['item']) && isset($_POST['descrizione']) && isset($_POST['foto']) && isset($_POST['nome_category']) && isset($_POST['alt_foto']) && isset($_POST['prezzo']))
+		{
+        $result=$dbAccess->insert($_POST['item'], $_POST['descrizione'], $_POST['foto'], $_POST['alt_foto'], $_POST['nome_category'], $_POST['prezzo']);
+        $dbAccess->closeDBConnection();
+		if ($result === TRUE) {
+		
+			$mex.="<p> INSERIMENTO AVVENUTO CON SUCCESSO</p>";
+			$paginaHTML=str_replace("<mex/>", $mex, $paginaHTML);
+			header("Refresh:3");
+		} 
+		else {
+  		$errori= "<p> ERRORE NELL'INSERIMENTO</p>";
+  		$paginaHTML=str_replace("<errori/>", $errori, $paginaHTML);
+  		header("Refresh:0");
+  		}
+}
+}
+
+if (isset($_POST["rimuovi"])){
+	$dbAccess->openDBConnection();
+	$nome=$_POST['name'];
+	$queryResult=$dbAccess->rimuovi($nome);
+	$dbAccess->closeDBConnection();
+	if($queryResult==false){
+		$strerrore="<p id='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+	}
+	else{
+		header("Refresh:0");
+	}
+}
+
+if (isset($_POST["aggiungi"])){
+	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false){
+		$strerrore="<p id='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php' role='button'>accedi qui</a></p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+	}
+	else{
+		$dbAccess->openDBConnection();
+		$nome=$_POST['name'];
+		$queryResult=$dbAccess->aggiungi($nome,$_SESSION['email']);
+		$dbAccess->closeDBConnection();
+		if($queryResult==false){
+		$strerrore="<p id='errore_aggiunta'>ERRORE DURANTE L'AGGIUNTA AL CARRELLO, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+		}
+		else{
+		$strerrore="<p id='successo_aggiunta'>".$nome." AGGIUNTO AL CARRELLO CON SUCCESSO</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+		}
+	}
+}
+
+if (isset($_POST["meno"])){
+	$dbAccess->openDBConnection();
+	$nome=$_POST['name'];
+	$queryResult=$dbAccess->diminuisci($nome);
+	$dbAccess->closeDBConnection();
+	if($queryResult==false){
+		$strerrore="<p id='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+	}
+	else{
+		header("Refresh:0");
+	}
+}
+	
+
+		if (isset($_SESSION['admin']) && $_SESSION["admin"] == false){
 
 		$dbAccess->openDBConnection();
 		$listaProdotti = $dbAccess->getListaProdotti_Carrello($_SESSION["email"]);
-		
+		$shopping_cart = '<div id="carrello-prodotti">
+  							<h2 tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';		
 		$dbAccess->closeDBConnection();
 		$totale=0;
-		$shopping_cart = '<div id="carrello-prodotti">
-  							<h2 tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';
-		
-		if($listaProdotti != null) {
+
+		 if($listaProdotti != null) {
 			
 			//inserisco i prodotti nella zona carrello come lista di definizioni
 			$shopping_cart .= '<ul id="cart">';
@@ -286,10 +303,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false) {
 		}
 		else {
 			$shopping_cart .= '<p>Nessun prodotto nel carrello</p><div id="nascondi"></div>';
-		}
+	   	}
+		$shopping_cart.='</div>';
+$paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
+	}
+	else if (!isset($_SESSION["admin"])) {
+
+		$shopping_cart = '<div id="carrello-prodotti">
+  							<h2 tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';
+  		if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false){
+			$shopping_cart .= "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
+  		}
 		$shopping_cart.='</div>';
 		$paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
-}
+	}
+
 
 	$stringaLogin = "";
 
