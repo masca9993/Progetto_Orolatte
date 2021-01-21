@@ -77,7 +77,7 @@ if (isset($_POST["aggiungi"])){
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		}
 		else{
-		$strerrore="<p id='successo_aggiunta' autofocus>".$nome." AGGIUNTO AL CARRELLO CON SUCCESSO</p>";
+		$strerrore="<p id='successo_aggiunta'>".$nome." AGGIUNTO AL CARRELLO CON SUCCESSO</p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		}
 	}

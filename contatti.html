@@ -26,21 +26,21 @@
 <div id="container">
 <div id="header">
 	<ul>
-		<li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
-		<li class="aiutiNascosti"><a href="contenutoPagina-contatti">Vai al contenuto</a></li>
+		<li class="aiutiNascosti"><a href="#menu_1"  tabindex="2" >vai al menù</a></li>
+		<li class="aiutiNascosti"><a href="contenutoPagina-contatti"  tabindex="3" >Vai al contenuto</a></li>
 	</ul>
 	<div class="menu" id="menu_1">
 		<ul>
 			<li>
-				<a href="index.php" >HOME</a>
+				<a href="index.php"  tabindex="4" >HOME</a>
 				<img id="stile" src="img/barra_verticale.png" alt=""/> 
 			</li>
 			<li>
-				<a href="prodotti.php">PRODOTTI</a>
+				<a href="prodotti.php"  tabindex="5" >PRODOTTI</a>
 				<img id="stile" src="img/barra_verticale.png" alt=""/> 
 			</li>
 			<li>
-				<a href="gallery.php">GALLERY</a>
+				<a href="gallery.php"  tabindex="6" >GALLERY</a>
 				<img id="stile" src="img/barra_verticale.png" alt=""/> 
 			</li>
 			<li>
@@ -49,19 +49,19 @@
 		</ul>
 	</div>
 	<div  class="menu" id="icona_mobile">
-		<button onclick="menu()">
+		<button  tabindex="7" onclick="menu()">
 			<img id="stile" src="img/menu.png" alt="menù"/>
 		</button>
 		<div class="menu" id="menu_mobile">
 			<ul>
 				<li>
-					<a href="index.php" >HOME</a> 
+					<a href="index.php"  tabindex="8" >HOME</a> 
 				</li>
 				<li>
-					<a href="prodotti.php">PRODOTTI</a>
+					<a href="prodotti.php" tabindex="9" >PRODOTTI</a>
 				</li>
 				<li>
-					<a href="gallery.php">GALLERY</a>
+					<a href="gallery.php" tabindex="10" >GALLERY</a>
 				</li>
 				<li>
 					<p>CONTATTI</p>
@@ -78,12 +78,12 @@
 			</li>
 			<li>
 				<div id="carrello"></div>
-				<a href="carrello.php">CARRELLO</a>
+				<a href="carrello.php"  tabindex="13" >CARRELLO</a>
 			</li>
 		</ul>
 	</div>
 	<div id="titolo">
-		<img id="logo" src="img/logo_1.png" alt="Logo"/>
+		<img id="logo" tabindex="1" src="img/logo_1.png" alt="Logo Gelateria Orolatte"/>
 		<h1> Gelateria Orolatte </h1>
 	</div>
 	<div class="menu" id="titolo_mobile">
@@ -92,18 +92,19 @@
 	</div>
 </div>
 <div id="percorso">
-	<p>Ti trovi in: Contatti</p>
+	<p  tabindex="14" >Ti trovi in: Contatti</p>
 </div>
 <div id="contenutoPagina-contatti" class="contenutogenerale">
 	<div class="flex-contatti" id="box">
-		<iframe id="mappa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22443.421582594376!2d10.572727529212067!3d45.31998517325374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781c722eea8dd5d%3A0xc384123efe3a9f44!2sOrolatte%20Pasticceria%20Gelateria%20Caff%C3%A8!5e0!3m2!1sit!2sit!4v1608072328104!5m2!1sit!2sit" ></iframe>
+		<iframe id="mappa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22443.421582594376!2d10.572727529212067!3d45.31998517325374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781c722eea8dd5d%3A0xc384123efe3a9f44!2sOrolatte%20Pasticceria%20Gelateria%20Caff%C3%A8!5e0!3m2!1sit!2sit!4v1608072328104!5m2!1sit!2sit" tabindex="-1"></iframe>
+		<!-- per rendere piu accessibile il sito la mappa (visto che è un iframe) viene messa con tabindex -1 e dunque non viene letta dallo screenreader, non viene letta perchè la mappa ha uno scopo più stilistico che informativo, visto che l'informazione di dove è situata la gelateria è nella sezione di fianco alla mappa, cioè la descrizione dell'indirizzo.-->
 	</div>
 	<div class="flex-contatti" id="contatti">
-		<h2>Contatti</h2>	
+		<h2 tabindex="14">Contatti</h2>	
 		<ul>
-			<li><span class="grassetto maiuscolo"> Tel:</span> 347 792 6494</li>
-			<li><span class="grassetto maiuscolo">Indicazioni:</span> Via Matteotti 7, Guidizzolo (92,83 km) 46040 Guidizzolo, Lombardia</li>
-			<li><span class="grassetto maiuscolo">Facebook:</span><a href="https://it-it.facebook.com/OrolatteGelateriaCafe/"> OrolatteGelateriaCaffè </a></li>
+			<li tabindex="15"><span class="grassetto maiuscolo"> Tel:</span> 347 792 6494</li>
+			<li tabindex="16"><span class="grassetto maiuscolo">Indicazioni:</span> Via Matteotti 7, Guidizzolo (92,83 km) 46040 Guidizzolo, Lombardia</li>
+			<li tabindex="17"><span class="grassetto maiuscolo">Facebook:</span><a href="https://it-it.facebook.com/OrolatteGelateriaCafe/" tabindex="18"> OrolatteGelateriaCaffè </a></li>
 		</ul>
 	</div>
 </div>
@@ -113,7 +114,7 @@
 <div id="footer">
 	<img id="imgvalidcode" src="img/valid-xhtml10.png" alt="" />
   	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
-  	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
+  	<p tabindex="19">Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
 </div>
 </body>
 </html>

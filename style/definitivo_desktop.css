@@ -874,9 +874,6 @@ h2{
 #mappa{
   border: 2px solid CYAN;
   width: 100%;
-  frameborder :0; 
-  aria-hidden : false; 
-  tabindex: -1 ; /*per rendere piu accessibile il sito la mappa (visto che è un iframe) viene messa con tabindex -1 e dunque non viene letta dallo screenreader, non viene letta perchè la mappa ha uno scopo più stilistico che informativo, visto che l'informazione di dove è situata la gelateria è nella sezione di fianco alla mappa, cioè la descrizione dell'indirizzo.*/
   border-radius: 0.5em;
 }
 
