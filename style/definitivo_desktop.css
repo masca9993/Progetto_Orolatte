@@ -191,7 +191,7 @@ a:visited{
 	margin: 1em;
 	overflow: hidden;
 }
-/*
+
 button {
 	background-color: #0FF;
 	border: 2px solid #FFF;
@@ -205,7 +205,7 @@ button {
 	margin: 1em;
 	transition-duration: 0.4s;
 }
-*/
+
 a:hover > button {
 	color: #000;
 	cursor: pointer;

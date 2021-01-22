@@ -39,7 +39,7 @@ public function getListaProdotti_Carrello($email) {
       while($riga = mysqli_fetch_assoc($queryResult)) {
         $prodotto = array(
           "nome_item" => $riga['nome_item'],
-          "quantita" =>  $riga['quantita'],
+          "quantità" =>  $riga['quantità'],
           "prezzo" =>  $riga['prezzo'],
         );
         

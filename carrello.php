@@ -35,7 +35,7 @@ else {
 			$dlProdotti = '<ul id="Prodotti">';
 			
 			foreach ($listaProdotti as $prodotto) {
-				$dlProdotti .= '<li><p>' . $prodotto['nome_item'] . " " . $prodotto['quantita'] . $prodotto['prezzo'] . "<a href=''><button class='delete'>Rimuovi</button></a></p></li>";	
+				$dlProdotti .= '<li><p>' . $prodotto['nome_item'] . " " . $prodotto['quantità'] . " " . $prodotto['prezzo'] . "&euro;" . "<a href=''><button class='delete'>Rimuovi</button></a></p></li>";	
 			}
 			
 			$dlProdotti = $dlProdotti . "</ul>";
@@ -58,7 +58,7 @@ else {
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
 		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
-		$stringaPulsanteOrdine = "<a href=''><button id='ordina'>Procedi all'ordine</button></a>";
+		$stringaPulsanteOrdine = "<a href=''><button class='standard' id='ordina'>Procedi all'ordine</button></a>";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
