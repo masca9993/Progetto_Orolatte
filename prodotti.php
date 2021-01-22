@@ -89,7 +89,7 @@ else{
 		$paginaHTML=str_replace("<titolo/>", "<h2 tabindex='".++$tabindex."' >Modifica Prodotti</h2>", $paginaHTML);
 	}
 	else{
-		$intestazione="<h2 id='inizio'  tabindex='".++$tabindex."' >I Nostri Prodotti</h2>";
+		$intestazione="<h2 id='inizio' accesskey='c'  tabindex='".++$tabindex."' >I Nostri Prodotti</h2>";
 		$intestazione.='<div id="filtri">
 		<form method="post" action="prodotti.php">
 		<p  tabindex="'.++$tabindex.'" > Applica filtri:';
@@ -273,7 +273,7 @@ if (isset($_POST["meno"])){
 		$dbAccess->openDBConnection();
 		$listaProdotti = $dbAccess->getListaProdotti_Carrello($_SESSION["email"]);
 		$shopping_cart = '<div id="carrello-prodotti">
-  							<h2 tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';		
+  							<h2 accesskey="s" tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';		
 		$dbAccess->closeDBConnection();
 		$totale=0;
 
@@ -311,7 +311,7 @@ $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 	else if (!isset($_SESSION["admin"])) {
 
 		$shopping_cart = '<div id="carrello-prodotti">
-  							<h2 tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';
+  							<h2 accesskey="s" tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';
   		if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false){
 			$shopping_cart .= "<p tabindex='".++$tabindex."'>Non hai effettuato il login! Per aggiungere prodotti al carrello </br> <a href='login.php' tabindex='".++$tabindex."'>Accedi</a></p>";
   		} 
