@@ -20,7 +20,7 @@ $categoria="";
 
 
 
-$tabindex=14;
+$tabindex=15;
 if($connessioneRiuscita == false){
   die("Errore nell'apertura del DB");
 }
@@ -62,7 +62,7 @@ else{
 	  </div>
 	  <div class="row">
 	   <label for="prezzo" tabindex="'.++$tabindex.'" >Prezzo:</label>
-	   <input type="text" name="prezzo" id="prezzo"  tabindex="'.++$tabindex.'" required/>
+	   <input type="number" name="prezzo" id="prezzo" tabindex="'.++$tabindex.'" required/>
 	  </div>
 	   <div class="row">
 	   <label for="nome_category" tabindex="'.++$tabindex.'" >Categoria:</label>
@@ -89,7 +89,7 @@ else{
 		$paginaHTML=str_replace("<titolo/>", "<h2 tabindex='".++$tabindex."' >Modifica Prodotti</h2>", $paginaHTML);
 	}
 	else{
-		$intestazione="<h2 id='inizio' accesskey='c'  tabindex='".++$tabindex."' >I Nostri Prodotti</h2>";
+		$intestazione="<h2 id='inizio' accesskey='c' tabindex='".++$tabindex."' >I Nostri Prodotti</h2>";
 		$intestazione.='<div id="filtri">
 		<form method="post" action="prodotti.php">
 		<p  tabindex="'.++$tabindex.'" > Applica filtri:';
@@ -126,7 +126,7 @@ else{
 			$definitionListProdotti.='<div class="flex"><dl id="prodotti"><dt tabindex="'.++$tabindex.'">'.$prodotto['nome'];
 			$definitionListProdotti.='</dt>';
 			$definitionListProdotti.='<dd>';
-			$definitionListProdotti.='<img tabindex="'.++$tabindex.'"  src="'.$prodotto['immagine'].'" alt="'.$prodotto['alt'].'"/>';
+			$definitionListProdotti.='<img tabindex="'.++$tabindex.'" src="'.$prodotto['immagine'].'" alt="'.$prodotto['alt'].'"/>';
 			if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
 				$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
@@ -234,7 +234,7 @@ if (isset($_POST["rimuovi"])){
 
 if (isset($_POST["aggiungi"])){
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false){
-		$strerrore="<p id='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php' role='button'>Accedi Qui</a></p>";
+		$strerrore="<p id='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php' role='button'>accedi qui</a></p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
@@ -272,7 +272,7 @@ if (isset($_POST["meno"])){
 
 		$dbAccess->openDBConnection();
 		$listaProdotti = $dbAccess->getListaProdotti_Carrello($_SESSION["email"]);
-		$shopping_cart = '<div id="carrello-prodotti">
+		$shopping_cart = '<div id="carrello-prodotti" >
   							<h2 accesskey="s" tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';		
 		$dbAccess->closeDBConnection();
 		$totale=0;
@@ -294,7 +294,7 @@ if (isset($_POST["meno"])){
 			}
 			$shopping_cart.='</ul>
 			<div id="riepilogo" >
-			<p>Totale: ' .$totale.'&euro; </p>
+			<p>Totale: ' .$totale.' </p>
   </div>
   <div id="concludi">
     <a>
@@ -303,7 +303,7 @@ if (isset($_POST["meno"])){
 	';
 		}
 		else {
-			$shopping_cart .= '<p "'.++$tabindex.'">Nessun prodotto nel carrello</p><div id="nascondi"></div>';
+			$shopping_cart .= '<p>Nessun prodotto nel carrello</p><div id="nascondi"></div>';
 	   	}
 		$shopping_cart.='</div>';
 $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
@@ -313,8 +313,8 @@ $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 		$shopping_cart = '<div id="carrello-prodotti">
   							<h2 accesskey="s" tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';
   		if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false){
-			$shopping_cart .= "<p tabindex='".++$tabindex."'>Non hai effettuato il login! Per aggiungere prodotti al carrello </br> <a href='login.php' tabindex='".++$tabindex."'>Accedi</a></p>";
-  		} 
+			$shopping_cart .= "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
+  		}
 		$shopping_cart.='</div>';
 		$paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 	}
@@ -323,14 +323,14 @@ $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 	$stringaLogin = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
-		$stringaLogin .= "<a href='login.php' tabindex='11'>LOGIN</a>\n";
+		$stringaLogin .= "<a href='login.php' tabindex='12'>LOGIN</a>\n";
 	}
 	else {
-		$stringaLogin .= "<p class='det_log' tabindex='11'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<p class='det_log' tabindex='12'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
-		$stringaLogin .= "\t\t<a href='logout.php' role='button' tabindex='12'>LOGOUT</a>\n";
+		$stringaLogin .= "\t\t<a href='logout.php' role='button' tabindex='13'>LOGOUT</a>\n";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
