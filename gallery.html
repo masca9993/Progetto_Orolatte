@@ -251,38 +251,6 @@
 	  	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="" />
 	  	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
 	</div>
-
-	<script>
-		//
-		function myFunction() {
-			var x = document.getElementById("Links");
-			if (x.style.display === "block") {
-				x.style.display = "none";
-			}
-			else {
-			   	x.style.display = "block";
-			}
-		}
-		
-		
-		//apre ingrandimento immagine
-		function openModal(id){
-			document.getElementById("myModal").style.display="block";
-			document.getElementById(id).style.display="block";
-			document.getElementById("close").focus();
-		}
-						
-		//chiude ingrandimento immagine
-		function closeModal() {
-			var slides=document.getElementsByClassName("slide");
-			document.getElementById("myModal").style.display = "none";
-			for(var i=0; i < slides.length; i++) {
-				if(slides[i].style.display === "block") {
-					slides[i].style.display = "none";
-				}
-			}
-		}
-	</script>
 	
 </body>
 </html>
