@@ -8,7 +8,3 @@ function menu() {
 	}
 }
 
-function totale(){
-	var v=document.forms["dati"];
-	document.getElementById("riepilogo").innerHTML="<p>Totale: " +v.elements[0].value +" </p>";
-}

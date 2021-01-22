@@ -283,7 +283,7 @@ if (isset($_POST["meno"])){
 			$shopping_cart .= '<ul id="cart">';
 			foreach ($listaProdotti as $prodotto) {
 				$shopping_cart .= '<li>  <p class="item" tabindex="'.++$tabindex.'">' . $prodotto['nome_item'] . '</p>
-        <p class="prz" tabindex="'.++$tabindex.'">' . $prodotto['prezzo'] . '&euro;</p>    
+        <p class="prz" tabindex="'.++$tabindex.'">' . $prodotto['prezzo']*$prodotto['quantità'] . '&euro;</p>    
         <div class="qta">';
 
         $shopping_cart.='<form method="post" action="prodotti.php"><input type="text" id="nome" name="name" value="'.$prodotto['nome_item'].'" />';
@@ -292,11 +292,12 @@ if (isset($_POST["meno"])){
 		$shopping_cart.='<input type="submit" name="aggiungi" tabindex="'.++$tabindex.'" value="+" class="plus"/></form> </div></li>';
 		$totale+=$prodotto['prezzo']*$prodotto['quantità'];
 			}
-			$shopping_cart.='</ul><form id="dati"><input id="nome"  type="text" value="'.$totale.'"/></form>
+			$shopping_cart.='</ul>
 			<div id="riepilogo" >
+			<p>Totale: ' .$totale.'&euro; </p>
   </div>
   <div id="concludi">
-    <a onclick="totale()">
+    <a>
     <p tabindex="'.++$tabindex.'">Vai al Carrello</p> </a>
   </div>
 	';
