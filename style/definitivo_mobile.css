@@ -1,8 +1,10 @@
-/*************HEADER******************************/
+/**************HEADER****************/
 button {
 	background-color: azure;
 	border:none;
 	cursor: pointer;
+	margin:0;
+	padding: 0;
 }
 #menu_1{
 	display:none;
@@ -12,7 +14,7 @@ button {
 	display:none;
 	position: absolute;
 	margin-top: 0;
-	top: 2.2em;
+	top: 3em;
 	left: 0;
 	width: 40%;
 	background-color: cyan;
@@ -25,7 +27,6 @@ button {
 	display: block;
 	padding:0.3em 0em; 
 	text-align: center;
-	width: 100%;
 	border-bottom: 2px solid azure;
 }
 
@@ -41,22 +42,22 @@ button {
 	display:block; 
 	float: left;
 	width: 10%;
+	max-width: 5em;
+	margin-left:0em;
 }
 
 #icona_mobile  img {
 	width: 100%;
-	max-width: 3em;
-	max-height: 3em;
 }
 
 #Links{
 	display: none;
-	background-color: AZURE;
-	border: 2px solid CYAN;
+	background-color: azure;
+	border: 2px solid cyan;
 }
 
 #header{
-	height:3em;
+	max-height:5em;
 }
 
 .menu{
@@ -72,16 +73,23 @@ button {
 	margin:none;
 	padding:none;
 	display: block;
-	width: 50%;
+	width: 100%;
 }
 
 #logo_mobile{
-  max-height: 2.7em;
+  max-height: 5em;
   margin:none;
-	padding:none;
+  padding:none;
+  width:40%;
+}
+
+#logo_mobile img{
+	width: 100%;
 }
 
 #menu_2{
+	margin-top:0.6em;
+	font-size:1.5em;
 	float: right;
 	width: 40%;
 }
@@ -92,9 +100,8 @@ button {
 
 .menu ul li a{
   font-size: 0.8em;
-  max-height: 3em;
+  max-height: 5em;
 }
-
 
 
 

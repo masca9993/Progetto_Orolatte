@@ -64,14 +64,14 @@
 	$stringaErroreLogin = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
-		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
+		$stringaLogin .= "<p>LOGIN</p>\n";
 	}
 	else {
-		$stringaLogin .= "<p> CIAO " . $_SESSION['username'] . "</p>" . "\n";
-		$stringaLogin .= "<img id='stile' src='img/barra_verticale.png' alt=''/>" . "\n";
+		$stringaLogin .= "<p class='det_log' tabindex='11'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
-		$stringaLogin .= "\t\t<a href='logout.php' tabindex='6'>LOGOUT</a>\n";
+		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
 	}
 	if ($erroreLogin == true) {
 		$stringaErroreLogin = "<p class='errors'>Le credenziali inserite non risultano valide</p>";

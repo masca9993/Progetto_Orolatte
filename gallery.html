@@ -13,11 +13,12 @@
 <meta name="keywords" content="gallery" />
 
 <meta name="language" content="italian it" />
-
+<script type="text/javascript" src="javascript.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="style/gallery_desktop.css" media="screen"/> -->
 <link rel="stylesheet" type="text/css" href="style/definitivo_desktop.css" media="screen"/>
 <!-- <link rel="stylesheet" type="text/css" href="style/gallery_mobile.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/> -->
-<link rel="stylesheet" type="text/css" href="style/definitivo_mobile.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/>
+<link rel="stylesheet" type="text/css" href="style/header_tablet.css" media="handheld , screen and (max-width:1024px), only screen and (max-device-width:1024px)" /> 
+	<link rel="stylesheet" type="text/css" href="style/definitivo_mobile.css" media="handheld , screen and (max-width:768px), only screen and (max-device-width:768px)" />
 <link rel="stylesheet" type="text/css" href="style/gallery_stampa.css" media="print"/>
 
 </head>
@@ -27,53 +28,69 @@
 	<div id="header">
 		<ul>
 			<li class="aiutiNascosti"><a href="#menu_1" tabindex="0">vai al menù</a></li>
-			<li class="aiutiNascosti"><a href="contenutogenerale-gallery" tabindex="0">Vai al contenuto</a></li>
+			<li class="aiutiNascosti"><a href="#inizio" tabindex="0">Vai al contenuto</a></li>
 		</ul>
-		<em class="menu" id="icona_mobile">
-			<a onclick="myFunction()" href="#menu_mobile">
-				<img id="stile" src="img/menu.png" alt="menù"/>
-			</a>
-		</em>
-		<em class="menu" id="menu_1">
+		<div class="menu" id="menu_1">
 			<ul>
 				<li>
-					<a href="index.php">HOME</a>
+					<a href="index.php" role="button">HOME</a>
 					<div class="barraVerticale"></div> 
 				</li>
 				<li>
-					<a href="prodotti.php">PRODOTTI</a>
-					<div class="barraVerticale"></div>
+					<a href="prodotti.php" role="button">PRODOTTI</a>
+					<div class="barraVerticale"></div> 
 				</li>
 				<li>
 					<p>GALLERY</p>
 					<div class="barraVerticale"></div> 
 				</li>
 				<li>
-					<a href="contatti.php">CONTATTI</a>
+					<a href="contatti.php" role="button">CONTATTI</a>
 				</li>
 			</ul>
-		</em>
-		<em class="menu" id="menu_2">
+		</div>
+		<div class="menu" id="icona_mobile">
+			<button onclick="menu()">
+				<img id="stile" src="img/menu.png" alt="menù"/>
+			</button>
+			<div class="menu" id="menu_mobile">
+				<ul>
+					<li>
+						<a href="index.php" role="button">HOME</a>
+					</li>
+					<li>
+						<a href="prodotti.php" role="button"> PRODOTTI</a>
+					</li>
+					<li>
+						<p>GALLERY</p>
+					</li>
+					<li>
+						<a href="contatti.php" role="button">CONTATTI</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu" id="menu_2">
 			<ul>
 				<li>
-					<div id="login"></div>
+					<div id="login" ></div>
 					<ControlloLogin />
 					<div class="barraVerticale"></div>
 				</li>
 				<li>
 					<div id="carrello"></div>
-					<a href="carrello.php">CARRELLO</a>
+					<a href="carrello.php" role="button">CARRELLO</a>
 				</li>
 			</ul>
-		</em>
-		<em id="titolo">
-			<img id="logo" src="img/logo_1.png" alt="Logo"/>
-			<h1> Gelateria Orolatte </h1>
-		</em>
-		<em class="menu" id="titolo_mobile">
+		</div>
+		<div id="titolo">
+			<img id="logo" src="img/logo_1.png" alt="Logo Gelateria Orolatte"/>
+			<h1 > Gelateria Orolatte </h1>
+		</div>
+		<div class="menu" id="titolo_mobile">
 			<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
 			<h1> Gelateria Orolatte </h1>
-		</em>
+		</div>
 	</div>
 	
 	<!-- PERCORSO -->

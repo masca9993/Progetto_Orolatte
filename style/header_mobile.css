@@ -1,8 +1,11 @@
 /*************HEADER******************************/
+
 button {
 	background-color: azure;
 	border:none;
 	cursor: pointer;
+	margin:0;
+	padding: 0;
 }
 #menu_1{
 	display:none;
@@ -41,18 +44,17 @@ button {
 	display:block; 
 	float: left;
 	width: 10%;
+	max-width: 3em;
 }
 
 #icona_mobile  img {
 	width: 100%;
-	max-width: 3em;
-	max-height: 3em;
 }
 
 #Links{
 	display: none;
-	background-color: AZURE;
-	border: 2px solid CYAN;
+	background-color: azure;
+	border: 2px solid cyan;
 }
 
 #header{
