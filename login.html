@@ -98,19 +98,21 @@
 <h2 id='h2login'> LOGIN </h2>
 
 <form class='login' method="post" action="login.php">
-	<div class="form-group">
-		<label for="username"> Inserire il proprio username: </label>
-		<input type="text" id="username" name="username" placeholder="Username" autofocus required>
-	</div>
-	<div class="form-group">
-		<label for="password"> Inserire la propria password: </label>
-		<input type="password" id="password" name="password" placeholder="Password" required>
-		<ErroreLogin />
-	</div>
-	<div class="form-group">
-		<input type="submit" name="submit" value="Accedi">
-		<input type="reset" name="reset" value="Cancella">
-	</div>
+	<fieldset>
+		<div class="form-group">
+			<label for="username"> Inserire il proprio username: </label>
+			<input type="text" id="username" name="username" placeholder="Username" autofocus required />
+		</div>
+		<div class="form-group">
+			<label for="password"> Inserire la propria password: </label>
+			<input type="password" id="password" name="password" placeholder="Password" required />
+			<ErroreLogin />
+		</div>
+		<div class="form-group">
+			<input type="submit" name="submit" value="Accedi" />
+			<input type="reset" name="reset" value="Cancella" />
+		</div>
+	</fieldset>
 </form>
 
 <div id="signup-link">
