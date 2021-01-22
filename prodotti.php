@@ -126,7 +126,7 @@ else{
 			$definitionListProdotti.='<div class="flex"><dl id="prodotti"><dt tabindex="'.++$tabindex.'">'.$prodotto['nome'];
 			$definitionListProdotti.='</dt>';
 			$definitionListProdotti.='<dd>';
-			$definitionListProdotti.='<img tabindex="'.++$tabindex.'"  src="'.$prodotto['immagine'].'"/>';
+			$definitionListProdotti.='<img tabindex="'.++$tabindex.'"  src="'.$prodotto['immagine'].'" alt="'.$prodotto['alt'].'"/>';
 			if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
 				$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" id="nome" name="name" value="'.$prodotto['nome'].'" />';
