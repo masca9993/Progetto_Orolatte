@@ -283,7 +283,12 @@ p.success-message {
 }
 
 #signup-link {
+	text-align: center;
 	margin: 2em 1em 1em 2em;
+}
+
+.login {
+	text-align: center;
 }
 
 .login input[type=submit] {
