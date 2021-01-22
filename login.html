@@ -12,9 +12,11 @@
 	<meta name="author" content="Luca Biasotto, Nicla Faccioli" />
 	<meta name="language" content="italian it" />
 
+	<script type="text/javascript" src="javascript.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/definitivo_desktop.css" media="screen"/>
 	<!-- <link rel="stylesheet" type="text/css" href="style/login_desktop.css" media="screen"/> -->
-	<link rel="stylesheet" type="text/css" href="style/definitivo_mobile.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="style/header_tablet.css" media="handheld , screen and (max-width:1024px), only screen and (max-device-width:1024px)" /> 
+	<link rel="stylesheet" type="text/css" href="style/definitivo_mobile.css" media="handheld , screen and (max-width:768px), only screen and (max-device-width:768px)" />
 
 </head>
 
@@ -22,55 +24,71 @@
 <body>
 
 <div id="header">
-	<ul>
-		<li class="aiutiNascosti"><a href="#menu_1">vai al menù</a></li>
-		<li class="aiutiNascosti"><a href="contenutoPagina">Vai al contenuto</a></li>
-	</ul>
-	<em class="menu" id="icona_mobile">
-		<a onclick="myFunction()" href="#menu_mobile">
-			<img id="stile" src="img/menu.png" alt="menù"/>
-		</a>
-	</em>
-	<em class="menu" id="menu_1">
-		<ul>
-			<li>
-				<a href="index.php" >HOME</a>
-				<img id="stile" src="img/barra_verticale.png" alt=""/> 
-			</li>
-			<li>
-				<a href="prodotti.php">PRODOTTI</a>
-				<img id="stile" src="img/barra_verticale.png" alt=""/> 
-			</li>
-			<li>
-				<a href="gallery.php">GALLERY</a>
-				<img id="stile" src="img/barra_verticale.png" alt=""/> 
-			</li>
-			<li>
-				<a href="contatti.php">CONTATTI</a>
-			</li>
-		</ul>
-	</em>
-	<em class="menu" id="menu_2">
-		<ul>
-			<li>
-				<img id="stile" src="img/login.png" alt=""/>
-				<ControlloLogin />
-				<img id="stile" src="img/barra_verticale.png" alt=""/>
-			</li>
-			<li>
-				<img id="stile" src="img/carrello.png" alt=""/>
-				<a href="carrello.php">CARRELLO</a>
-			</li>
-		</ul>
-	</em>
-	<em id="titolo">
-		<img id="logo" src="img/logo_1.png" alt="Logo"/>
-		<h1> Gelateria Orolatte </h1>
-	</em>
-	<em class="menu" id="titolo_mobile">
-		<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
-		<h1> Gelateria Orolatte </h1>
-	</em>
+  <ul>
+    <li class="aiutiNascosti" tabindex="2"><a href="#menu_1">vai al menù</a></li>
+    <li class="aiutiNascosti" tabindex="3"><a href="#inizio">Vai al contenuto</a></li>
+  </ul>
+  <div class="menu" id="menu_1">
+    <ul>
+    <li>
+      <a href="index.php" role="button" tabindex="4" >HOME</a>
+      <div class="barraVerticale"></div> 
+    </li>
+    <li>
+      <a href="prodotti.php" role="button" tabindex="5">PRODOTTI</a>
+      <div class="barraVerticale"></div> 
+    </li>
+    <li>
+      <a href="gallery.php" role="button" tabindex="5">GALLERY</a>
+      <div class="barraVerticale"></div> 
+    </li>
+    <li>
+      <a href="contatti.php" role="button" tabindex="6">CONTATTI</a>
+    </li>
+    </ul>
+  </div>
+  <div class="menu" id="icona_mobile">
+    <button onclick="menu()" tabindex="7">
+      <img id="stile" src="img/menu.png" alt="menù"/>
+    </button>
+    <div class="menu" id="menu_mobile">
+      <ul>
+        <li>
+          <a href="index.php" role="button" tabindex="8" >HOME</a>
+        </li>
+        <li>
+          <a href="prodotti.php" role="button" tabindex="5">PRODOTTI</a>
+        </li>
+        <li>
+          <a href="gallery.php" role="button" tabindex="9">GALLERY</a>
+        </li>
+        <li>
+         <a href="contatti.php" role="button" tabindex="10">CONTATTI</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="menu" id="menu_2">
+  <ul>
+    <li>
+      <div id="login" ></div>
+      <ControlloLogin />
+      <div class="barraVerticale"></div>
+    </li>
+    <li>
+      <div id="carrello"></div>
+      <a href="carrello.php" role="button" tabindex="13">CARRELLO</a>
+    </li>
+ </ul>
+  </div>
+  <div id="titolo">
+    <img tabindex="1" id="logo" src="img/logo_1.png" alt="Logo Gelateria Orolatte"/>
+     <h1 > Gelateria Orolatte </h1>
+  </div>
+  <div class="menu" id="titolo_mobile">
+    <img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
+    <h1> Gelateria Orolatte </h1>
+  </div>
 </div>
 
 <div id="percorso">
