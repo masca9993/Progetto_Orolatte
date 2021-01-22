@@ -234,7 +234,7 @@ if (isset($_POST["rimuovi"])){
 
 if (isset($_POST["aggiungi"])){
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false){
-		$strerrore="<p id='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php' role='button'>accedi qui</a></p>";
+		$strerrore="<p id='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php' role='button'>Accedi Qui</a></p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
@@ -302,7 +302,7 @@ if (isset($_POST["meno"])){
 	';
 		}
 		else {
-			$shopping_cart .= '<p>Nessun prodotto nel carrello</p><div id="nascondi"></div>';
+			$shopping_cart .= '<p "'.++$tabindex.'">Nessun prodotto nel carrello</p><div id="nascondi"></div>';
 	   	}
 		$shopping_cart.='</div>';
 $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
@@ -312,8 +312,8 @@ $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 		$shopping_cart = '<div id="carrello-prodotti">
   							<h2 tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';
   		if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false){
-			$shopping_cart .= "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
-  		}
+			$shopping_cart .= "<p tabindex='".++$tabindex."'>Non hai effettuato il login! Per aggiungere prodotti al carrello </br> <a href='login.php' tabindex='".++$tabindex."'>Accedi</a></p>";
+  		} 
 		$shopping_cart.='</div>';
 		$paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 	}

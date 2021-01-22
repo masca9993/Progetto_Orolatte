@@ -530,7 +530,7 @@ p.errors {
 	font-size: 0.9em;
 }
 
-#errore_aggiunta a{
+#errore_aggiunta a, #carrello-prodotti p a{
 	cursor: pointer;
 	font-weight: bold;
 	background-color: #0FF;
@@ -546,7 +546,7 @@ p.errors {
 	transition-duration: 0.4s;
 }
 
-#errore_aggiunta a:hover{
+#errore_aggiunta a:hover, #carrello-prodotti p a:hover{
 	background-color: white;
 	border-color: cyan;
 }
