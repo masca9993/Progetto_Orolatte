@@ -1,10 +1,8 @@
-accessibilita
-relazione
-
-unificare css
-seprazione php e gestione header
 Aggiungere funzioni a pulsanti in carrello
 immagini stile --> non id ma class
 sistemare head html
 rimuovere php debug
-abbastanza javascript?
+Tabindex
+Screen reader
+Validazione codice
+Contrasto

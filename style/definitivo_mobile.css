@@ -182,3 +182,16 @@ h2{
 	width: 100%;
 	
 }
+
+
+
+
+#top {
+	flex-flow: row wrap;
+}
+#bottom {
+	flex-flow: row wrap;
+}
+
+
+
