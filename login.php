@@ -71,7 +71,7 @@
 		$stringaLogin .= "<img id='stile' src='img/barra_verticale.png' alt=''/>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
-		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
+		$stringaLogin .= "\t\t<a href='logout.php' tabindex='6'>LOGOUT</a>\n";
 	}
 	if ($erroreLogin == true) {
 		$stringaErroreLogin = "<p class='errors'>Le credenziali inserite non risultano valide</p>";
