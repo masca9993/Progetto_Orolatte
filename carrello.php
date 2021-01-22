@@ -35,7 +35,7 @@ else {
 			$dlProdotti = '<ul id="Prodotti">';
 			
 			foreach ($listaProdotti as $prodotto) {
-				$dlProdotti .= '<li><p>' . $prodotto['nome_item'] . " " . $prodotto['grandezza'] . "<a href=''><button class='delete'>Rimuovi</button></a></p></li>";	
+				$dlProdotti .= '<li><p>' . $prodotto['nome_item'] . " " . $prodotto['quantita'] . $prodotto['prezzo'] . "<a href=''><button class='delete'>Rimuovi</button></a></p></li>";	
 			}
 			
 			$dlProdotti = $dlProdotti . "</ul>";
