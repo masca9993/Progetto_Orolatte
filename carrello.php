@@ -39,12 +39,14 @@ else {
 									<div class="qta_carr"> 
 									<p>
 									<form method="post" action="carrello.php" >
-									<input type="text" id="nome" name="name" value="'.$prodotto['nome_item'].'"/>
-									<input type="submit" name="meno" value="-" class="minus"/></form> 
+									<fieldset class="no_colore">
+									<input type="text" class="nome" name="name" value="'.$prodotto['nome_item'].'"/>
+									<input type="submit" name="meno" value="-" class="minus"/></fieldset></form> 
 									<p class="qt_carr">'.$prodotto['quantità'].'</p>
         							<form method="post" action="carrello.php">
-        							<input type="text" id="nome" name="name" value="'.$prodotto['nome_item'].'"/>
-        							<input type="submit" name="aggiungi" value="+"" class="plus"/></form></div></p>
+        							<fieldset class="no_colore">
+        							<input type="text" class="nome" name="name" value="'.$prodotto['nome_item'].'"/>
+        							<input type="submit" name="aggiungi" value="+"" class="plus"/></fieldset></form></div></p>
 									<p class="pz_carr">'. $prodotto['prezzo']*$prodotto['quantità'] .'&euro; </p>
 					<p><form method="post" action="carrello.php"><fieldset class="no_colore">
 					<input type="text" name="name" value="'.$prodotto['nome_item'].'" class="nascondi"/>
@@ -72,7 +74,7 @@ else {
 	}
 	else {
 		$stringaLogin .= "<p class='det_log ciao' tabindex='11'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
-		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
+		$stringaLogin .= "<div class='barraVerticale det_log' ></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
 		$stringaLogin .= "\t\t<a href='logout.php' xml:lang='en'>LOGOUT</a>\n";

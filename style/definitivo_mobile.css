@@ -121,15 +121,15 @@ h2{
 	font-size: 1em;
 }
 
-#carrello-prodotti{
+.carrello-prodotti{
 	display: none;
 }
 
 
-#errore_aggiunta{
+.errore_aggiunta{
 	font-size: 0.8em;
 }
-#errore_aggiunta a{
+.errore_aggiunta a{
 	font-size: 0.8em;
 }
 
