@@ -8,8 +8,12 @@ function menu() {
 	}
 }
 
+//specifiche di gallery
+var focused;
+
 //apre ingrandimento immagine
 function openModal(id){
+	focused = document.activeElement;
 	document.getElementById("myModal").style.display="block";
 	document.getElementById(id).style.display="block";
 	document.getElementById("close").focus();
@@ -24,4 +28,5 @@ function closeModal() {
 			slides[i].style.display = "none";
 		}
 	}
+	focused.focus();
 }
