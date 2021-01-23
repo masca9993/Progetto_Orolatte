@@ -22,7 +22,7 @@
 
 	$username = "";
 	$password = "";
-	$erroreLogin = false;
+	$stringaErroreLogin = "";
 
 	if (isset($_POST["submit"])) {
 		$username = mysqli_real_escape_string($con, $_POST["username"]);
@@ -49,7 +49,7 @@
 
 			header("location: index.php");
 		} else {
-			$erroreLogin = true;
+			$stringaErroreLogin = "<p class='errors'>Le credenziali inserite non risultano valide</p>";
 		}
 	}
 
@@ -61,7 +61,6 @@
 	mysqli_close($con);
 
 	$stringaLogin = "";
-	$stringaErroreLogin = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 		$stringaLogin .= "<p>LOGIN</p>\n";
@@ -72,9 +71,6 @@
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
 		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
-	}
-	if ($erroreLogin == true) {
-		$stringaErroreLogin = "<p class='errors'>Le credenziali inserite non risultano valide</p>";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
