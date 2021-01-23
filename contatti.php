@@ -14,7 +14,7 @@
 		$stringaLogin .= "<a href='login.php'  tabindex='11' >LOGIN</a>\n";
 	}
 	else {
-		$stringaLogin .= "<p class='det_log'  tabindex='11' > CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<p class='det_log ciao'  tabindex='11' > CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<img class='det_log' id='stile' src='img/barra_verticale.png' alt=''/>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";

@@ -64,6 +64,10 @@ button {
 	display: none;
 }
 
+p.det_log.ciao{
+	display: none;
+}
+
 
 .menu ul li a{
   font-size: 0.8em;

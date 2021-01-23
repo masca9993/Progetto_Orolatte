@@ -183,8 +183,33 @@ h2{
 	
 }
 
+.text-container {
+	border: 1px solid #0FF;
+	border-radius: 8px;
+	background-color: #FFF;
+	margin: 0.2em 0.2em 0.2em 0.2em;
+	padding: none;
+	max-height: none;
+	width: 45em;
+}
 
+.image-container {
+	height: 15em;
+	width: 45em;
+	/*width: auto;
+	margin: auto 0.2em auto 0.2em;*/
+	margin: 0em;
+	padding:0em;
+}
 
+#mid .text-container{
+	width: 28em;
+}
+
+#top {
+	margin: 1em;
+	padding: 0em;
+}
 
 #top {
 	flex-flow: row wrap;

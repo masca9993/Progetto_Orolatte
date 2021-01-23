@@ -256,7 +256,8 @@ if (isset($_POST["aggiungi"])){
 if (isset($_POST["meno"])){
 	$dbAccess->openDBConnection();
 	$nome=$_POST['name'];
-	$queryResult=$dbAccess->diminuisci($nome);
+	$email=$_SESSION['email'];
+	$queryResult=$dbAccess->diminuisci($nome,$email);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
 		$strerrore="<p id='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
@@ -297,7 +298,7 @@ if (isset($_POST["meno"])){
 			<p>Totale: ' .$totale.' </p>
   </div>
   <div id="concludi">
-    <a>
+    <a href="carrello.php">
     <p tabindex="'.++$tabindex.'">Vai al Carrello</p> </a>
   </div>
 	';
@@ -326,7 +327,7 @@ $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 		$stringaLogin .= "<a href='login.php' tabindex='12'>LOGIN</a>\n";
 	}
 	else {
-		$stringaLogin .= "<p class='det_log' tabindex='12'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<p class='det_log ciao' tabindex='12'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";

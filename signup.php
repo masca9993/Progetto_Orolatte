@@ -84,7 +84,7 @@
 		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
 	}
 	else {
-		$stringaLogin .= "<p class='det_log' tabindex='11'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<p class='det_log ciao' tabindex='11'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";

@@ -159,13 +159,24 @@ public function getListaProdotti_Carrello($email) {
     return $queryResult;
   }
 
-	public function diminuisci($nome){
+	public function diminuisci($nome,$email){
     $escape_dots='carrello.nome_item';
-    $query="DELETE FROM carrello WHERE $escape_dots='".$nome."'LIMIT 1";
+    $query="DELETE FROM carrello WHERE $escape_dots='".$nome."' AND email_user='".$email."' LIMIT 1";
     $queryResult=mysqli_query($this->connection, $query);
     return $queryResult;
   }
-
+  	public function diminuisci_tutto($nome,$email){
+    $escape_dots='carrello.nome_item';
+    $query="DELETE FROM carrello WHERE $escape_dots='".$nome."' AND carrello.email_user='".$email."'";
+    $queryResult=mysqli_query($this->connection, $query);
+    return $queryResult;
+  }
+  public function ordina($email){
+    $escape_dots='carrello.nome_item';
+    $query="DELETE FROM carrello WHERE email_user='".$email."'";
+    $queryResult=mysqli_query($this->connection, $query);
+    return $queryResult;
+  }
 	// inserisce un prodotto nel carrello
 	public function inserisciProdotto($email_user, $nome_item, $grandezza) {
 		$queryInserimento= "INSERT INTO carrello(email_user, nome_item, grandezza) VALUES (\"$email_user\", \"$nome_item\", \"$grandezza\")";
