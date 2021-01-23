@@ -24,6 +24,10 @@
 	$email_taken = false;
 	$username_taken = false;
 	$signup_successful = false;
+	$stringaErroreEmail = "";
+	$stringaErroreUsername = "";
+	$stringaErrorePassword = "";
+	$stringaSuccessoRegistrazione = "";
 
 	if (isset($_POST["submit"])) {
 		$username = mysqli_real_escape_string($con, $_POST["username"]);
@@ -33,6 +37,7 @@
 
 		if ($password_1 != $password_2) {
 			$different_passwords = true;
+			$stringaErrorePassword = "<p class='errors'>Le password inserite non coincidono</p>";
 		}
 
 		$user_check_query = "SELECT email, username FROM user WHERE email='$email' OR username='$username' LIMIT 1;";
@@ -45,9 +50,11 @@
 			if ($row) {
 				if ($row["email"] == $email) {
 					$email_taken = true;
+					$stringaErroreEmail = "<p class='errors'>Esiste gi&agrave; un utente con questo indirizzo email</p>";
 				}
 				if ($row["username"] == $username) {
 					$username_taken = true;
+					$stringaErroreUsername = "<p class='errors'>Esiste gi&agrave; un utente con questo username</p>";
 				}
 			}
 		}
@@ -59,6 +66,7 @@
 			mysqli_query($con, $query);
 
 			$signup_successful = true;
+			$stringaSuccessoRegistrazione = "<p class='success-message'>La registrazione &egrave; andata a buon fine!</p>";
 		}
 	}
 
@@ -75,10 +83,6 @@
 	$paginaHTML = file_get_contents('signup.html');
 
 	$stringaLogin = "";
-	$stringaErroreEmail = "";
-	$stringaErroreUsername = "";
-	$stringaErrorePassword = "";
-	$stringaSuccessoRegistrazione = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
 		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
@@ -89,19 +93,6 @@
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
 		$stringaLogin .= "\t\t<a href='logout.php' role='button' tabindex='12'>LOGOUT</a>\n";
-	}
-
-	if ($email_taken == true) {
-		$stringaErroreEmail = "<p class='errors'>Esiste gi&agrave; un utente con questo indirizzo email</p>";
-	}
-	if ($username_taken == true) {
-		$stringaErroreUsername = "<p class='errors'>Esiste gi&agrave; un utente con questo username</p>";
-	}
-	if ($different_passwords == true) {
-		$stringaErrorePassword = "<p class='errors'>Le password inserite non coincidono</p>";
-	}
-	if ($signup_successful == true) {
-		$stringaSuccessoRegistrazione = "<p class='success-message'>La registrazione &egrave; andata a buon fine!</p>";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
