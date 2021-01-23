@@ -31,66 +31,66 @@
 		<li class="aiutiNascosti"><a href="#contenutoPagina-contatti"  tabindex="3" >Vai al contenuto</a></li>
 	</ul>
 	<div class="menu" id="menu_1">
-		<ul>
-			<li>
-				<a href="index.php"  tabindex="4" xml:lang="en">HOME</a>
-				<img id="stile" src="img/barra_verticale.png" alt=""/> 
-			</li>
-			<li>
-				<a href="prodotti.php"  tabindex="5" >PRODOTTI</a>
-				<img id="stile" src="img/barra_verticale.png" alt=""/> 
-			</li>
-			<li>
-				<a href="gallery.php"  tabindex="6" xml:lang="en">GALLERY</a>
-				<img id="stile" src="img/barra_verticale.png" alt=""/> 
-			</li>
-			<li>
-				<p>CONTATTI</p>
-			</li>
-		</ul>
-	</div>
-	<div  class="menu" id="icona_mobile">
-		<button  tabindex="7" onclick="menu()">
-			<img id="stile" src="img/menu.png" alt="menù"/>
-		</button>
-		<div class="menu" id="menu_mobile">
-			<ul>
-				<li>
-					<a href="index.php"  tabindex="8" xml:lang="en">HOME</a> 
-				</li>
-				<li>
-					<a href="prodotti.php" tabindex="9" >PRODOTTI</a>
-				</li>
-				<li>
-					<a href="gallery.php" tabindex="10" xml:lang="en">GALLERY</a>
-				</li>
-				<li>
-					<p>CONTATTI</p>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="menu" id="menu_2">
-		<ul>
-			<li>
-				<div id="login" ></div>
-				<ControlloLogin />
-				<img id="stile" src="img/barra_verticale.png" alt=""/>
-			</li>
-			<li>
-				<div id="carrello"></div>
-				<a href="carrello.php"  tabindex="13" >CARRELLO</a>
-			</li>
-		</ul>
-	</div>
-	<div id="titolo">
-		<img id="logo" tabindex="1" src="img/logo_1.png" alt="Logo Gelateria Orolatte"/>
-		<h1> Gelateria Orolatte </h1>
-	</div>
-	<div class="menu" id="titolo_mobile">
-		<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
-		<h1> Gelateria Orolatte </h1>
-	</div>
+    <ul>
+    <li>
+      <a href="index.php" role="button" tabindex="4" xml:lang="en" >HOME</a>
+      <div class="barraVerticale"></div> 
+    </li>
+    <li>
+      <a href="prodotti.php" role="button" tabindex="5">PRODOTTI</a>
+      <div class="barraVerticale"></div> 
+    </li>
+    <li>
+      <a href="gallery.php" role="button" tabindex="5" xml:lang="en">GALLERY</a>
+      <div class="barraVerticale"></div> 
+    </li>
+    <li>
+      <p>CONTATTI</p>
+    </li>
+    </ul>
+  </div>
+  <div class="menu" id="icona_mobile">
+    <button onclick="menu()" tabindex="7">
+      <img  src="img/menu.png" alt="menù"/>
+    </button>
+    <div class="menu" id="menu_mobile">
+      <ul>
+        <li>
+          <a href="index.php" role="button" tabindex="8" xml:lang="en">HOME</a>
+        </li>
+        <li>
+          <a href="prodotti.php" role="button" tabindex="5">PRODOTTI</a>
+        </li>
+        <li>
+          <a href="gallery.php" role="button" tabindex="9" xml:lang="en">GALLERY</a>
+        </li>
+        <li>
+         <p>CONTATTI</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="menu" id="menu_2">
+  <ul>
+    <li>
+      <div id="login" ></div>
+      <ControlloLogin />
+      <div class="barraVerticale"></div>
+    </li>
+    <li>
+      <div id="carrello"></div>
+      <a href="carrello.php" role="button">CARRELLO</a>
+    </li>
+ </ul>
+  </div>
+  <div id="titolo">
+    <img tabindex="1" id="logo" src="img/logo_1.png" alt="Logo Gelateria Orolatte"/>
+     <h1 > Gelateria Orolatte </h1>
+  </div>
+  <div class="menu" id="titolo_mobile">
+    <img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
+    <h1> Gelateria Orolatte </h1>
+  </div>
 </div>
 <div id="percorso">
 	<p  tabindex="14" >Ti trovi in: Contatti</p>
