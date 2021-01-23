@@ -1,7 +1,5 @@
-Aggiungere funzioni a pulsanti in carrello
 immagini stile --> non id ma class
 sistemare head html
-rimuovere php debug
 Tabindex
 Screen reader
 Validazione codice
