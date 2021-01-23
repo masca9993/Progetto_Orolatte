@@ -249,6 +249,7 @@ if (isset($_POST["aggiungi"])){
 		else{
 		$strerrore="<p id='successo_aggiunta'>".$nome." AGGIUNTO AL CARRELLO CON SUCCESSO</p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+		header("Refresh:5");
 		}
 	}
 }
@@ -298,7 +299,7 @@ if (isset($_POST["meno"])){
 			<p>Totale: ' .$totale.' </p>
   </div>
   <div id="concludi">
-    <a href="carrello.php">
+    <a href="carrello.php" role="button">
     <p tabindex="'.++$tabindex.'">Vai al Carrello</p> </a>
   </div>
 	';

@@ -58,7 +58,10 @@ else {
 			}
 			$dlProdotti.="<li><p class='grassetto'>TOTALE: ".$totale." &euro;";
 			$dlProdotti = $dlProdotti . "</ul>";
-			
+			$stringaPulsanteOrdine = "<form method='post' action='carrello.php'><fieldset class='no_colore'>
+					<input type='submit' name='ordina' class='standard' value='Ordina subito'/>
+					</fieldset></form>";
+			$paginaHTML = str_replace("<ProcediAllordine />", $stringaPulsanteOrdine, $paginaHTML);
 		}
 		else {
 			$dlProdotti = "<p>Nessun prodotto nel carrello</p>";
@@ -77,14 +80,10 @@ else {
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
 		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
-		$stringaPulsanteOrdine = "<form method='post' action='carrello.php'><fieldset class='no_colore'>
-					<input type='submit' name='ordina' class='standard' value='Ordina subito'/>
-					</fieldset></form>";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
 	$paginaHTML = str_replace("<listaProdotti />", $dlProdotti, $paginaHTML);	//tag da aggiungere nella zona carrello
-	$paginaHTML = str_replace("<ProcediAllordine />", $stringaPulsanteOrdine, $paginaHTML);	//tag da aggiungere nella zona carrello
 }
 
 if (isset($_POST["rimuovi"])){
@@ -118,6 +117,33 @@ if (isset($_POST["ordina"])){
 		header("Refresh:2");
 	}
 }
+if (isset($_POST["aggiungi"])){
+		$dbAccess->openDBConnection();
+		$nome=$_POST['name'];
+		$queryResult=$dbAccess->aggiungi($nome,$_SESSION['email']);
+		$dbAccess->closeDBConnection();
+		if($queryResult==false){
+		$strerrore="<p id='errore_aggiunta'>ERRORE DURANTE L'AGGIUNTA AL CARRELLO, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+		}
+		else{
+			header("Refresh:0");
+		}
+}
 
+if (isset($_POST["meno"])){
+	$dbAccess->openDBConnection();
+	$nome=$_POST['name'];
+	$email=$_SESSION['email'];
+	$queryResult=$dbAccess->diminuisci($nome,$email);
+	$dbAccess->closeDBConnection();
+	if($queryResult==false){
+		$strerrore="<p id='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+	}
+	else{
+		header("Refresh:0");
+	}
+}
 echo $paginaHTML;
 ?>
