@@ -16,7 +16,6 @@ $categoria="";
 
 
 
-$tabindex=15;
 if($connessioneRiuscita == false){
   die("Errore nell'apertura del DB");
 }
@@ -38,33 +37,33 @@ else{
 	{
 			$insert_form='<div id="admin">
 	  <form action="prodotti.php" method="POST" id="admin_form">
-	  <h2  tabindex="'.++$tabindex.'">Inserisci un Nuovo Prodotto</h2>
+	  <h2 >Inserisci un Nuovo Prodotto</h2>
 	    <fieldset>
 	    <div class="row">
-	     <label for="item"  tabindex="'.++$tabindex.'">Nome Prodotto:</label>
-	     <input type="text" name="item" id="item"  tabindex="'.++$tabindex.'" required/>
+	     <label for="item"  >Nome Prodotto:</label>
+	     <input type="text" name="item" id="item"   required/>
 	   </div>
 	   <div class="row">
-	   <label for="descrizione" tabindex="'.++$tabindex.'" >Descrizione:</label>
-	   <textarea name="descrizione" rows="3" class="descrizione" tabindex="'.++$tabindex.'" required></textarea>
+	   <label for="descrizione" >Descrizione:</label>
+	   <textarea name="descrizione" rows="3" class="descrizione" required></textarea>
 	  </div>
 	   <div class="row">
-	   <label for="foto" tabindex="'.++$tabindex.'" >Percorso Foto:</label>
-	   <input type="text" name="foto" id="foto" tabindex="'.++$tabindex.'" required/>
+	   <label for="foto" >Percorso Foto:</label>
+	   <input type="text" name="foto" id="foto"  required/>
 	  </div>
 	  <div class="row">
-	   <label for="alt_foto" tabindex="'.++$tabindex.'" >Descrizione Immagine:</label>
-	  <textarea name="alt_foto" rows="3" id="alt_foto"  tabindex="'.++$tabindex.'" required></textarea>
+	   <label for="alt_foto" >Descrizione Immagine:</label>
+	  <textarea name="alt_foto" rows="3" id="alt_foto"  required></textarea>
 	  </div>
 	  <div class="row">
-	   <label for="prezzo" tabindex="'.++$tabindex.'" >Prezzo:</label>
-	   <input type="number" name="prezzo" class="prezzo" tabindex="'.++$tabindex.'" required/>
+	   <label for="prezzo" >Prezzo:</label>
+	   <input type="number" name="prezzo" class="prezzo"  required/>
 	  </div>
 	   <div class="row">
-	   <label for="nome_category" tabindex="'.++$tabindex.'" >Categoria:</label>
-	   <select name="nome_category" id="nome_category"  tabindex="'.++$tabindex.'" >
-	  <option value="gelato" tabindex="'.++$tabindex.'" >Gelato</option>
-	  <option value="torta" tabindex="'.++$tabindex.'" >Torta</option>
+	   <label for="nome_category"  >Categoria:</label>
+	   <select name="nome_category" id="nome_category"   >
+	  <option value="gelato"  >Gelato</option>
+	  <option value="torta"  >Torta</option>
 	  </select>
 	</div>
 	  <div id="mex">
@@ -73,42 +72,42 @@ else{
 	  <div id="errors">
 	    <errori/>
 	  </div>
-	  <input id="submit" type="submit" name="submit"  tabindex="'.++$tabindex.'" value="Inserisci"/>
-	  <input id="cancella" type="reset" name="submit"  tabindex="'.++$tabindex.'" value="Cancella"/>
+	  <input id="submit" type="submit" name="submit"   value="Inserisci"/>
+	  <input id="cancella" type="reset" name="submit"   value="Cancella"/>
 	</fieldset>
 	  </form> 
 	</div>';
 	 $paginaHTML=str_replace("<insert/>", $insert_form, $paginaHTML);
 	}
 	if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
-		$paginaHTML=str_replace("<titolo/>", "<h2 tabindex='".++$tabindex."' >Modifica Prodotti</h2>", $paginaHTML);
+		$paginaHTML=str_replace("<titolo/>", "<h2 >Modifica Prodotti</h2>", $paginaHTML);
 	}
 	else{
-		$intestazione="<h2 id='inizio' accesskey='c' tabindex='".++$tabindex."' >I Nostri Prodotti</h2>";
+		$intestazione="<h2 id='inizio' accesskey='c'  >I Nostri Prodotti</h2>";
 		$intestazione.='<div id="filtri">
 		<form method="post" action="prodotti.php">
 		<fieldset class="no_colore">
-		<p  tabindex="'.++$tabindex.'" > Applica filtri:';
+		<p  > Applica filtri:';
 		if(isset($_POST['tutti'])){
 			$intestazione.='<input type="submit"  name="tutti" value="Tutti" class="selezionato"/>';
 			$paginaHTML=str_replace("<categoria/>", ">> Tutti", $paginaHTML);
 		}
 		else{
-			$intestazione.='<input type="submit"  tabindex="'.++$tabindex.'"  name="tutti" value="Tutti"/>';
+			$intestazione.='<input type="submit"    name="tutti" value="Tutti"/>';
 		}
 		if(isset($_POST['gelati'])){
 			$intestazione.='<input type="submit" name="gelati" value="Gelati" class="selezionato"/>';
 			$paginaHTML=str_replace("<categoria/>", ">> Gelati", $paginaHTML);
 		}
 		else{
-			$intestazione.='<input type="submit"  tabindex="'.++$tabindex.'"  name="gelati" value="Gelati"/>';
+			$intestazione.='<input type="submit"   name="gelati" value="Gelati"/>';
 		}
 		if(isset($_POST['torte'])){
 			$intestazione.='<input type="submit" name="torte" value="Torte" class="selezionato"/>';
 			$paginaHTML=str_replace("<categoria/>", ">> Torte", $paginaHTML);
 		}
 		else{
-			$intestazione.='<input type="submit"  tabindex="'.++$tabindex.'"  name="torte" value="Torte"/>';
+			$intestazione.='<input type="submit"    name="torte" value="Torte"/>';
 		}
 		$intestazione.='</p>
 		</fieldset>
@@ -120,44 +119,41 @@ else{
 
 		$definitionListProdotti='';
 		foreach($listaProdotti as $prodotto){
-			$definitionListProdotti.='<div class="flex"><dl id="prodotti"><dt tabindex="'.++$tabindex.'">'.$prodotto['nome'];
+			$definitionListProdotti.='<div class="flex"><dl id="prodotti"><dt >'.$prodotto['nome'];
 			$definitionListProdotti.='</dt>';
 			$definitionListProdotti.='<dd>';
-			$definitionListProdotti.='<img tabindex="'.++$tabindex.'" src="'.$prodotto['immagine'].'" alt="'.$prodotto['alt'].'"/>';
+			$definitionListProdotti.='<img  src="'.$prodotto['immagine'].'" alt="'.$prodotto['alt'].'"/>';
 			if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
 				$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" class="nome" name="name" value="'.$prodotto['nome'].'" />';
 				if($prodotto['categoria']=="gelato"){
 					$definitionListProdotti.='<div class="nome">';
 				}
-					$definitionListProdotti.='<label for="prezzo" tabindex="'.++$tabindex.'" > Modifica Prezzo: </label>
-					<input type="text" class="prezzo" name="prezzo" tabindex="'.++$tabindex.'"  value="'.$prodotto['prezzo'].'"/></br>';
+					$definitionListProdotti.='<label for="prezzo"  > Modifica Prezzo: </label>
+					<input type="text" class="prezzo" name="prezzo"   value="'.$prodotto['prezzo'].'"/></br>';
 				if($prodotto['categoria']=="gelato"){
 					$definitionListProdotti.='</div>';	
 				}
-				$definitionListProdotti.='<label for="Immagine" tabindex="'.++$tabindex.'" > Modifica Immagine: </label>
-		<input type="text" class="immagine" tabindex="'.++$tabindex.'"  name="immagine" value="'.$prodotto['immagine'].'"/></br>';
-				$definitionListProdotti.='<label for="Descrizione immagine" tabindex="'.++$tabindex.'" > Modifica Descrizione immagine: </label>
-				<textarea name="alt" rows="3" class="alt"  tabindex="'.++$tabindex.'" >'.$prodotto['alt'].' </textarea></br>';
-				$definitionListProdotti.='<label for="Descrizione" tabindex="'.++$tabindex.'" > Modifica Descrizione: </label>
-				<textarea name="descrizione" rows="5" class="descrizione"  tabindex="'.++$tabindex.'" >'.$prodotto['descrizione'].' </textarea></br>';
-				$definitionListProdotti.='<input type="submit" name="modifica" value="Modifica" tabindex="'.++$tabindex.'"  class="modifica"/></form>';
+				$definitionListProdotti.='<label for="Immagine" > Modifica Immagine: </label>
+		<input type="text" class="immagine"   name="immagine" value="'.$prodotto['immagine'].'"/></br>';
+				$definitionListProdotti.='<label for="Descrizione immagine"  > Modifica Descrizione immagine: </label>
+				<textarea name="alt" rows="3" class="alt"   >'.$prodotto['alt'].' </textarea></br>';
+				$definitionListProdotti.='<label for="Descrizione"  > Modifica Descrizione: </label>
+				<textarea name="descrizione" rows="5" class="descrizione"   >'.$prodotto['descrizione'].' </textarea></br>';
+				$definitionListProdotti.='<input type="submit" name="modifica" value="Modifica"  class="modifica"/></form>';
 				$definitionListProdotti.='<form method="post" action="prodotti.php"><fieldset class="no_colore">';
 				$definitionListProdotti.='<input type="text" class="nome" name="name" value="'.$prodotto['nome'].'" />';
-				$definitionListProdotti.='<input type="submit" name="rimuovi" value="Rimuovi" class="rimuovi"  tabindex="'.++$tabindex.'"  /></fieldset></form>';
+				$definitionListProdotti.='<input type="submit" name="rimuovi" value="Rimuovi" class="rimuovi"    /></fieldset></form>';
 				$definitionListProdotti.='</errelimina>';
 			}
 			else{
-				$definitionListProdotti.='<p tabindex="'.++$tabindex.'">'.$prodotto['descrizione'].'</p>';
+				$definitionListProdotti.='<p >'.$prodotto['descrizione'].'</p>';
 				if($prodotto['categoria']=="torta"){
 					$definitionListProdotti.='<form method="post" action="prodotti.php">';
 				$definitionListProdotti.='<input type="text" class="nome" name="name" value="'.$prodotto['nome'].'" />';
-				$tabindex=$tabindex+2;
-				$definitionListProdotti.='<input type="submit" tabindex="'.$tabindex.'" name="aggiungi" value="Aggiungi al carrello" class="aggiungi" /></form>';
+				$definitionListProdotti.='<input type="submit"  name="aggiungi" value="Aggiungi al carrello" class="aggiungi" /></form>';
 				$definitionListProdotti.='</errelimina>';
-				$tabindex=$tabindex-1;
-				$definitionListProdotti.='<div class="costo" ><p tabindex="'.$tabindex.'">'. $prodotto['prezzo'].'&euro;</p></div>';
-				$tabindex++;
+				$definitionListProdotti.='<div class="costo" ><p >'. $prodotto['prezzo'].'&euro;</p></div>';
 				}
 			}
 			$definitionListProdotti.='</dd> </dl> </div>';
@@ -272,7 +268,7 @@ if (isset($_POST["meno"])){
 		$dbAccess->openDBConnection();
 		$listaProdotti = $dbAccess->getListaProdotti_Carrello($_SESSION["email"]);
 		$shopping_cart = '<div class="carrello-prodotti" >
-  							<h2 accesskey="s" tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';		
+  							<h2 accesskey="s" > Il tuo Ordine </h2>';		
 		$dbAccess->closeDBConnection();
 		$totale=0;
 
@@ -281,14 +277,14 @@ if (isset($_POST["meno"])){
 			//inserisco i prodotti nella zona carrello come lista di definizioni
 			$shopping_cart .= '<ul id="cart">';
 			foreach ($listaProdotti as $prodotto) {
-				$shopping_cart .= '<li>  <p class="item" tabindex="'.++$tabindex.'">' . $prodotto['nome_item'] . '</p>
-        <p class="prz" tabindex="'.++$tabindex.'">' . $prodotto['prezzo']*$prodotto['quantità'] . '&euro;</p>    
+				$shopping_cart .= '<li>  <p class="item" >' . $prodotto['nome_item'] . '</p>
+        <p class="prz" >' . $prodotto['prezzo']*$prodotto['quantità'] . '&euro;</p>    
         <div class="qta">';
 
         $shopping_cart.='<form method="post" action="prodotti.php"><fieldset class="no_colore"><input type="text" class="nome" name="name" value="'.$prodotto['nome_item'].'" />';
-		$shopping_cart.='<input type="submit" tabindex="'.++$tabindex.'" name="meno" value="-" class="minus"/></fieldset></form> <p tabindex="'.++$tabindex.'">'. $prodotto['quantità'] . '</p>';
+		$shopping_cart.='<input type="submit"  name="meno" value="-" class="minus"/></fieldset></form> <p >'. $prodotto['quantità'] . '</p>';
         $shopping_cart.='<form method="post" action="prodotti.php"><fieldset class="no_colore"><input type="text" class="nome" name="name" value="'.$prodotto['nome_item'].'" />';
-		$shopping_cart.='<input type="submit" name="aggiungi" tabindex="'.++$tabindex.'" value="+" class="plus"/></fieldset></form> </div></li>';
+		$shopping_cart.='<input type="submit" name="aggiungi"  value="+" class="plus"/></fieldset></form> </div></li>';
 		$totale+=$prodotto['prezzo']*$prodotto['quantità'];
 			}
 			$shopping_cart.='</ul>
@@ -297,7 +293,7 @@ if (isset($_POST["meno"])){
   </div>
   <div id="concludi">
     <a href="carrello.php" role="button">
-    <p tabindex="'.++$tabindex.'">Vai al Carrello</p> </a>
+    <p >Vai al Carrello</p> </a>
   </div>
 	';
 		}
@@ -310,7 +306,7 @@ $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 	else if (!isset($_SESSION["admin"])) {
 
 		$shopping_cart = '<div class="carrello-prodotti">
-  							<h2 accesskey="s" tabindex="'.++$tabindex.'"> Il tuo Ordine </h2>';
+  							<h2 accesskey="s" > Il tuo Ordine </h2>';
   		if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false){
 			$shopping_cart .= "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
   		}
@@ -322,14 +318,14 @@ $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 	$stringaLogin = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
-		$stringaLogin .= "<a href='login.php' tabindex='12' xml:lang='en'>LOGIN</a>\n";
+		$stringaLogin .= "<a href='login.php'  xml:lang='en'>LOGIN</a>\n";
 	}
 	else {
-		$stringaLogin .= "<p class='det_log ciao' tabindex='12'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<p class='det_log ciao' > CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<div class='barraVerticale det_log' ></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
-		$stringaLogin .= "\t\t<a href='logout.php' role='button' tabindex='13' xml:lang='en'>LOGOUT</a>\n";
+		$stringaLogin .= "\t\t<a href='logout.php' role='button'  xml:lang='en'>LOGOUT</a>\n";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
