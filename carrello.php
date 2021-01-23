@@ -68,14 +68,14 @@ else {
 	$stringaPulsanteOrdine = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
-		$stringaLogin .= "<a href='login.php' tabindex='6'>LOGIN</a>\n";
+		$stringaLogin .= "<a href='login.php' tabindex='6' xml:lang='en'>LOGIN</a>\n";
 	}
 	else {
 		$stringaLogin .= "<p class='det_log ciao' tabindex='11'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
-		$stringaLogin .= "\t\t<a href='logout.php'>LOGOUT</a>\n";
+		$stringaLogin .= "\t\t<a href='logout.php' xml:lang='en'>LOGOUT</a>\n";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
