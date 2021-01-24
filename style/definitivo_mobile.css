@@ -70,16 +70,12 @@ button {
 }
 
 #titolo_mobile{
-	margin:none;
-	padding:none;
 	display: block;
 	width: 100%;
 }
 
 #logo_mobile{
   max-height: 4em;
-  margin:none;
-  padding:none;
   width:40%;
 }
 
@@ -188,7 +184,6 @@ h2{
 	border-radius: 8px;
 	background-color: #FFF;
 	margin: 0.2em 0.2em 0.2em 0.2em;
-	padding: none;
 	max-height: none;
 	width: 45em;
 }
