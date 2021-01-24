@@ -1,6 +1,6 @@
 <?php
-include "dbconnection.php";
-use DB\dbAccess;
+include "dbConnection.php";
+use DB\DBAccess;
 session_start();
 
 $dbAccess=new DBAccess();
