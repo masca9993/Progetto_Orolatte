@@ -66,12 +66,6 @@ else{
 	  <option value="torta"  >Torta</option>
 	  </select>
 	</div>
-	  <div id="mex">
-	    <mex/>
-	  </div>
-	  <div id="errors">
-	    <errori/>
-	  </div>
 	  <input id="submit" type="submit" name="submit"   value="Inserisci"/>
 	  <input id="cancella" type="reset" name="submit"   value="Cancella"/>
 	</fieldset>
@@ -213,19 +207,21 @@ if(isset($_POST['submit'])){
         $dbAccess->closeDBConnection();
 		if ($result === TRUE) {
 		
-			$mex.="<p> INSERIMENTO AVVENUTO CON SUCCESSO</p>";
-			$paginaHTML=str_replace("<mex/>", $mex, $paginaHTML);
-			header("Refresh:3");
+			$mex.="<p class='successo_aggiunta'> INSERIMENTO AVVENUTO CON SUCCESSO</p>";
+			$paginaHTML=str_replace("<err/>", $mex, $paginaHTML);
+			
 		} 
 		else {
-  		$errori= "<p> ERRORE NELL'INSERIMENTO</p>";
-  		$paginaHTML=str_replace("<errori/>", $errori, $paginaHTML);
+  		$errori= "<p class='errore_aggiunta'> ERRORE NELL'INSERIMENTO</p>";
+  		$paginaHTML=str_replace("<err/>", $errori, $paginaHTML);
+
   		}
   		}
   		else
   		{
-  		$errori= "<p> ERRORE NELL'INSERIMENTO</p>";
-  		$paginaHTML=str_replace("<errori/>", $errori, $paginaHTML);
+  		$errori= "<p class='errore_aggiunta'> ERRORE NELL'INSERIMENTO, IL PREZZO DEVE ESSERE UN VALORE NUMERICO</p>";
+  		$paginaHTML=str_replace("<err/>", $errori, $paginaHTML);
+  		
   		}
 
 }
@@ -260,7 +256,7 @@ if (isset($_POST["aggiungi"])){
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		}
 		else{
-		$strerrore="<p id='successo_aggiunta'>".$nome." AGGIUNTO AL CARRELLO CON SUCCESSO</p>";
+		$strerrore="<p class='successo_aggiunta'>".$nome." AGGIUNTO AL CARRELLO CON SUCCESSO</p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		header("Refresh:5");
 		}
