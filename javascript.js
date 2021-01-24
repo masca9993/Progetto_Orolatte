@@ -43,7 +43,6 @@ function checkEmail_signup(){
   if (!email_valid.test(email) || (email == "") || (email == "undefined")) 
    {
       err.style.display="block";
-      document.signup.email.focus();
       return false;
    }
    else
@@ -61,7 +60,6 @@ function checkUsername_signup(){
    if (!username_valid.test(username)) 
    {
       err.style.display="block";
-      document.signup.username.focus();
       return false;
    }
    else
@@ -80,7 +78,7 @@ function checkPassword_signup(){
    {
    	 
       err.style.display="block";
-      document.signup.password_1.focus();
+      
       return false;
    }
    else
@@ -100,7 +98,7 @@ function checkUsername_login(){
    if (!username_valid.test(username)) 
    {
       err.style.display="block";
-      document.login.username.focus();
+      
       return false;
    }
    else
@@ -118,7 +116,6 @@ function checkPassword_login(){
    if (password.length<4) 
    {
       err.style.display="block";
-      document.login.password.focus();
       return false;
    }
    else
