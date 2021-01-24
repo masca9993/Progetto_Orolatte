@@ -106,7 +106,7 @@
 	}
 	else {
 		$stringaLogin .= "<p class='det_log ciao'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
-		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
+		$stringaLogin .= "<div class='barraVerticale det_log'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
 		$stringaLogin .= "\t\t<a href='logout.php' role='button' xml:lang='en'>LOGOUT</a>\n";
