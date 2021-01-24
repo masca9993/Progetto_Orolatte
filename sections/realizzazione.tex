@@ -17,6 +17,9 @@
 			Nella pagina gallery è possibile visualizzare degli ingrandimenti delle immagini grazie ad una modal box gestita attraverso Javascript e CSS: cliccando su una delle immagini viene chiamata la funzione openModal(id) con la quale viene modificato il CSS della pagina, rendendo visibile l'ingrandimento dell'immagine cliccata.
 			Utilizzando poi il pulante edi chiusura presente nella modal, viene chimata la funzione closeModal(), che nasconde l'ingrandimento riportando il CSS allo stato originale.
 
+		\subsubsection{Contatti}
+			La pagina ha una struttura molto semplice, rappresentata da due box: il box dove vengono descritte tutte le informazioni utili della gelateria e il box dove viene rappresentata la mappa dove è posizionata la gelateria.
+			Per rendere piu accessibile il sito la mappa (visto che è un iframe) viene messa con tabindex=”-1” e dunque non viene letta dallo screen reader, non viene letta perchè la mappa ha uno scopo più stilistico che informativo, visto che l'informazione di dove è situata la gelateria è nella sezione di fianco alla mappa, cioè la descrizione dell'indirizzo.
 		\subsubsection{Carrello}
 			La pagina \emph{Carrello} riepiloga i prodotti che un utente ha scelto di acquistare, visualizzando il carrello di un utente che abbia effettuato il login.
 			Nel caso in cui l'utente non abbia fatto l'accesso, in questa pagina viene visualizzato un messaggio che invita a farlo.
