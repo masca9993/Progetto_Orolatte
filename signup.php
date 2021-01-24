@@ -109,7 +109,7 @@
 		$stringaLogin .= "<div class='barraVerticale det_log'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
-		$stringaLogin .= "\t\t<a href='logout.php' role='button' xml:lang='en'>LOGOUT</a>\n";
+		$stringaLogin .= "\t\t<a href='logout.php'  xml:lang='en'>LOGOUT</a>\n";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);

@@ -83,7 +83,7 @@ else{
 		$paginaHTML=str_replace("<titolo/>", "<h2 >Modifica Prodotti</h2>", $paginaHTML);
 	}
 	else{
-		$intestazione="<h2 id='inizio' accesskey='c'  >I Nostri Prodotti</h2>";
+		$intestazione="<h2 id='inizio'>I Nostri Prodotti</h2>";
 		$intestazione.='<div id="filtri">
 		<form method="post" action="prodotti.php">
 		<fieldset class="no_colore">
@@ -227,7 +227,7 @@ if (isset($_POST["rimuovi"])){
 
 if (isset($_POST["aggiungi"])){
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false){
-		$strerrore="<p class='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php' role='button'>accedi qui</a></p>";
+		$strerrore="<p class='errore_aggiunta'>ACCEDI PER AGGIUNGERE PRODOTTI AL CARRELLO! <a href='login.php' >accedi qui</a></p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
@@ -268,7 +268,7 @@ if (isset($_POST["meno"])){
 		$dbAccess->openDBConnection();
 		$listaProdotti = $dbAccess->getListaProdotti_Carrello($_SESSION["email"]);
 		$shopping_cart = '<div class="carrello-prodotti" >
-  							<h2 accesskey="s" > Il tuo Ordine </h2>';		
+  							<h2> Il tuo Ordine </h2>';		
 		$dbAccess->closeDBConnection();
 		$totale=0;
 
@@ -292,7 +292,7 @@ if (isset($_POST["meno"])){
 			<p>Totale: ' .$totale.' </p>
   </div>
   <div id="concludi">
-    <a href="carrello.php" role="button">
+    <a href="carrello.php" >
     <p >Vai al Carrello</p> </a>
   </div>
 	';
@@ -306,7 +306,7 @@ $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 	else if (!isset($_SESSION["admin"])) {
 
 		$shopping_cart = '<div class="carrello-prodotti">
-  							<h2 accesskey="s" > Il tuo Ordine </h2>';
+  							<h2> Il tuo Ordine </h2>';
   		if (!isset($_SESSION['loggedin']) || $_SESSION["loggedin"] == false){
 			$shopping_cart .= "<p>Non hai effettuato il login! Per aggiungere prodotti al carrello, <a href='login.php'>accedi</a>.</p>";
   		}
@@ -325,7 +325,7 @@ $paginaHTML = str_replace("<shopping_cart/>", $shopping_cart, $paginaHTML);
 		$stringaLogin .= "<div class='barraVerticale det_log' ></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
-		$stringaLogin .= "\t\t<a href='logout.php' role='button'  xml:lang='en'>LOGOUT</a>\n";
+		$stringaLogin .= "\t\t<a href='logout.php'   xml:lang='en'>LOGOUT</a>\n";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
