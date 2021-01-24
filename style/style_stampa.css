@@ -274,3 +274,7 @@ button.delete {
 .no_colore{
   border:none; 
 }
+
+p.errors {
+  border:none; 
+}
