@@ -19,16 +19,12 @@ body {
 	word-spacing: 0.1em;
 }
 
-a:link{
-	color: red;
+a:link {
+	color: #964b00;
 }
 
-a:hover{
-	color: orange;
-}
-
-a:visited{
-	color: brown;
+a:visited {
+	color: #751109;
 }
 
 #container {
@@ -86,7 +82,7 @@ a:visited{
 
 .menu ul li p {
 	display: inline;
-	color: red;
+	color: #c41104;
 	font-size: 15px;
 	font-weight: bold;
 	text-decoration: none;
