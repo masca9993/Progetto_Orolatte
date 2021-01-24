@@ -31,7 +31,7 @@ else {
 			//inserisco i prodotti nella zona carrello come lista di definizioni
 			$dlProdotti = '<ul id="Prodotti">';
 			$dlProdotti.= '<li class="grassetto maiuscolo rosso"><p>PRODOTTO</p>
-							<p >QUANTITA</p>
+							<p >QUANTITÀ</p>
 							<p >PREZZO</p><p></p></li>';
 			
 			foreach ($listaProdotti as $prodotto) {
