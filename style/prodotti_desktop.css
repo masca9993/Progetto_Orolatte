@@ -38,6 +38,7 @@ a:visited{
   margin: 0 auto -50px; 
 }
 
+
 /****************HEADER******************/
 
 #header{
@@ -125,8 +126,119 @@ a:visited{
   font-weight:bold;
 }
 
-<<<<<<< HEAD
-=======
+/***********CARRELLO***************/
+
+#carrello{
+  float: right;
+  padding: 0.5em;
+  margin-left: 0.5em;
+  width: 15%;
+  border-left: 1px solid blue;
+  height: 100%;
+  background-color: azure;
+}
+
+.item{
+  text-transform: uppercase;
+  margin-top:0.8em;
+}
+
+
+ #cart{
+  text-decoration: none;
+  list-style: none;
+ }
+
+#cart li {
+  text-decoration: none;
+  border-bottom: 1px solid red;
+}
+
+#carrello h2{
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+
+#riepilogo {
+ margin-top: 1.5em;
+  margin-left:0.5em;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#concludi {
+  margin-top: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid blue;
+  border-radius: 8px;
+  cursor:pointer;
+}
+
+#concludi a p{
+  padding: 1em;
+  text-align: center;
+}
+#cart li{
+margin-top:2em;
+}
+
+#cart .item{
+  font-weight: bold;
+}
+
+#cart .prz{
+  padding-left: 0em;
+  padding-top: 0.5em;
+  float: left;
+  margin-right: 2em;
+}
+
+.qta{
+  padding: 0.2em;
+  display: flex;
+}
+.qta p{
+  padding-top: 0.5em;
+  padding-left: 0.2em;
+  padding-right: 0.3em;
+}
+
+.qta input{
+  width: 0.3em;
+  font-weight: bold;
+  background-color: #0FF;
+  border: 1px solid blue;
+  border-radius: 8px;
+  padding: 0.8em 0.8em;
+  text-decoration: none;
+  margin: 0.1em;
+  transition-duration: 0.4s;
+}
+.qta input:hover{
+  cursor: pointer;
+  background-color: #FFF;
+  border: 2px solid #0FF;
+}
+
+#nascondi button{
+  width: 100%;
+  font-weight: bold;
+  color: blue;
+  background-color: red;
+  border: 2px solid blue;
+  border-radius: 8px;
+  padding: 1em 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.3em;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+#nascondi button:hover{
+  background-color: #ec8888;
+}
 /***********INPUT********************/
 #admin{
   padding: 1em;
@@ -136,7 +248,7 @@ a:visited{
   margin: 1em 1em 1em 1em;
 }
 
-input{
+input, textarea{
   margin-left: 0.5em;
 }
 
@@ -149,6 +261,7 @@ h2{
   color: red;
   font-weight: bold;
   text-align: center;
+  padding:0.5em;
 }
 .row label {
   display: inline-block;
@@ -170,9 +283,11 @@ h2{
   color: green;
 }
 
->>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
 
 /*************CONTENUTO PAGINA****************************/
+#contenutoPagina{
+  width: 80%;
+}
 #contenutoPagina dt{
   font-weight:bold;
   background-color:cyan;
@@ -209,48 +324,28 @@ h2{
 }
 
 #contenutoPagina dd button{
-<<<<<<< HEAD
-  background-color:blue;
-=======
->>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
   font-size: 1em;
   color:white;
   font-weight: bold;
   padding: 0.3em;
   margin-top:0.2em;
   border-radius: 0.5em;
-<<<<<<< HEAD
-  align-content: right;
   cursor: pointer;
 }
-=======
-  cursor: pointer;
-}
-#carrello{
-  float:left;
-  margin-right: 1em;
-}
->>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
 
 #contenutoPagina{
   display: flex;
   flex-wrap: wrap;
-<<<<<<< HEAD
-=======
   justify-content: center;
->>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
 }
 
 .flex{
   flex-basis: 30%;
   padding: 1em;
   flex-shrink: 1;
-<<<<<<< HEAD
-  flex-grow: 1;
-=======
 }
 
-#rimuovi, #cancella{
+#rimuovi, #cancella, #aggiungi{
   background-color: red;
   font-size: 1em;
   color:white;
@@ -276,22 +371,75 @@ h2{
 }
 
 
-
 #nome{
   display: none;
 }
 #immagine{
   margin-top: 0.8em;
 }
-#descrizione{
+#descrizione, #alt{
   margin-top: 0.8em;
 }
-#categoria{
-  display:none;
->>>>>>> bd8b7b67ffdb41c55e444b47d30c609f4544d842
+
+#prodotti dd form label{
+  display: inline-block;
+  font-weight: bold;
+  text-align:left;
+  width:30%;
 }
 
+#categoria{
+  display:none;
+}
 
+#filtri{
+  padding:0.5em;
+  font-weight: bold;
+  font-size: 1em;
+  background-color: #FFF;
+  border-bottom: 1px solid blue;
+  border-top: 1px solid blue;
+  background-color: azure;
+}
+
+#filtri input{
+  font-weight: bold;
+  background-color: #0FF;
+  border: 2px solid blue;
+  border-radius: 8px;
+  padding: 1em 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.3em;
+  transition-duration: 0.4s;
+}
+
+#filtri input:hover{
+  cursor: pointer;
+  background-color: #FFF;
+  border: 2px solid #0FF;
+}
+
+#filtri #selezionato{
+  cursor:initial;
+  background-color: #FFF;
+  border: 2px solid #0FF;
+}
+
+#filtri p{
+  text-transform: uppercase;
+}
+
+#aggiungi{
+  float:left;
+  margin-right: 1em;
+}
+.costo p{
+  font-weight: bold;
+  color: blue;
+  text-align: center;
+}
 /***********FOOTER***************************/
 
 #footer{

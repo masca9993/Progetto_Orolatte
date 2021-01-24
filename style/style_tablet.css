@@ -1,8 +1,10 @@
-/**********HEADER****************/
+/*************HEADER******************************/
 button {
 	background-color: azure;
 	border:none;
 	cursor: pointer;
+	padding: 0;
+	margin:0;
 }
 #menu_1{
 	display:none;
@@ -11,8 +13,7 @@ button {
 #menu_mobile {
 	display:none;
 	position: absolute;
-	margin-top: 0;
-	top: 2.2em;
+	margin-top: 1.9em;
 	left: 0;
 	width: 40%;
 	background-color: cyan;
@@ -20,6 +21,10 @@ button {
 	font-size: 1.8em;
 }
 
+#menu_mobile ul li p{
+	font-size: 0.8em;
+  	max-height: 3em;
+}
 
 #menu_mobile ul li{
 	display: block;
@@ -41,12 +46,12 @@ button {
 	display:block; 
 	float: left;
 	width: 10%;
+	max-width: 3em;
+	margin-left:2em;
 }
 
 #icona_mobile  img {
 	width: 100%;
-	max-width: 3em;
-	max-height: 3em;
 }
 
 #Links{
@@ -55,61 +60,24 @@ button {
 	border: 2px solid CYAN;
 }
 
-#header{
-	height:3em;
-}
-
-.menu{
-  margin-top: 0em;
-}
-
-
-#titolo{
+.det_log{
 	display: none;
 }
 
-#titolo_mobile{
-	margin:none;
-	padding:none;
-	display: block;
-	width: 50%;
-}
-
-#logo_mobile{
-  max-height: 2.7em;
-  margin:none;
-	padding:none;
-}
-
-#menu_2{
-	float: right;
-	width: 40%;
-}
-
-#carrello, #login{
+p.det_log.ciao{
 	display: none;
 }
+
 
 .menu ul li a{
   font-size: 0.8em;
   max-height: 3em;
 }
-/************CONTENUTO PAGINA**********************/
+/*****CONTENUTO******/
 
-.contenutogenerale{
-  padding: 1em 1em 1em 1em;
+
+.flex{
+  flex-basis: 40%;
+  padding: 1em;
+  flex-grow:1;
 }
-
-#contenutoPagina-contatti{
-  flex-direction: column;
-}
-
-#box{
-  order: 2;
-  margin-right: 2em;
-}
-
-#contatti{
-  order: 1;
-}
-

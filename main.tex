@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[10 pt]{extarticle}
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -27,13 +27,11 @@
 \usepackage{listings}
 \graphicspath{ {images/} }
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand*\contentsname{Contenuti}
-\renewcommand{\abstractname}{}
+\renewcommand{\abstractname}{Abstract}
 \renewcommand{\figurename}{Figura}
-\usepackage{TikZ}
-\usepackage{PGF}
+
 \lstset{
 frame=tb,
 tabsize=4,
@@ -46,19 +44,26 @@ stringstyle=\color{red}
 \newcolumntype{?}{!{\vrule width 1.5pt}}	%"?" symbolizes bold vertical column in table
 
 \title{Relazione Sito Orolatte}
-\author{Biasotto Luca, Faccioli Nicla, Mascara Andrea, Pioppi Tommaso}
+\author{Biasotto Luca, Faccioli Nicla, Mascari Andrea, Poppi Tommaso}
 \date{}
 
 \begin{document}
+
 \maketitle
-%\newpage
-%\tableofcontents
-%\newpage
-
 \begin{abstract}
-La seguente relazione descrive come \'e stato realizzato il il sito per la gelateria \italics{Orolatte}, creato nell'ambito del corso di Tecnologie Web, analizzando il codice scritto e discutendo le scelte effettuate.
+La seguente relazione descrive come \'e stato realizzato il il sito per la gelateria \emph{Orolatte}, creato nell'ambito del corso di Tecnologie Web, analizzando il codice scritto e discutendo le scelte effettuate.
 \end{abstract}
+\pagebreak
+\tableofcontents
+\pagebreak
 
+ \input{sections/analisi.tex}
+ \pagebreak
+ \input{sections/progettazione.tex}
+ \pagebreak
+ \input{sections/realizzazione.tex}
+ \pagebreak
+ \input{sections/testing.tex}
 %\begin{thebibliography}
 %\end{thebibliography}
 \end{document}

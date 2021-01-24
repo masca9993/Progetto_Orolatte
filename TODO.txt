@@ -1,12 +1,3 @@
-accessibilita
-relazione
-
-unificare css
-seprazione php e gestione header
-Aggiungere funzioni a pulsanti in carrello
-link attuale deve essere coerente
-dimensione carattere in particolare breadcrumb
-sistemare homepage immaginie ??? nel testo
 sistemare head html
-rimuovere php debug
-abbastanza javascript?
+Screen reader
+Validazione codice

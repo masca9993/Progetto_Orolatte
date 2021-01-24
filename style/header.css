@@ -1,9 +1,9 @@
-*{
+* {
 	padding: 0em;
-	margin:0em;
+	margin: 0em;
 }
 
-html{
+html {
 	background-color: lemonchiffon;
 	width: 100%;
 	height: 100%;
@@ -32,22 +32,35 @@ a:visited{
 	color: brown;
 }
 
+#container {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -50px; 
+}
+
 /* HEADER */
 
 #header{
+	top: 0;
+	left: 0;
+	right: 0;
 	padding:0.5em;
 	background-color: AZURE; 
 	text-align: center;
 	border-bottom: 3px solid CYAN;
 }
+
 .menu{
 	margin-top: 3em;
 	text-align: center;
 	width: 33%;
 }
+
 #icona_mobile{
 	display: none;
 }
+
 #menu_mobile{
 	display: none;
 }
@@ -56,8 +69,8 @@ a:visited{
 	float: left;
 }
 
-.menu ul li a:hover{
-	background-color: yellow;
+#menu_1 ul li a:hover, #menu_2 ul li a:hover {
+  background-color: yellow;
 }
 
 .menu ul li{
@@ -81,10 +94,29 @@ a:visited{
 }
 
 .menu ul li img{
-	max-width: 0.7em;
+  max-width: 0.7em;
 }
-#stile{
-	width: 5%;
+
+.barraVerticale {
+	background-image: url(../img/barra_verticale.png);
+	display: inline-block;
+	height: 5%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#carrello {
+	background-image: url(../img/carrello.png);
+	display: inline-block;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#login {
+	background-image: url(../img/login.png);
+	display: inline-block;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 #titolo_mobile{
@@ -92,13 +124,14 @@ a:visited{
 }
 
 #logo{
-	width:33%;
+	width: 33%;
 	max-width: 15em; 
 }
 
 #menu_2{
 	float: right;
 }
+
 #menu_2 ul li{
 	display: inline;
 }

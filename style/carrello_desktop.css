@@ -31,7 +31,7 @@
 	overflow: hidden;
 }
 
-button {
+button.standard {
 	background-color: #0FF;
 	border: 2px solid #FFF;
 	border-radius: 8px;

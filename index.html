@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Script-Type" content="type"/>
+
+	<title>Home - Gelateria Orolatte</title>
+	<meta name="title" content="Home - Gelateria Orolatte" />
+	<meta name="description" content="Sito internet della gelateria Orolatte. Scopri i nostri gelati e le nostre torte!" />
+	<meta name="keywords" content="gelateria, gelato, torte, orolatte" />
+	<meta name="author" content="Luca Biasotto, Nicla Faccioli, Andrea Mascari, Tommaso Poppi" />
+	<meta name="language" content="italian it" />
+
+	<link rel="stylesheet" type ="text/css" href="style/style_desktop.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="style/style_mobile.css" media="handheld , screen and (max-width:768px), only screen and (max-device-width:768px)" />
+	<link rel="stylesheet" type="text/css" href="style/style_tablet.css" media="handheld , screen and (max-width:1024px), only screen and (max-device-width:1024px)" /> 
+	<link rel="stylesheet" type="text/css" href="style/style_stampa.css" media="print"/>
+	<script type="text/javascript" src="javascript.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="header">
+	<ul>
+		<li class="aiutiNascosti"><p>Per andare al: <a href="#contenuto" tabindex="0">contenuto</a> <span xml:lang="en">access key: </span> c</p></li>
+		<li class="aiutiNascosti"><a href="#menu_1" tabindex="0">vai al menù</a></li>
+		<li class="aiutiNascosti"><a href="#inizio" tabindex="0">Vai al contenuto</a></li>
+	</ul>
+	<div class="menu" id="menu_1">
+		<ul>
+			<li>
+				<p xml:lang="en">HOME</p>
+				<div class="barraVerticale"></div> 
+			</li>
+			<li>
+				<a href="prodotti.php" role="button">PRODOTTI</a>
+				<div class="barraVerticale"></div> 
+			</li>
+			<li>
+				<a href="gallery.php" role="button" xml:lang="en">GALLERY</a>
+				<div class="barraVerticale"></div> 
+			</li>
+			<li>
+				<a href="contatti.php" role="button">CONTATTI</a>
+			</li>
+		</ul>
+	</div>
+	<div class="menu" id="icona_mobile">
+		<button onclick="menu()">
+			<img id="stile" src="img/menu.png" alt="menù"/>
+		</button>
+		<div class="menu" id="menu_mobile">
+			<ul>
+				<li>
+					<p xml:lang="en">HOME</p>
+				</li>
+				<li>
+					<a href="prodotti.php" role="button">PRODOTTI</a>
+				</li>
+				<li>
+					<a href="gallery.php" role="button" xml:lang="en">GALLERY</a>
+				</li>
+				<li>
+					<a href="contatti.php" role="button">CONTATTI</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="menu" id="menu_2">
+		<ul>
+			<li>
+				<div id="login" ></div>
+				<ControlloLogin />
+				<div class="barraVerticale"></div>
+			</li>
+			<li>
+				<div id="carrello"></div>
+				<a href="carrello.php" role="button">CARRELLO</a>
+			</li>
+		</ul>
+	</div>
+	<div id="titolo">
+		<img id="logo" src="img/logo_1.png" alt="Logo Gelateria Orolatte"/>
+			<h1 > Gelateria Orolatte </h1>
+	</div>
+	<div class="menu" id="titolo_mobile">
+		<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
+			<h1> Gelateria Orolatte </h1>
+	</div>
+</div>
+
+<div id="percorso" >
+	<p> Ti trovi in: <span xml:lang="en">Home</span></p>
+</div>
+
+<div id="content" class="wrapper" accesskey="c">
+	<div id="top">
+		<!-- <img id="imgHomePage1" src="img/gelatoHomePage.jpg" alt="immagine di un gelato"/> -->
+		<div class="image-container">
+			<img class="imgHomePage" src="img/gelateria_orolatte.jpg" alt="Sala principale della gelateria Orolatte"/>
+		</div>
+		<div class="text-container">
+			<h2>La gelateria Orolatte</h2>
+			<p> 
+				La nostra gelateria esiste dal 1947 nella citt&agrave; di Guidizzolo (MN).
+				Da sempre vendiamo ogni giorno gelato di ottima qualit&agrave;, artigianale e preparato con la massima cura ed esperienza.
+				Il nostro gelato racchiude in sè tradizione, ricerca, innovazione, emozione.
+				Abbiamo ereditato la professione e fatto di questa la nostra passione e ci ispiriamo quotidianamente a voi per continuare a nutrirvi, coccolarvi e sorprendervi.
+				Orolatte &egrave; un’esperienza, un incontro, uno scambio. Artigiani per tradizione e passione dal 1947 in continuo movimento e ricerca.
+			</p>
+		</div>
+	</div>
+
+	<div id="mid">
+		<div class="text-container">
+			<h2>I nostri ingredienti</h2>
+			<p> 
+				Per preparare i nostri gelati artigianali ci basiamo esclusivamente su ingredienti di prima qualit&agrave;, freschi e bilogici.
+				Si tratta delle eccellenze del nostro territorio lavorate con un metodo esclusivo per offrirvi sempre la freschezza dei prodotti della terra.
+			</p>
+		</div>
+	</div>
+
+	<div id="bottom">
+		<div class="text-container">
+			<h2>Il nuovo gelato</h2>
+			<p>
+				Il nostro nuovo gelato &egrave; al gusto di arancia rossa ed &egrave; ottenuto dalla spremitura di polpa d'arancia. Il suo gusto delicato e vi lascer&agrave; stupiti! Venite a provarlo <a href="contatti.php">in gelateria</a>!
+			</p>
+			<a href="prodotti.php" class="standard">Ordinalo subito!</a>
+		</div>
+		<!-- <img id="imgHomePage2" src="img/gelatoHomePage.jpg" alt="immagine di un gelato"/> -->
+		<div class="image-container">
+			<img class="imgHomePage" src="img/aranciarossa_ridotta.jpg" alt="Immagine di un gelato all'arancia rossa"/>
+		</div>
+	</div>
+</div>
+
+<div id="footer">
+	<img id="imgvalidcode" src="img/valid-xhtml10.png" alt="timbro w3c standart XHTML"/>
+	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="timbro w3c standart CSS3"/>
+	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
+</div>
+
+</body>
+
+</html>

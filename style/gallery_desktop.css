@@ -13,12 +13,9 @@
 	padding-left: 1em
 }
 
-
-
-
 .galleryItem img {
 	width: 250px;
-	height:150px;
+	height: 150px;
 	object-fit: cover;
 	opacity: 1;
 	transition: 0.5s ease;
@@ -34,7 +31,7 @@
 #flex-gallery{
 	display: flex;
 	flex-wrap: wrap;
-	background-color: #f3e6d8;
+	background-color: #FFF;
 	align-items: center;
 	justify-content: center;
 	padding-bottom: 1em;
@@ -47,19 +44,18 @@
 /* MODAL */
 
 /* pulsante di chiusura */
-.close {
+#close {
     position: absolute;
     	top: 10px;
     	right: 25px;
-    	color: white;
+    	color: rgba(153, 151, 151, 0.87);
     	font-size: 40px;
     	font-weight: bold;
     	background-color: transparent;
     	border: none;
 }
 
-.close:hover,
-.close:focus {
+#close:hover{
     	color: #bbb;
     	text-decoration: none;
     	cursor: pointer;

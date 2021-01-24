@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Script-Type" content="type"/>
+
+	<title>Accesso - Gelateria Orolatte</title>
+	<meta name="title" content="Home - Gelateria Orolatte" />
+	<meta name="description" content="Sito internet della gelateria Orolatte. Accedi ora!" />
+	<meta name="keywords" content="gelateria, orolatte, accesso" />
+	<meta name="author" content="Luca Biasotto, Nicla Faccioli, Andrea Mascari, Tommaso Poppi" />
+	<meta name="language" content="italian it" />
+
+	<link rel="stylesheet" type ="text/css" href="style/style_desktop.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="style/style_mobile.css" media="handheld , screen and (max-width:768px), only screen and (max-device-width:768px)" />
+	<link rel="stylesheet" type="text/css" href="style/style_tablet.css" media="handheld , screen and (max-width:1024px), only screen and (max-device-width:1024px)" /> 
+	<link rel="stylesheet" type="text/css" href="style/style_stampa.css" media="print"/>
+	<script type="text/javascript" src="javascript.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="header">
+	<ul>
+		<li class="aiutiNascosti"><p>Per andare al: <a href="#h2login" tabindex="0">contenuto</a> <span xml:lang="en">access key: </span> c</p></li>
+		<li class="aiutiNascosti"><a href="#menu_1" tabindex="0">vai al menù</a></li>
+		<li class="aiutiNascosti"><a href="#inizio" tabindex="0">Vai al contenuto</a></li>
+	</ul>
+	<div class="menu" id="menu_1">
+		<ul>
+			<li>
+				<a href="index.php" role="button">HOME</a>
+				<div class="barraVerticale"></div> 
+			</li>
+			<li>
+				<a href="prodotti.php" role="button">PRODOTTI</a>
+				<div class="barraVerticale"></div> 
+			</li>
+			<li>
+				<a href="gallery.php" role="button" xml:lang="en">GALLERY</a>
+				<div class="barraVerticale"></div> 
+			</li>
+			<li>
+				<a href="contatti.php" role="button">CONTATTI</a>
+			</li>
+		</ul>
+	</div>
+	<div class="menu" id="icona_mobile">
+		<button onclick="menu()">
+			<img id="stile" src="img/menu.png" alt="menù"/>
+		</button>
+		<div class="menu" id="menu_mobile">
+			<ul>
+				<li>
+					<a href="index.php" role="button" xml:lang="en">HOME</a>
+				</li>
+				<li>
+					<a href="prodotti.php" role="button">PRODOTTI</a>
+				</li>
+				<li>
+					<a href="gallery.php" role="button" xml:lang="en">GALLERY</a>
+				</li>
+				<li>
+					<a href="contatti.php" role="button">CONTATTI</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="menu" id="menu_2">
+		<ul>
+			<li>
+				<div id="login" ></div>
+				<ControlloLogin />
+				<div class="barraVerticale"></div>
+			</li>
+			<li>
+				<div id="carrello"></div>
+				<a href="carrello.php" role="button">CARRELLO</a>
+			</li>
+		</ul>
+	</div>
+	<div id="titolo">
+		<img id="logo" src="img/logo_1.png" alt="Logo Gelateria Orolatte"/>
+		<h1 > Gelateria Orolatte </h1>
+	</div>
+	<div class="menu" id="titolo_mobile">
+		<img id="logo_mobile" src="img/scritta_logo.png" alt="Logo"/>
+		<h1> Gelateria Orolatte </h1>
+	</div>
+</div>
+
+<div id="percorso">
+	<p> Ti trovi in: Accesso</p>
+</div>
+
+<h2 id='h2login' xml:lang="en" accesskey="c">Login</h2>
+
+
+<div id="signup-link">
+	<p>Non hai ancora un <span xml:lang="en">account</span>? <a href="signup.php">Registrati</a></p>
+</div>
+
+<form class='login' method="post" name="login" action="login.php">
+	<fieldset>
+		<div class="form-group">
+			<label for="username"> Inserire il proprio <span xml:lang="en">username</span>: </label>
+			<input type="text" id="username" name="username" onfocusout="checkUsername_login()" placeholder="Username" autofocus required />
+		</div>
+		<div id="username_err" class="input_err">
+				<p>L'<span xml:lang="en">username</span> deve contenere minimo 4 e massimo 16 caratteri alfanumerici</p>
+		</div>
+		<div class="form-group">
+			<label for="password"> Inserire la propria <span xml:lang="en">password</span>: </label>
+			<input type="password" id="password" name="password" onfocusout="checkPassword_login()" placeholder="Password" required />
+			<ErroreLogin />
+		</div>
+		<div id="password_err" class="input_err">
+				<p>La <span xml:lang="en">password</span> deve essere lunga almeno 6 caratteri</p>
+		</div>
+		<div class="form-group">
+			<input type="submit" name="submit" value="Accedi" />
+			<input type="reset" name="reset" value="Cancella" />
+		</div>
+	</fieldset>
+</form>
+
+<div id="footer">
+	<img id="imgvalidcode" src="img/valid-xhtml10.png" alt="timbro w3c standart XHTML"/>
+	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="timbro w3c standart CSS3"/>
+	<p> Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova </p>
+</div>
+
+</body>
+
+</html>

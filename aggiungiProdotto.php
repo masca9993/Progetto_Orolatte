@@ -8,10 +8,6 @@ use DB\DBAccess;
 $paginaHTML = file_get_contents('delivery.html');	//delivery dovrebbe essere la pagina da cui prende le info
 
 //inizializzazione campi
-$email_user = '';
-$nome_item = '';
-$grandezza = '';
-
 
 if(isset($_POST['inserisci'])) {	//dipende dal valore dato al pulsante nella form
 	$email_user = $_POST[$_SESSION["email"]];	

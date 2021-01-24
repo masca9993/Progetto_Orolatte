@@ -1,0 +1,14 @@
+\section{Testing}
+	Per verificare il corretto funzionamento delle pagine del sito ed il loro livello di accessibilità, si è fatto uso di diversi strumenti software disponibili in rete.
+	Il primo di questi è stato WAVE (Web Accessibility Evaluation Tool) \footnote{https://wave.webaim.org/}, il quale ci ha consentito di individuare eventuali errori di accessibilità all'interno delle singole pagine.
+
+	In fase di sviluppo, a tutti i file php sono state aggiunte le seguenti righe di codice:
+
+	\begin{lstlisting}[language=php, caption={php code using listings}]
+		ini_set("display_errors", 1);
+		ini_set("display_startup_errors", 1);
+		error_reporting(E_ALL); 
+	\end{lstlisting}
+
+	Questo ha consentito di stampare a schermo eventuali errori o warning, permettendo quindi di correggerli.
+	Sono state rimosse dalla versione finale in modo da non appesantire inutilmente il sito, in quanto non veniva più riportato alcun tipo di avvertimento.
