@@ -81,7 +81,6 @@ function checkPassword_signup(){
    	 
       err.style.display="block";
       document.signup.password_1.focus();
-      alert("password");
       return false;
    }
    else
