@@ -24,12 +24,26 @@
 		$username = mysqli_real_escape_string($con, $_POST["username"]);
 		$password = mysqli_real_escape_string($con, $_POST["password"]);
 
+		$username_err=false;
+		$password_err=false;
+
+		if(!preg_match('/^[a-zA-Z0-9]{3,16}$/',$username))
+		{
+			$username_err=true;
+		}
+
+		if(strlen($password)<4)
+		{
+			$password_err=true;
+		}
+
+
 		$password = sha1($password);
 
 		$login_check_query = "SELECT * FROM user WHERE username='$username' AND password='$password';";
 		$result = mysqli_query($con, $login_check_query);
 
-		if ($result && mysqli_num_rows($result) == 1) {
+		if ($result && mysqli_num_rows($result) == 1 && !$username_err && !$password_err) {
 			$row = mysqli_fetch_array($result);
 			if ($row) {
 
@@ -52,6 +66,8 @@
 	$pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 	if ($pageWasRefreshed) {
 		$erroreLogin = false;
+		$username_err=false;
+		$password_err=false;
 	}
 
 	mysqli_close($con);

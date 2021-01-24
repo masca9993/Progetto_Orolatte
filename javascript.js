@@ -58,7 +58,7 @@ function checkUsername_signup(){
 
 	var username_valid=/^[a-zA-Z0-9]{3,16}$/;
    err=document.getElementById("username_err");
-   if (!username_valid.test(username) || (username == "undefined")) 
+   if (!username_valid.test(username)) 
    {
       err.style.display="block";
       document.signup.username.focus();
@@ -92,30 +92,40 @@ function checkPassword_signup(){
 }
 
 
-
-
-  /*function checkInput_login() {
-  	 var username = document.login.username.value;
-   var password= document.login.password.value;
-
-   var username_valid=/^[a-zA-Z0-9]{3,16}$/;
+function checkUsername_login(){
+ var username = document.login.username.value;
+  var username_valid=/^[a-zA-Z0-9]{3,16}$/;
    err=document.getElementById("username_err");
     err.style.display="none";
-   if (!username_valid.test(username) || (username == "undefined")) 
+   if (!username_valid.test(username)) 
    {
       err.style.display="block";
       document.login.username.focus();
       return false;
    }
+   else
+   {
+     err.style.display="none";
+     return true;
+   }
+}
 
-   err=document.getElementById("password_err");
+function checkPassword_login(){
+  var password= document.login.password.value;
+
+ err=document.getElementById("password_err");
     err.style.display="none";
-   if (password.lenght<6 || (password == "undefined")) 
+   if (password.length<4) 
    {
       err.style.display="block";
       document.login.password.focus();
       return false;
    }
-  
-  }
-*/
+   else
+   {
+     err.style.display="none";
+     return true;
+   }
+
+}
+

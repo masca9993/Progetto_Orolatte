@@ -98,16 +98,22 @@
 
 <h2 id='h2login' xml:lang="en" accesskey="c"> LOGIN </h2>
 
-<form class='login' method="post" action="login.php">
+<form class='login' method="post" name="login" action="login.php">
 	<fieldset>
 		<div class="form-group">
 			<label for="username"> Inserire il proprio <span xml:lang="en">username</span>: </label>
-			<input type="text" id="username" name="username" placeholder="Username" autofocus required />
+			<input type="text" id="username" name="username" onfocusout="checkUsername_login()" placeholder="Username" autofocus required />
+		</div>
+		<div id="username_err" class="input_err">
+				<p>L'username deve contenere minimo 4 e massimo 16 caratteri alfanumerici</p>
 		</div>
 		<div class="form-group">
 			<label for="password"> Inserire la propria <span xml:lang="en">password</span>: </label>
-			<input type="password" id="password" name="password" placeholder="Password" required />
+			<input type="password" id="password" name="password" onfocusout="checkPassword_login()" placeholder="Password" required />
 			<ErroreLogin />
+		</div>
+		<div id="password_err" class="input_err">
+				<p>La password deve essere lunga almeno 6 caratteri</p>
 		</div>
 		<div class="form-group">
 			<input type="submit" name="submit" value="Accedi" />
