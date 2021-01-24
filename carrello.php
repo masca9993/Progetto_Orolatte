@@ -50,7 +50,7 @@ else {
 									<p class="pz_carr">'. $prodotto['prezzo']*$prodotto['quantità'] .'&euro; </p>
 					<div><form method="post" action="carrello.php"><fieldset class="no_colore">
 					<input type="text" name="name" value="'.$prodotto['nome_item'].'" class="nascondi"/>
-					<input type="submit" name="rimuovi" class="bottone_rosso" value="Rimuovi"/>
+					<input type="submit" name="rimuovi" class="bottone_carr" value="Rimuovi"/>
 					</fieldset></form></div></li>';
 					$totale=$totale+$prodotto['prezzo']*$prodotto['quantità'];	
 			}

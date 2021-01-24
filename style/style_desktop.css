@@ -178,6 +178,7 @@ a:visited {
 	border-radius: 8px;
 	padding: 1em ;
 	margin: 1em;
+	margin-bottom: 2em;
 	text-align: left;
 }
 
@@ -280,11 +281,12 @@ a:hover > button.delete {
 	color:red;
 }
 
-.bottone_rosso{
+.bottone_carr{
 	background-color: #F00;
 	border: 2px solid #FFF;
 	border-radius: 8px;
-	color: #FFF;
+	color: black;
+	font-weight: bold;
 	font-size: 1em;
 	text-align: center;
 	text-decoration: none;
@@ -296,7 +298,7 @@ a:hover > button.delete {
 	transition-duration: 0.1s;
 }
 
-.bottone_rosso:hover{
+.bottone_carr:hover{
 	cursor: pointer;
 	background-color: #FFF;
 	color: #F00;
@@ -566,7 +568,8 @@ p.errors {
 	background-color: #0FF;
 	border: 2px solid #FFF;
 	border-radius: 8px;
-	color: white;
+	color: black;
+	font-weight: bold;
 	padding: 1em 1em;
 	font-size: 1.2em;
 	text-align: center;
@@ -674,8 +677,8 @@ p.errors {
   border: 2px solid #0FF;
 }
 
-#concludi a {
-  padding: 1em;
+#concludi {
+  padding: 2em;
   text-align: center;
 }
 #cart li{
@@ -816,7 +819,8 @@ h2{
 .rimuovi, #cancella, .aggiungi{
   background-color: red;
   font-size: 1em;
-  color:white;
+  color:black;
+  font-weight: bold;
   font-weight: bold;
   padding: 0.3em;
   margin-top:0.2em;
