@@ -7,10 +7,10 @@
 	$stringaLogin = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
-		$stringaLogin .= "<a href='login.php' tabindex='11' xml:lang='en'>LOGIN</a>\n";
+		$stringaLogin .= "<a href='login.php' xml:lang='en'>LOGIN</a>\n";
 	}
 	else {
-		$stringaLogin .= "<p class='det_log ciao'  tabindex='11' > CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<p class='det_log ciao'  > CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<img class='det_log'  src='img/barra_verticale.png' alt=''/>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";

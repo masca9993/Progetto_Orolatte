@@ -27,21 +27,21 @@
 <div id="container">
 <div id="header">
 	<ul>
-		<li class="aiutiNascosti"><a href="#menu_1"  tabindex="2" >vai al menù</a></li>
-		<li class="aiutiNascosti"><a href="#contenutoPagina-contatti"  tabindex="3" >Vai al contenuto</a></li>
+		<li class="aiutiNascosti"><a href="#menu_1"  tabindex="0" >vai al menù</a></li>
+		<li class="aiutiNascosti"><a href="#contenutoPagina-contatti"  tabindex="0" >Vai al contenuto</a></li>
 	</ul>
 	<div class="menu" id="menu_1">
     <ul>
     <li>
-      <a href="index.php" role="button" tabindex="4" xml:lang="en" >HOME</a>
+      <a href="index.php" role="button"  xml:lang="en" >HOME</a>
       <div class="barraVerticale"></div> 
     </li>
     <li>
-      <a href="prodotti.php" role="button" tabindex="5">PRODOTTI</a>
+      <a href="prodotti.php" role="button" >PRODOTTI</a>
       <div class="barraVerticale"></div> 
     </li>
     <li>
-      <a href="gallery.php" role="button" tabindex="5" xml:lang="en">GALLERY</a>
+      <a href="gallery.php" role="button"  xml:lang="en">GALLERY</a>
       <div class="barraVerticale"></div> 
     </li>
     <li>
@@ -50,19 +50,19 @@
     </ul>
   </div>
   <div class="menu" id="icona_mobile">
-    <button onclick="menu()" tabindex="7">
+    <button onclick="menu()" >
       <img  src="img/menu.png" alt="menù"/>
     </button>
     <div class="menu" id="menu_mobile">
       <ul>
         <li>
-          <a href="index.php" role="button" tabindex="8" xml:lang="en">HOME</a>
+          <a href="index.php" role="button"  xml:lang="en">HOME</a>
         </li>
         <li>
-          <a href="prodotti.php" role="button" tabindex="5">PRODOTTI</a>
+          <a href="prodotti.php" role="button" >PRODOTTI</a>
         </li>
         <li>
-          <a href="gallery.php" role="button" tabindex="9" xml:lang="en">GALLERY</a>
+          <a href="gallery.php" role="button"  xml:lang="en">GALLERY</a>
         </li>
         <li>
          <p>CONTATTI</p>
@@ -84,7 +84,7 @@
  </ul>
   </div>
   <div id="titolo">
-    <img tabindex="1" id="logo" src="img/logo_1.png" alt="Logo Gelateria Orolatte"/>
+    <img id="logo" src="img/logo_1.png" alt="Logo Gelateria Orolatte"/>
      <h1 > Gelateria Orolatte </h1>
   </div>
   <div class="menu" id="titolo_mobile">
@@ -93,7 +93,7 @@
   </div>
 </div>
 <div id="percorso">
-	<p  tabindex="14" >Ti trovi in: Contatti</p>
+	<p  tabindex="0" >Ti trovi in: Contatti</p>
 </div>
 <div id="contenutoPagina-contatti" class="contenutogenerale">
 	<div class="flex-contatti" id="box">
@@ -101,11 +101,11 @@
 		<!-- per rendere piu accessibile il sito la mappa (visto che è un iframe) viene messa con tabindex -1 e dunque non viene letta dallo screenreader, non viene letta perchè la mappa ha uno scopo più stilistico che informativo, visto che l'informazione di dove è situata la gelateria è nella sezione di fianco alla mappa, cioè la descrizione dell'indirizzo.-->
 	</div>
 	<div class="flex-contatti" id="contatti">
-		<h2 tabindex="14">Contatti</h2>	
+		<h2 >Contatti</h2>	
 		<ul>
-			<li tabindex="15"><span class="grassetto maiuscolo"> Tel:</span> 347 792 6494</li>
-			<li tabindex="16"><span class="grassetto maiuscolo">Indicazioni:</span> Via Matteotti 7, Guidizzolo (92,83 km) 46040 Guidizzolo, Lombardia</li>
-			<li tabindex="17"><span class="grassetto maiuscolo" xml:lang="en">Facebook:</span><a href="https://it-it.facebook.com/OrolatteGelateriaCafe/" tabindex="18"> OrolatteGelateriaCaffè </a></li>
+			<li ><span class="grassetto maiuscolo"> Tel:</span> 347 792 6494</li>
+			<li><span class="grassetto maiuscolo">Indicazioni:</span> Via Matteotti 7, Guidizzolo (92,83 km) 46040 Guidizzolo, Lombardia</li>
+			<li><span class="grassetto maiuscolo" xml:lang="en">Facebook:</span><a href="https://it-it.facebook.com/OrolatteGelateriaCafe/"> OrolatteGelateriaCaffè </a></li>
 		</ul>
 	</div>
 </div>
@@ -115,7 +115,7 @@
 <div id="footer">
 	<img id="imgvalidcode" src="img/valid-xhtml10.png" alt="immagine timbro html valido" />
   	<img id="imgvalidcss" src="img/vcss-blue.gif" alt="immagine timbro css valido" />
-  	<p tabindex="19">Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
+  	<p>Il sito e' stato creato come progetto del corso di Tecnologie Web dell' Università di Padova</p>
 </div>
 </body>
 </html>
