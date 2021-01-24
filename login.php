@@ -62,7 +62,7 @@
 		$stringaLogin .= "<p xml:lang='en'>LOGIN</p>\n";
 	}
 	else {
-		$stringaLogin .= "<p class='det_log ciao' tabindex='11'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<p class='det_log ciao'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";

@@ -622,7 +622,7 @@ p.errors {
 	text-transform: uppercase;
 }
 
-#errore_aggiunta{
+.errore_aggiunta{
 	font-weight: bold;
 	color: black;
 	background-color: red;
@@ -630,7 +630,7 @@ p.errors {
 	font-size: 0.9em;
 }
 
-#errore_aggiunta a, #carrello-prodotti p a{
+.errore_aggiunta a, .carrello-prodotti p a{
 	cursor: pointer;
 	font-weight: bold;
 	background-color: #0FF;
@@ -646,12 +646,12 @@ p.errors {
 	transition-duration: 0.4s;
 }
 
-#errore_aggiunta a:hover, #carrello-prodotti p a:hover{
+.errore_aggiunta a:hover, .carrello-prodotti p a:hover{
 	background-color: white;
 	border-color: cyan;
 }
 
-#carrello-prodotti {
+.carrello-prodotti {
   float: right;
   padding: 0.5em;
   margin-left: 0.5em;
@@ -676,7 +676,7 @@ p.errors {
   border-bottom: 1px solid red;
 }
 
-#carrello-prodotti h2{
+.carrello-prodotti h2{
   font-size: 1.5em;
   margin-bottom: 1em;
 }
@@ -845,7 +845,7 @@ h2{
   flex-shrink: 1;
 }
 
-#rimuovi, #cancella, #aggiungi{
+.rimuovi, #cancella, .aggiungi{
   background-color: red;
   font-size: 1em;
   color:white;
@@ -857,7 +857,7 @@ h2{
 }
 
 
-#modifica , #submit{
+.modifica , #submit{
   float: left;
   margin-right: 1em;
   background-color: blue;
@@ -871,13 +871,13 @@ h2{
 }
 
 
-#nome{
+.nome{
   display: none;
 }
-#immagine{
+.immagine{
   margin-top: 0.8em;
 }
-#descrizione, #alt{
+.descrizione, .alt{
   margin-top: 0.8em;
 }
 
@@ -921,7 +921,7 @@ h2{
   border: 2px solid #0FF;
 }
 
-#filtri #selezionato{
+#filtri .selezionato{
   cursor:initial;
   background-color: #FFF;
   border: 2px solid #0FF;
@@ -931,7 +931,7 @@ h2{
   text-transform: uppercase;
 }
 
-#aggiungi{
+.aggiungi{
   float:left;
   margin-right: 1em;
 }
