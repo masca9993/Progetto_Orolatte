@@ -35,7 +35,7 @@ function closeModal() {
 
 
 function checkEmail_signup(){
-	 var email = document.signup.email.value;
+	 var email = document.getElementById("email").value;
 
 	 var email_valid=/^([\w\-\+\.]+)\@([\w\-\+\.]+)\.([\w\-\+\.]+)$/;
    var err=document.getElementById("email_err");
@@ -53,7 +53,7 @@ function checkEmail_signup(){
 }
 
 function checkUsername_signup(){
-	var username = document.signup.username.value;
+	var username = document.getElementById("username").value;
 
 	var username_valid=/^[a-zA-Z0-9]{3,16}$/;
    err=document.getElementById("username_err");
@@ -70,7 +70,7 @@ function checkUsername_signup(){
 }
 
 function checkPassword_signup(){
-	var password_1= document.signup.password_1.value;
+	var password_1= document.getElementById("password_1").value;
 
 	err=document.getElementById("password_err");
     
@@ -91,7 +91,9 @@ function checkPassword_signup(){
 
 
 function checkUsername_login(){
- var username = document.login.username.value;
+ 
+ var username = document.getElementById("username").value;
+
   var username_valid=/^[a-zA-Z0-9]{3,16}$/;
    err=document.getElementById("username_err");
     err.style.display="none";
@@ -109,7 +111,8 @@ function checkUsername_login(){
 }
 
 function checkPassword_login(){
-  var password= document.login.password.value;
+  
+  var username = document.getElementById("password").value;
 
  err=document.getElementById("password_err");
     err.style.display="none";
