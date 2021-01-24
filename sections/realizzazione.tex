@@ -1,4 +1,65 @@
 \section{Realizzazione}
     \subsection{Struttura}
+		\subsubsection{Home}
+			La struttura delle pagina \emph{Home} \'e stata realizzata utilizzando lo strumento 'flexbox', che \'e stato preferito a una grid in quanto supportato anche da browser pi\'u datati.
+			LOGIN HEADER
+			In ogni pagina, il codice php controlla se l'utente ha effetuato il login o meno, adeguando di conseguenza la struttura dell'header, modificando l'html tramite la funzione \emph{str\_replace}.
+			In caso l'utente abbia effetuato l'accesso viene stampato un messaggio di benvenuto, che ha anche la funzine di confermare che il login ha avuto successo. 
+			Viene acnhe reso disponibile un link, al quale viene assegnato il ruolo di pulsante, che consente di effetuare il logout.
+			Quando viene cliccato esegue un breve segmento di codice php che reinizializza le variabili di sessione.
+		\subsubsection{Gallery}
+			La struttura delle pagina \emph{Gallery} \'e stata realizzata utilizzando lo strumento 'flexbox', che \'e stato preferito a una grid in quanto supportato anche da browser pi\'u datati.
+			Questa pagina contiene una galleria di immagini rappresentative dei prodotti offerti dal locale. 
+			La galleria utilizza Javascript e CSS per visualizzare gli ingrandimenti delle immagini.
+			Nella pagina gallery è possibile visualizzare degli ingrandimenti delle immagini grazie ad una modal box gestita attraverso Javascript e CSS: cliccando su una delle immagini viene chiamata la funzione openModal(id) con la quale viene modificato il CSS della pagina, rendendo visibile l'ingrandimento dell'immagine cliccata.
+			Utilizzando poi il pulante edi chiusura presente nella modal, viene chimata la funzione closeModal(), che nasconde l'ingrandimento riportando il CSS allo stato originale.
+
+		\subsubsection{Carrello}
+			La pagina \emph{Carrello} riepiloga i prodotti che un utente ha scelto di acquistare, visualizzando il carrello di un utente che abbia effettuato il login.
+			Nel caso in cui l'utente non abbia fatto l'accesso, in questa pagina viene visualizzato un messaggio che invita a farlo.
+			Il carrello è rappresentato da una tabella nel database del sito, in cui ogni entrata è caratterizzata dall'oggetto inserito nel carrello e dall'utente corrispondente. La pagina viene generata dinamicamente tramite php ogni volta che l'utente vi accede, inserendo i prodotti come non oridnata. È inoltre possibile rimuovere i prodotti dal carrello e aumentare o diminuire la quantità dei prodotti già inseriti.
+			Viene anche visualizzato il prezzo dei singoli elementi della lista e il prezzo totale del carrello.
     \subsection{Presentazione}
+		TABINDEX
+		Nella maggior parte delle pagine non vi è stata necessità di inserire attributi tabindex poiché l'ordine di navigazione tramite tab risultava già corretto.
+		In alcune pagine però si è preferito definire tale ordine esplicitamente su paragrafi di testo e immagini, in modo da consentire all'utente di navigare l'intera pagina utilizzando il tasto tab, anche laddove non fossero presenti elementi con cui normalmente si potesse interagire.
+
+		TESTO ALTERNATIVO
+		Tutte le immagini di contenuto del sito sono corredate di testo alternativo in modo che risultino accessibili anche ad utenti con disabilità visiva totale.
+		PAROLE IN LINGUA INGLESE.
+		Ogni qualvolta nel testo compare un termine in lingua inglese, esso viene marcato come tale utilizzando l'attributo xml:lang, in modo che venga pronunciato nel modo corretto dagli screen reader.
+		AIUTI NASCOSTI
+		All'inizio di ogni pagina sono presenti degli aiuti nascosti che permettono agli utenti che utilizzano lo screen-reader per la navigazione web di spostare il focus direttamente sul menù oppure sul contenuto.
+		Tali aiuti nascosti possono essere raggiunti solo attraverso l'utilizzo del tab poiché non sono visibili nella pagina ma sono inseriti nella lista degli elementi raggiungibili utilizzando l'attributo tabindex="0".
+		È inoltre presente l'access key "c" che permette di tornare in ogni momento nella parte alta della pagina.
+
+		IMMAGINI
+		Si \'e ritenuto utile aggiungere dverse immagini al sito, al fine di mostrare al cliente i prodotti che pu\'o scegliere di acquistare.
+		Si \'e tuttavia prestato attenzione a non appesantire inutilemnte il sito: le immagini sono state inserite come descritto di seguito:
+		\begin{itemize}
+		\item Due sono presenti nella home, che vuole risultare accattivante. Queste sono immagini di qualit\'a ridotta rispetto all'originale per ridurne la dimensione. Il loro peso totale \'e di 135 kB.
+		\item Cinque sono presenti nella pagina \emph{Prodotti}, dove accompagnano la descrizione del prodotto in questione e sono pertanto ritenute opportune.
+		\item Le altre immagini sono presenti nella pagina \emph{Gallery}, dove ongni immagine \'e presente con una qualit\'a maggiore (e dimensione comunque non esagerata). Chiaramente caricare questa pagina comporta un maggiore utilizzo di banda, ma essendo le immagini raccolte in una pagina apposita visualizzarle \'e un'esplicita scelta dell'utente.
+		\end{itemize}
+		Vi sono inoltre altre due immagini, presenti nell'header, che accompagnano le scritte \emph{login} e \emph{carrello}.
+		Queste tuttavia sono immagini molto piccole che fanno parte della presentazione del sito e non della sua struttura, e sono pertanto state aggiunte tramite css.
+
+
     \subsection{Comportamento}
+		FORM E CONTROLLO INPUT
+		Le pagine di login e signup richiedono di ricevere input da parte dell'utente tramite una form.
+		Anche la pagina prodotti prevede la possibilit\'a di interagire col database tramite una form, bench\'e questa funzionalit\'a sia riservata agli tuenti amministratori.
+		Ogni campo \'e stato contrassegnato con una specifica label e un placeholder che suggerisce all'utente quale tipo di input viene richiesto.
+		Il primo campo dei ogni form \'e inoltre caratterizzato dall'attributo autofocus, consentendo di scrivere immediatamente.
+		Questo potrebbe essere utile in particolare per facilitare l'accessibilit\'a di utenti che navigano da tastiera, i quali non avranno difficolt\'a  a raggiungere il campo.
+		L'input inserito viene controllato sia lato client, tramite un'apposita funzione javascript, sia lato server, in quanto viene fatto l'escape della stringa inserita.
+		Il codice javascript controlla aspetti come la lunghezza dell'input, il pattern (per mezzo di un'espressione regolare) e il tipo di caratteri utilizzati.
+		Dove possibile inoltre si \'e fatto uso degli attributi html per aggiungere un ulteriore livello, cotrollo dell'input, per esempio se un input richiede l'inserimento un indirizzo email o di un numero intero \'e marcato come tale.
+
+	\subsection{Accessibilit\'a}
+		Per sviluppare il sito si è seguito lo satndard WCAG 2.0 in modo da renderlo accessibile anche a persone con disabilità.
+		ACCESSIBILITÀ - GALLERY
+		Nella pagina gallery ogni immagine è fornita di testo alternativo e risulta raggiungibile e cliccabile anche da tastiera
+		Si è pensato che una persona con disabilità visiva totale, ovvero la principale utilizzatrice del web tramite tastiera, abbia accesso al testo alternativo delle immagini direttamente dalla pagina Gallery, e che quindi difficilmente avrà necessità di aprirne l'ingrandimento.
+		Per questo motivo, all'apertura della modal box il focus viene portato automaticamente sul pulsante per chiudere la modal e non sull'ingrandimento, in modo tale che non venga letto due volte lo stesso testo alternativo.
+		Una volta cliccato sul pulsante di chiusura, il focus viene riportato sull'immagine che era stata aperta, in modo da poter continuare la navigazione da dove l'utente si era interrotto. 
