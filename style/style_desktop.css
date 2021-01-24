@@ -674,7 +674,7 @@ p.errors {
   border: 2px solid #0FF;
 }
 
-#concludi a p{
+#concludi a {
   padding: 1em;
   text-align: center;
 }

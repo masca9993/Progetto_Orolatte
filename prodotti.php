@@ -36,28 +36,28 @@ else{
 	if(isset($_SESSION["admin"]) && $_SESSION["admin"])
 	{
 			$insert_form='<div id="admin">
-	  <form action="prodotti.php" method="POST" id="admin_form">
+	  <form action="prodotti.php" method="post" id="admin_form">
 	  <h2 >Inserisci un Nuovo Prodotto</h2>
 	    <fieldset>
 	    <div class="row">
 	     <label for="item"  >Nome Prodotto:</label>
-	     <input type="text" name="item" id="item"   required/>
+	     <input type="text" name="item" id="item"   />
 	   </div>
 	   <div class="row">
 	   <label for="descrizione" >Descrizione:</label>
-	   <textarea name="descrizione" rows="3" class="descrizione" required></textarea>
+	   <textarea name="descrizione" rows="3" cols="25" class="descrizione" ></textarea>
 	  </div>
 	   <div class="row">
 	   <label for="foto" >Percorso Foto:</label>
-	   <input type="text" name="foto" id="foto"  required/>
+	   <input type="text" name="foto" id="foto"  />
 	  </div>
 	  <div class="row">
 	   <label for="alt_foto" >Descrizione Immagine:</label>
-	  <textarea name="alt_foto" rows="3" id="alt_foto"  required></textarea>
+	  <textarea name="alt_foto" rows="3" cols="25" id="alt_foto"  ></textarea>
 	  </div>
 	  <div class="row">
 	   <label for="prezzo" >Prezzo:</label>
-	   <input type="text" name="prezzo" class="prezzo"  required/>
+	   <input type="text" id="prezzo" name="prezzo"  />
 	  </div>
 	   <div class="row">
 	   <label for="nome_category"  >Categoria:</label>
@@ -120,25 +120,29 @@ else{
 			if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
 				$definitionListProdotti.='<form method="post" action="prodotti.php"><p>';
 				$definitionListProdotti.='<input type="text" class="nome" name="name" value="'.$prodotto['nome'].'" />';
-				if($prodotto['categoria']=="gelato"){
-					$definitionListProdotti.='<div class="nome">';
-				}
-					$definitionListProdotti.='<label for="prezzo"  > Modifica Prezzo: </label>
-					<input type="text" class="prezzo" name="prezzo"   value="'.$prodotto['prezzo'].'"/></br>';
-				if($prodotto['categoria']=="gelato"){
-					$definitionListProdotti.='</div>';	
-				}
-				$definitionListProdotti.='<label for="Immagine" > Modifica Immagine: </label>
-		<input type="text" class="immagine"   name="immagine" value="'.$prodotto['immagine'].'"/></br>';
-				$definitionListProdotti.='<label for="Descrizione immagine"  > Modifica Descrizione immagine: </label>
-				<textarea name="alt" rows="3" class="alt"   >'.$prodotto['alt'].' </textarea></br>';
-				$definitionListProdotti.='<label for="Descrizione"  > Modifica Descrizione: </label>
-				<textarea name="descrizione" rows="5" class="descrizione"   >'.$prodotto['descrizione'].' </textarea></br>';
+				
+					$definitionListProdotti.='<label for="costo"';
+					if($prodotto['categoria']=="gelato") {
+						$definitionListProdotti.='class="nome"';
+					}
+					$definitionListProdotti.='>Modifica Prezzo: </label>
+					<input type="text" ';
+					if($prodotto['categoria']=="gelato") {
+						$definitionListProdotti.='class="nome"';
+					}
+					$definitionListProdotti.=' name="prezzo"   value="'.$prodotto['prezzo'].'"/><br/>';
+				
+				$definitionListProdotti.='<label for="immagine" > Modifica Immagine: </label>
+		<input type="text" class="immagine"   name="immagine" value="'.$prodotto['immagine'].'"/><br/>';
+				$definitionListProdotti.='<label for="alt_foto"  > Modifica Descrizione immagine: </label>
+				<textarea name="alt" rows="3" cols="25" class="alt"   >'.$prodotto['alt'].' </textarea><br/>';
+				$definitionListProdotti.='<label for="descrizione"  > Modifica Descrizione: </label>
+				<textarea name="descrizione" rows="5" cols="25" class="descrizione"   >'.$prodotto['descrizione'].' </textarea><br/>';
 				$definitionListProdotti.='<input type="submit" name="modifica" value="Modifica"  class="modifica"/></p></form>';
 				$definitionListProdotti.='<form method="post" action="prodotti.php"><fieldset class="no_colore">';
 				$definitionListProdotti.='<input type="text" class="nome" name="name" value="'.$prodotto['nome'].'" />';
 				$definitionListProdotti.='<input type="submit" name="rimuovi" value="Rimuovi" class="rimuovi"    /></fieldset></form>';
-				$definitionListProdotti.='</errelimina>';
+				$definitionListProdotti.='<errelimina/>';
 			}
 			else{
 				$definitionListProdotti.='<p >'.$prodotto['descrizione'].'</p>';
@@ -146,7 +150,7 @@ else{
 					$definitionListProdotti.='<form method="post" action="prodotti.php"><p>';
 				$definitionListProdotti.='<input type="text" class="nome" name="name" value="'.$prodotto['nome'].'" />';
 				$definitionListProdotti.='<input type="submit"  name="aggiungi" value="Aggiungi al carrello" class="aggiungi" /></p></form>';
-				$definitionListProdotti.='</errelimina>';
+				$definitionListProdotti.='<errelimina/>';
 				$definitionListProdotti.='<div class="costo" ><p >'. $prodotto['prezzo'].'&euro;</p></div>';
 				}
 			}
@@ -308,8 +312,7 @@ if (isset($_POST["meno"])){
 			<p>Totale: ' .$totale.' </p>
   </div>
   <div id="concludi">
-    <a href="carrello.php" >
-    <p >Vai al Carrello</p> </a>
+    <a href="carrello.php" >Vai al Carrello </a>
   </div>
 	';
 		}

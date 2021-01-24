@@ -37,7 +37,7 @@ else {
 			foreach ($listaProdotti as $prodotto) {
 				$dlProdotti .= '<li><p class="pt_carr">'. $prodotto['nome_item'].'</p>
 									<div class="qta_carr"> 
-									<p>
+									
 									<form method="post" action="carrello.php" >
 									<fieldset class="no_colore">
 									<input type="text" class="nome" name="name" value="'.$prodotto['nome_item'].'"/>
@@ -46,15 +46,15 @@ else {
         							<form method="post" action="carrello.php">
         							<fieldset class="no_colore">
         							<input type="text" class="nome" name="name" value="'.$prodotto['nome_item'].'"/>
-        							<input type="submit" name="aggiungi" value="+"" class="plus"/></fieldset></form></div></p>
+        							<input type="submit" name="aggiungi" value="+" class="plus"/></fieldset></form></div>
 									<p class="pz_carr">'. $prodotto['prezzo']*$prodotto['quantità'] .'&euro; </p>
-					<p><form method="post" action="carrello.php"><fieldset class="no_colore">
+					<div><form method="post" action="carrello.php"><fieldset class="no_colore">
 					<input type="text" name="name" value="'.$prodotto['nome_item'].'" class="nascondi"/>
 					<input type="submit" name="rimuovi" class="bottone_rosso" value="Rimuovi"/>
-					</fieldset></form></p></li>';
+					</fieldset></form></div></li>';
 					$totale=$totale+$prodotto['prezzo']*$prodotto['quantità'];	
 			}
-			$dlProdotti.="<li><p class='grassetto'>TOTALE: ".$totale." &euro;";
+			$dlProdotti.="<li><p class='grassetto'>TOTALE: ".$totale." &euro;</p></li>";
 			$dlProdotti = $dlProdotti . "</ul>";
 			$stringaPulsanteOrdine = "<form method='post' action='carrello.php'><fieldset class='no_colore'>
 					<input type='submit' name='ordina' class='standard' value='Ordina subito'/>
