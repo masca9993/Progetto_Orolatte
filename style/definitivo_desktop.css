@@ -14,7 +14,7 @@ body {
 	max-width: 1280px;
 	margin: auto;
 	background-color: #FFF;
-	font-family: "Times New Roman", cursive, serif;
+	font-family: Arial, Helvetica, sans-serif;;
 	letter-spacing: 0.05em;
 	word-spacing: 0.1em;
 }
@@ -158,9 +158,7 @@ a:visited {
 	font-weight: bold;
 }
 
-/***********CONTENUTO***************************/
-
-
+/***********PAGINE***************************/
 
 /* CARRELLO */
 
@@ -313,18 +311,11 @@ a:hover > button.delete {
 	border:none; 
 }
 
-
-
-
-
-
-
-
 /* LOGIN & SIGNUP */
 
 #h2signup {
 	margin: 0.5em 0.5em 0.5em 1em;
-	color: #C39A59;
+	color: #8c5d4f;
 }
 
 #login-link {
@@ -337,7 +328,7 @@ p.success-message {
 
 #h2login {
 	margin: 0.5em 0.5em 0.5em 1em;
-	color: #C39A59;
+	color: #8c5d4f;
 }
 
 .form-group {
@@ -384,7 +375,6 @@ p.errors {
 	display: none;
 }
 
-
 /*GALLERY*/
 
 #contenutogenerale-gallery h2 {
@@ -403,7 +393,6 @@ p.errors {
 	transition: 0.5s ease;
 	margin-bottom: -0.5em;
 }
-
 
 .galleryItem:hover img{
 	opacity: 0.7;
@@ -443,7 +432,6 @@ p.errors {
     	cursor: pointer;
 }
 
-
 .modal{
 	display: none;
 	position: fixed;
@@ -472,20 +460,6 @@ p.errors {
 .slide{
 	display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* HOME */
 
@@ -608,9 +582,6 @@ p.errors {
 	background-color: #FFF;
 	border: 2px solid #0FF;
 }
-
-
-
 
 /*PRODOTTI*/
 #successo_aggiunta{
@@ -749,7 +720,6 @@ margin-top:2em;
   border: 2px solid #0FF;
 }
 
-
 #admin{
   padding: 1em;
   display: block;
@@ -793,7 +763,6 @@ h2{
   color: green;
 }
 
-
 #contenutoPagina{
   width: 80%;
 }
@@ -832,7 +801,6 @@ h2{
   border-radius: 0.5em;
 }
 
-
 #contenutoPagina{
   display: flex;
   flex-wrap: wrap;
@@ -856,7 +824,6 @@ h2{
   cursor: pointer;
 }
 
-
 .modifica , #submit{
   float: left;
   margin-right: 1em;
@@ -869,7 +836,6 @@ h2{
   border-radius: 0.5em;
   cursor: pointer;
 }
-
 
 .nome{
   display: none;
@@ -941,18 +907,6 @@ h2{
   text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*CONTATTI*/
 
 #pagina{
@@ -1012,27 +966,6 @@ h2{
 .contenutogenerale h2{
   font-size: 3em;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /***********FOOTER***************************/
 
