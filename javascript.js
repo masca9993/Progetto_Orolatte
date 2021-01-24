@@ -76,7 +76,7 @@ function checkPassword_signup(){
 
 	err=document.getElementById("password_err");
     
-   if (password_1.lenght<4 || (password_1 == "undefined")) 
+   if (password_1.length<4) 
    {
    	 
       err.style.display="block";
