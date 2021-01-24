@@ -584,7 +584,7 @@ p.errors {
 }
 
 /*PRODOTTI*/
-#successo_aggiunta{
+.successo_aggiunta{
 	font-weight: bold;
 	color: black;
 	background-color: lightgreen;
