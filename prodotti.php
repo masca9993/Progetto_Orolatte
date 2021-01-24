@@ -57,7 +57,7 @@ else{
 	  </div>
 	  <div class="row">
 	   <label for="prezzo" >Prezzo:</label>
-	   <input type="number" name="prezzo" class="prezzo"  required/>
+	   <input type="text" name="prezzo" class="prezzo"  required/>
 	  </div>
 	   <div class="row">
 	   <label for="nome_category"  >Categoria:</label>
@@ -177,8 +177,12 @@ if (isset($_POST["modifica"])){
 	//pulizia input
 	$descrizione=str_replace("'", "`", $descrizione);
 	$alt=str_replace("'", "`", $alt);
+
+
+	if(is_numeric($prezzo))
+	{
 	$queryResult=$dbAccess->modifica($nome,$immagine,$alt,$descrizione, $prezzo);
-	$dbAccess->closeDBConnection();
+		$dbAccess->closeDBConnection();
 	if($queryResult==false){
 		$strerrore="<p class='errore_aggiunta'>MODIFICA NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
@@ -186,6 +190,13 @@ if (isset($_POST["modifica"])){
 	else{
 		header("Refresh:0");
 	}
+	}
+	else
+	{
+		$strerrore="<p class='errore_aggiunta'>IL PREZZO DEVE ESSERE UN VALORE NUMERICO</p>";
+		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
+	}
+
 }
 
 
@@ -194,6 +205,9 @@ if(isset($_POST['submit'])){
 	$mex="";
 	$dbAccess->openDBConnection();
 		if (isset($_POST['item']) && isset($_POST['descrizione']) && isset($_POST['foto']) && isset($_POST['nome_category']) && isset($_POST['alt_foto']) && isset($_POST['prezzo']))
+		{ 
+			$prezzo=$_POST['prezzo'];
+			if(is_numeric($prezzo))
 		{
         $result=$dbAccess->insert($_POST['item'], $_POST['descrizione'], $_POST['foto'], $_POST['alt_foto'], $_POST['nome_category'], $_POST['prezzo']);
         $dbAccess->closeDBConnection();
@@ -206,8 +220,14 @@ if(isset($_POST['submit'])){
 		else {
   		$errori= "<p> ERRORE NELL'INSERIMENTO</p>";
   		$paginaHTML=str_replace("<errori/>", $errori, $paginaHTML);
-  		header("Refresh:0");
   		}
+  		}
+  		else
+  		{
+  		$errori= "<p> ERRORE NELL'INSERIMENTO</p>";
+  		$paginaHTML=str_replace("<errori/>", $errori, $paginaHTML);
+  		}
+
 }
 }
 
