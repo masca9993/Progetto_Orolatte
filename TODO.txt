@@ -1,6 +1,3 @@
-immagini stile --> non id ma class
 sistemare head html
-Tabindex
 Screen reader
 Validazione codice
-Contrasto
