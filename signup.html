@@ -32,7 +32,7 @@
 	<div class="menu" id="menu_1">
 		<ul>
 			<li>
-				<a href="index.php" role="button" tabindex="4" xml:lang="en">HOME</a>
+				<a href="index.php" role="button" tabindex="4" >HOME</a>
 				<div class="barraVerticale"></div> 
 			</li>
 			<li>
@@ -40,7 +40,7 @@
 				<div class="barraVerticale"></div> 
 			</li>
 			<li>
-				<a href="gallery.php" role="button" tabindex="5" xml:lang="en">GALLERY</a>
+				<a href="gallery.php" role="button" tabindex="5">GALLERY</a>
 				<div class="barraVerticale"></div> 
 			</li>
 			<li>
@@ -55,13 +55,13 @@
 		<div class="menu" id="menu_mobile">
 			<ul>
 				<li>
-					<a href="index.php" role="button" tabindex="8" xml:lang="en">HOME</a>
+					<a href="index.php" role="button" tabindex="8" >HOME</a>
 				</li>
 				<li>
 					<a href="prodotti.php" role="button" tabindex="5">PRODOTTI</a>
 				</li>
 				<li>
-					<a href="gallery.php" role="button" tabindex="9" xml:lang="en">GALLERY</a>
+					<a href="gallery.php" role="button" tabindex="9">GALLERY</a>
 				</li>
 				<li>
 					<a href="contatti.php" role="button" tabindex="10">CONTATTI</a>
@@ -96,26 +96,35 @@
 	<p> Ti trovi in: Registrazione</p>
 </div>
 
-<h2 id='h2signup' xml:lang="en" accesskey="c">SING UP</h2>
+<h2 id='h2signup'>SIGN UP</h2>
 
-<form class='login' method="post" action="signup.php">
+<form class='login' method="post" name="signup" action="signup.php">
 	<fieldset>
 		<div class="form-group">
-			<label for="emal"> Inserire il proprio indirizzo <span xml:lang="en">email</span>: </label>
-			<input type="email" id="email" name="email" placeholder="nome.cognome@esempio.com" autofocus required />
+			<label for="emal"> Inserire il proprio indirizzo email: </label>
+			<input type="email" id="email" name="email" onfocusout="checkEmail_signup()" placeholder="nome.cognome@esempio.com" autofocus required />
+			<div id="email_err" class="input_err">
+				<p>Inserire un indirizzo mail corretto</p>
+			</div>
 			<ErroreEmail />
 		</div>
 		<div class="form-group">
-			<label for="username"> Inserire il proprio <span xml:lang="en">username</span>: </label>
-			<input type="text" id="username" name="username" placeholder="Username" required />
+			<label for="username"> Inserire il proprio username: </label>
+			<input type="text" id="username" name="username" onfocusout="checkUsername_signup()" placeholder="Username" required />
+			<div id="username_err" class="input_err">
+				<p>L'username deve contenere minimo 4 e massimo 16 caratteri alfanumerici</p>
+			</div>
 			<ErroreUsername />
 		</div>
 		<div class="form-group">
-			<label for="password"> Inserire la propria <span xml:lang="en">password</span>: </label>
-			<input type="password" id="password_1" name="password_1" placeholder="Password" required />
+			<label for="password"> Inserire la propria password: </label>
+			<input type="password" id="password_1" name="password_1" onfocusout="checkPassword_signup()" placeholder="Password" required />
+		</div>
+		<div id="password_err" class="input_err">
+				<p>La password deve essere lunga almeno 6 caratteri</p>
 		</div>
 		<div class="form-group">
-			<label for="password"> Confermare la propria <span xml:lang="en">password</span>: </label>
+			<label for="password"> Confermare la propria password: </label>
 			<input type="password" id="password_2" name="password_2" placeholder="Password" required />
 			<ErrorePassword />
 		</div>
@@ -131,7 +140,7 @@
 </div>
 
 <div id="login-link">
-	<p>Hai gi&agrave; un <span xml:lang="en">account</span>? <a href="login.php">Accedi</a></p>
+	<p>Hai gi&agrave; un account? <a href="login.php">Accedi</a></p>
 </div>
 
 <div id="footer">
