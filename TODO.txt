@@ -1,3 +1,0 @@
-sistemare head html
-Screen reader
-Validazione codice
