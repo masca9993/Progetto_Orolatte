@@ -119,12 +119,12 @@ else{
 
 		$definitionListProdotti='';
 		foreach($listaProdotti as $prodotto){
-			$definitionListProdotti.='<div class="flex"><dl id="prodotti"><dt >'.$prodotto['nome'];
+			$definitionListProdotti.='<div class="flex"><dl class="prodotti"><dt >'.$prodotto['nome'];
 			$definitionListProdotti.='</dt>';
 			$definitionListProdotti.='<dd>';
 			$definitionListProdotti.='<img  src="'.$prodotto['immagine'].'" alt="'.$prodotto['alt'].'"/>';
 			if(isset($_SESSION["admin"]) && $_SESSION["admin"]){
-				$definitionListProdotti.='<form method="post" action="prodotti.php">';
+				$definitionListProdotti.='<form method="post" action="prodotti.php"><p>';
 				$definitionListProdotti.='<input type="text" class="nome" name="name" value="'.$prodotto['nome'].'" />';
 				if($prodotto['categoria']=="gelato"){
 					$definitionListProdotti.='<div class="nome">';
@@ -140,7 +140,7 @@ else{
 				<textarea name="alt" rows="3" class="alt"   >'.$prodotto['alt'].' </textarea></br>';
 				$definitionListProdotti.='<label for="Descrizione"  > Modifica Descrizione: </label>
 				<textarea name="descrizione" rows="5" class="descrizione"   >'.$prodotto['descrizione'].' </textarea></br>';
-				$definitionListProdotti.='<input type="submit" name="modifica" value="Modifica"  class="modifica"/></form>';
+				$definitionListProdotti.='<input type="submit" name="modifica" value="Modifica"  class="modifica"/></p></form>';
 				$definitionListProdotti.='<form method="post" action="prodotti.php"><fieldset class="no_colore">';
 				$definitionListProdotti.='<input type="text" class="nome" name="name" value="'.$prodotto['nome'].'" />';
 				$definitionListProdotti.='<input type="submit" name="rimuovi" value="Rimuovi" class="rimuovi"    /></fieldset></form>';
@@ -149,9 +149,9 @@ else{
 			else{
 				$definitionListProdotti.='<p >'.$prodotto['descrizione'].'</p>';
 				if($prodotto['categoria']=="torta"){
-					$definitionListProdotti.='<form method="post" action="prodotti.php">';
+					$definitionListProdotti.='<form method="post" action="prodotti.php"><p>';
 				$definitionListProdotti.='<input type="text" class="nome" name="name" value="'.$prodotto['nome'].'" />';
-				$definitionListProdotti.='<input type="submit"  name="aggiungi" value="Aggiungi al carrello" class="aggiungi" /></form>';
+				$definitionListProdotti.='<input type="submit"  name="aggiungi" value="Aggiungi al carrello" class="aggiungi" /></p></form>';
 				$definitionListProdotti.='</errelimina>';
 				$definitionListProdotti.='<div class="costo" ><p >'. $prodotto['prezzo'].'&euro;</p></div>';
 				}

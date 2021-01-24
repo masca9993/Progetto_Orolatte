@@ -847,7 +847,7 @@ h2{
   margin-top: 0.8em;
 }
 
-#prodotti dd form label{
+.prodotti dd form label{
   display: inline-block;
   font-weight: bold;
   text-align:left;
