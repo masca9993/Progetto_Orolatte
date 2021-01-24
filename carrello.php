@@ -70,10 +70,10 @@ else {
 	$stringaPulsanteOrdine = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
-		$stringaLogin .= "<a href='login.php' tabindex='6' xml:lang='en'>LOGIN</a>\n";
+		$stringaLogin .= "<a href='login.php'  xml:lang='en'>LOGIN</a>\n";
 	}
 	else {
-		$stringaLogin .= "<p class='det_log ciao' tabindex='11'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<p class='det_log ciao' > CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<div class='barraVerticale det_log' ></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
