@@ -2,6 +2,10 @@
 
 	session_start();
 
+	ini_set("display_errors", 1);
+	ini_set("display_startup_errors", 1);
+	error_reporting(E_ALL);
+
 	define("DB_SERVER", "localhost");
 	define("DB_USERNAME", "root");
 	define("DB_PASSWORD", "");
@@ -16,9 +20,9 @@
 	$username = "";
 	$email = "";
 	$password = "";
-	$different_passwords = false;
-	$email_taken = false;
-	$username_taken = false;
+	$password_err = false;
+	$email_err = false;
+	$username_err = false;
 	$signup_successful = false;
 	$stringaErroreEmail = "";
 	$stringaErroreUsername = "";
@@ -32,10 +36,26 @@
 		$password_2 = mysqli_real_escape_string($con, $_POST["password_2"]);
 
 		if ($password_1 != $password_2) {
-			$different_passwords = true;
+			$password_err = true;
 			$stringaErrorePassword = "<p class='errors'>Le password inserite non coincidono</p>";
 		}
 
+		if(!preg_match('/^([\w\-\+\.]+)\@([\w\-\+\.]+)\.([\w\-\+\.]+)$/',$email))
+		{
+			$email_err=true;
+		}
+
+		if(!preg_match('/^[a-zA-Z0-9]{3,16}$/',$username))
+		{
+			$username_err=true;
+		}
+
+		if(strlen($password_1)<4)
+		{
+			$password_err=true;
+		}
+
+		if ($password_err == false && $email_err== false && $username_err == false){
 		$user_check_query = "SELECT email, username FROM user WHERE email='$email' OR username='$username' LIMIT 1;";
 		$result = mysqli_query($con, $user_check_query);
 
@@ -45,17 +65,18 @@
 
 			if ($row) {
 				if ($row["email"] == $email) {
-					$email_taken = true;
+					$email_err = true;
 					$stringaErroreEmail = "<p class='errors'>Esiste gi&agrave; un utente con questo indirizzo email</p>";
 				}
 				if ($row["username"] == $username) {
-					$username_taken = true;
+					$username_err = true;
 					$stringaErroreUsername = "<p class='errors'>Esiste gi&agrave; un utente con questo username</p>";
 				}
 			}
 		}
+	}
 
-		if ($different_passwords == false && $email_taken == false && $username_taken == false) {
+		if ($password_err == false && $email_err== false && $username_err == false) {
 			$password = sha1($password_1);
 
 			$query = "INSERT INTO user (email, username, password, admin) VALUES('$email', '$username', '$password', 0)";
@@ -68,9 +89,9 @@
 
 	$pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 	if ($pageWasRefreshed) {
-		$email_taken = false;
-		$username_taken = false;
-		$different_passwords = false;
+		$email_err= false;
+		$username_err = false;
+		$password_err = false;
 		$signup_successful = false;
 	}
 
@@ -81,14 +102,14 @@
 	$stringaLogin = "";
 
 	if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] == false) {
-		$stringaLogin .= "<a href='login.php' xml:lang='en'>LOGIN</a>\n";
+		$stringaLogin .= "<a href='login.php'>LOGIN</a>\n";
 	}
 	else {
-		$stringaLogin .= "<p class='det_log ciao'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
+		$stringaLogin .= "<p class='det_log ciao' tabindex='11'> CIAO " . $_SESSION['username'] . "</p>" . "\n";
 		$stringaLogin .= "<div class='barraVerticale det_log' id='stile'></div>" . "\n";
 		$stringaLogin .= "\t</li>\n";
 		$stringaLogin .= "\t<li>\n";
-		$stringaLogin .= "\t\t<a href='logout.php' role='button' xml:lang='en'>LOGOUT</a>\n";
+		$stringaLogin .= "\t\t<a href='logout.php' role='button' tabindex='12'>LOGOUT</a>\n";
 	}
 
 	$paginaHTML = str_replace("<ControlloLogin />", $stringaLogin, $paginaHTML);
