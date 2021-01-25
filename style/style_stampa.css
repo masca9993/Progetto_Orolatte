@@ -278,3 +278,7 @@ button.delete {
 p.errors {
   border:none; 
 }
+
+div.torna-su a {
+	display: none;
+}

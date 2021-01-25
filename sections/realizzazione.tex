@@ -30,25 +30,23 @@
 			Questa scelta \'e coerente  perch\'e l'unico h1 \'e presente nell'header e si \'e scelto di usare una struttura gerarchica all'interno di tutto il sito.
 			Entrambe le pagine presentano una form, il cui funzionamento \'e descritto nella sezione "Comportamento" di questo capitolo.
     \subsection{Presentazione}
-		TESTO ALTERNATIVO
 		Tutte le immagini di contenuto del sito sono corredate di testo alternativo in modo che risultino accessibili anche ad utenti con disabilità visiva totale.
-		PAROLE IN LINGUA INGLESE.
 		Ogni qualvolta nel testo compare un termine in lingua inglese, esso viene marcato come tale utilizzando l'attributo xml:lang, in modo che venga pronunciato nel modo corretto dagli screen reader.
 		AIUTI NASCOSTI
 		All'inizio di ogni pagina sono presenti degli aiuti nascosti che permettono agli utenti che utilizzano lo screen-reader per la navigazione web di spostare il focus direttamente sul menù oppure sul contenuto.
 		Tali aiuti nascosti possono essere raggiunti solo attraverso l'utilizzo del tab poiché non sono visibili nella pagina ma sono inseriti nella lista degli elementi raggiungibili utilizzando l'attributo tabindex="0".
 		È inoltre presente l'access key "c" che permette di tornare in ogni momento nella parte alta della pagina.
 
-		IMMAGINI
-		Si \'e ritenuto utile aggiungere dverse immagini al sito, al fine di mostrare al cliente i prodotti che pu\'o scegliere di acquistare.
-		Si \'e tuttavia prestato attenzione a non appesantire inutilemnte il sito: le immagini sono state inserite come descritto di seguito:
-		\begin{itemize}
-		\item Due sono presenti nella home, che vuole risultare accattivante. Queste sono immagini di qualit\'a ridotta rispetto all'originale per ridurne la dimensione. Il loro peso totale \'e di 99 kB.
-		\item Cinque sono presenti nella pagina \emph{Prodotti}, dove accompagnano la descrizione del prodotto in questione e sono pertanto ritenute opportune.
-		\item Le altre immagini sono presenti nella pagina \emph{Gallery}, dove ongni immagine \'e presente con una qualit\'a maggiore (e dimensione comunque non esagerata). Chiaramente caricare questa pagina comporta un maggiore utilizzo di banda, ma essendo le immagini raccolte in una pagina apposita visualizzarle \'e un'esplicita scelta dell'utente.
-		\end{itemize}
-		Vi sono inoltre altre due immagini, presenti nell'header, che accompagnano le scritte \emph{login} e \emph{carrello}.
-		Queste tuttavia sono immagini molto piccole che fanno parte della presentazione del sito e non della sua struttura, e sono pertanto state aggiunte tramite css.
+		\subsubsection{Immagini}
+			Si \'e ritenuto utile aggiungere dverse immagini al sito, al fine di mostrare al cliente i prodotti che pu\'o scegliere di acquistare.
+			Si \'e tuttavia prestato attenzione a non appesantire inutilemnte il sito: le immagini sono state inserite come descritto di seguito:
+			\begin{itemize}
+			\item Due sono presenti nella home, che vuole risultare accattivante. Queste sono immagini di qualit\'a ridotta rispetto all'originale per ridurne la dimensione. Il loro peso totale \'e di 99 kB.
+			\item Cinque sono presenti nella pagina \emph{Prodotti}, dove accompagnano la descrizione del prodotto in questione e sono pertanto ritenute opportune.
+			\item Le altre immagini sono presenti nella pagina \emph{Gallery}, dove ongni immagine \'e presente con una qualit\'a maggiore (e dimensione comunque non esagerata). Chiaramente caricare questa pagina comporta un maggiore utilizzo di banda, ma essendo le immagini raccolte in una pagina apposita visualizzarle \'e un'esplicita scelta dell'utente.
+			\end{itemize}
+			Vi sono inoltre altre due immagini, presenti nell'header, che accompagnano le scritte \emph{login} e \emph{carrello}.
+			Queste tuttavia sono immagini molto piccole che fanno parte della presentazione del sito e non della sua struttura, e sono pertanto state aggiunte tramite css.
 
 
     \subsection{Comportamento}
@@ -64,11 +62,10 @@
 
 	\subsection{Accessibilit\'a}
 		Per sviluppare il sito si è seguito lo satndard WCAG 2.0 in modo da renderlo accessibile anche a persone con disabilità.
-		TABINDEX
+
 		Nella maggior parte delle pagine non vi è stata necessità di inserire attributi tabindex poiché l'ordine di navigazione tramite tab risultava già corretto.
 		In alcune pagine però si è preferito definire tale ordine esplicitamente su paragrafi di testo e immagini, in modo da consentire all'utente di navigare l'intera pagina utilizzando il tasto tab, anche laddove non fossero presenti elementi con cui normalmente si potesse interagire.
 
-		ACCESSIBILITÀ - GALLERY
 		Nella pagina gallery ogni immagine è fornita di testo alternativo e risulta raggiungibile e cliccabile anche da tastiera
 		Si è pensato che una persona con disabilità visiva totale, ovvero la principale utilizzatrice del web tramite tastiera, abbia accesso al testo alternativo delle immagini direttamente dalla pagina Gallery, e che quindi difficilmente avrà necessità di aprirne l'ingrandimento.
 		Per questo motivo, all'apertura della modal box il focus viene portato automaticamente sul pulsante per chiudere la modal e non sull'ingrandimento, in modo tale che non venga letto due volte lo stesso testo alternativo.
