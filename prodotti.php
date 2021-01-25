@@ -209,6 +209,7 @@ if(isset($_POST['submit'])){
 		
 			$mex.="<p class='successo_aggiunta'> INSERIMENTO AVVENUTO CON SUCCESSO</p>";
 			$paginaHTML=str_replace("<err/>", $mex, $paginaHTML);
+			header("Refresh:3");
 			
 		} 
 		else {
