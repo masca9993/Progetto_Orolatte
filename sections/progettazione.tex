@@ -16,5 +16,21 @@
 		Ogni prodotto viene rappresentato all’interno di un box dove viene mostrata un’immagine del prodotto con descrizione e inoltre per le torte viene aggiunto il prezzo e la possibilità di aggiungere la torta al carrello:
 		Per dare sempre un’idea chiara all’utente di cosa c’è all’interno del suo carrello, senza che l’utente si sposti continuamente dalla pagina prodotti alla pagina carrello, abbiamo pensato di aggiungere alla pagina prodotti una sezione che riassume ciò che è presente all’interno del carrello, così da non scomodare l’utente durante il suo processo esplorativo, e riducendo così il numero di click da effettuare.
 		Quando si effettua il login con l'account admin, la pagina prodotti si trasforma e dà la possibilità all’amministratore di poter aggiungere nuovi prodotti e poter rimuovere o modificare i prodotti già presenti all’interno del sito.
+	\subsection{Gallery}
+		Questa pagina ha lo scopo di contenere immagini della gelateria e dei suoi dolci e gelati.
+		Le immagini qui presenti sono di qualit\'a e dimensioni superiori a quelle presenti nelle altre pagine, in quanto un utente che clicchi il link a questa pagina sa che dovr\'a scaricare delle immagini.
     \subsection{Contatti}
-		La pagina contatti è utile per gli utenti che vogliono ritrovare un elemento informativo utile (boa di segnalazione).
+		La pagina \emph{contatti} è utile per gli utenti che vogliono ritrovare un elemento informativo utile (boa di segnalazione).
+    \subsection{Carrello}
+		La pagina \emph{carrello} presenta all'utente un riepilogo dei prodotti che ha scelto di acuistare, mostrandone per ciascuno quantit\'a e prezzo, oltre al prezzo totale.
+		D\'a anche la possibilit\'a di aumentare o diminuire immediatamente la quantit\'a di ogni singolo prodotto, senza dover tornare alla pagina \emph{prodotti}.
+		Dal momento che \'e possibile effettuare acquisti solo se \'e stato effettuato un login, nel caso in cui l'utente non abbia compiuto questa azione viene visualizzato un link che rimanda alla pagina di accesso.
+		In fondo alla pagina \'e presente un pulsante per confermare l'acquisto, che in questo caso non ha effetto dal momento che il sito \'e fittizio, ma che altrimenti rimanderebbe al pagamento dei prodotti scelti.
+	\subsection{Login e Signup}
+		Queste pagine consentono a un nuvo utente di registrarsi o a un utente gi\'a esistente di effettuare il login.
+		Richiedono la compilazione di semplici form.
+		Quella per registrarsi richiede un indirizzo email, uno username e una passowrd, che l'utente dovr\'a scrivere due volte.
+		Una volta completata interagiscono con il database che accompagna il sito tramite codice php e aggiunge un utente alla tabella adeguata.
+		Per effettuare l'accesso vengono invece richiesti username e password.
+	\subsection{Database}
+		\'E stato realizzato un database che accompagna il sito e contiene le informazioni relative agli utenti registrati e ai prodotti messi in vendita dalla gelateria Orolatte.
