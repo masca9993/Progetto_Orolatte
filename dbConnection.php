@@ -25,6 +25,7 @@ class DBAccess {
 		mysqli_close($this->connection);
 	}
 	
+	// per popolare la pagina carrello
 public function getListaProdotti_Carrello($email) {
 
   $escape_dots='carrello.nome_item=item.nome';
@@ -50,29 +51,6 @@ public function getListaProdotti_Carrello($email) {
     }
   }
 
-	// per popolare la pagina carrello
-	public function getListaProdotti($email) {
-		$querySelect = "SELECT * FROM carrello WHERE email_user='$email';";	
-		$queryResult = mysqli_query($this->connection, $querySelect);
-		
-		if(mysqli_num_rows($queryResult) == 0) {
-			return null;
-		}
-		else {
-			$listaProdotti = array();
-			while($riga = mysqli_fetch_assoc($queryResult)) {
-				$prodotto = array(
-					"nome_item" => $riga['nome_item'],
-					"grandezza" =>  $riga['grandezza'],
-				);
-				
-				array_push($listaProdotti, $prodotto);
-			}
-			
-			return $listaProdotti;
-		}
-	}
-	
 	public function getListaGelati(){
     $querySelect="SELECT * FROM item WHERE nome_category='gelato' ORDER BY nome ASC";
     $queryResult=mysqli_query($this->connection, $querySelect);
@@ -98,7 +76,6 @@ public function getListaProdotti_Carrello($email) {
     }
   }
 
-	//
 	public function getListaTorte(){
     $querySelect="SELECT * FROM item WHERE nome_category='torta' ORDER BY nome ASC";
     $queryResult=mysqli_query($this->connection, $querySelect);
@@ -130,10 +107,6 @@ public function getListaProdotti_Carrello($email) {
     VALUES ('".$item."', '".$descrizione."', '".$foto."','".$alt_foto."','".$nome_category."','".$prezzo."')";
     
     $queryResult=mysqli_query($this->connection, $query);
-   /* if ($queryResult==false)
-    {
-      $queryResult=mysqli_error($this->connection);
-    }*/
     return $queryResult;
   }
 
@@ -177,71 +150,6 @@ public function getListaProdotti_Carrello($email) {
     $queryResult=mysqli_query($this->connection, $query);
     return $queryResult;
   }
-	// inserisce un prodotto nel carrello
-	public function inserisciProdotto($email_user, $nome_item, $grandezza) {
-		$queryInserimento= "INSERT INTO carrello(email_user, nome_item, grandezza) VALUES (\"$email_user\", \"$nome_item\", \"$grandezza\")";
-		$queryResult = mysqli_query($this->connection, $queryInserimento);
-		
-		if(mysqli_affected_rows($this->connection) > 0) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	// svuota il carrello quando viene premuto il pulsante per effettuare l'ordine
-	public function svuotaCarrello($email) {
-		$querySvuotamento= "DELETE FROM carrello WHERE email_user='$email';";
-		$queryResult = mysqli_query($this->connection, $querySvuotamento);
-		
-		if(mysqli_affected_rows($this->connection) > 0) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	// permette all'utente di eliminare un singolo prodotto dal proprio carrello
-	public function eliminaProdotto($email_user, $nome_item) {	//i prodotti nel carrello hanno come chiave primaria questi due campi
-		$queryRimozione= "DELETE FROM carrello WHERE email_user='$email_user' AND $nome_item='nome_item';";
-		$queryResult = mysqli_query($this->connection, $queryRimozione);
-		
-		if(mysqli_affected_rows($this->connection) > 0) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	//funzione per popolare la pagina prodotti
-	/*
-	public function getListaItem() {
-		$querySelect = "SELECT * FROM item";	
-		$queryResult = mysqli_query($this->connection, $querySelect);
-		
-		if(mysqli_num_rows($queryResult) == 0) {
-			return null;
-		}
-		else {
-			$listaItem = array();
-			while($riga = mysqli_fetch_assoc($queryResult)) {
-				$item = array(
-					"nome" => $riga['nome'],
-					"descrizione" => $riga['descrizione'],
-					"foto" => $riga['foto'],
-					"nome_category" =>  $riga['nome_category']
-				);
-				
-				array_push($listaItem, $item);
-			}
-			
-			return $listaItem;
-		}
-	}
-	*/
 
   public function getListaItem(){
     $querySelect="SELECT * FROM item ORDER BY nome ASC";
