@@ -587,6 +587,10 @@ p.errors {
 }
 
 /*PRODOTTI*/
+
+#inserisci_costo{
+	display:none;
+}
 .successo_aggiunta{
 	font-weight: bold;
 	color: black;
