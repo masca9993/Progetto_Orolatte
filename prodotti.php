@@ -306,7 +306,7 @@ if (isset($_POST["meno"])){
 			}
 			$shopping_cart.='</ul>
 			<div id="riepilogo" >
-			<p>Totale: ' .$totale.' </p>
+			<p>Totale: ' .$totale.'&euro; </p>
   </div>
   <div id="concludi">
     <a href="carrello.php" >Vai al Carrello </a>
