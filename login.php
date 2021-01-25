@@ -39,11 +39,15 @@
 
 
 		$password = sha1($password);
+		$result=0;
 
+		if(!$username_err && !$password_err)
+		{
 		$login_check_query = "SELECT * FROM user WHERE username='$username' AND password='$password';";
 		$result = mysqli_query($con, $login_check_query);
+		}
 
-		if ($result && mysqli_num_rows($result) == 1 && !$username_err && !$password_err) {
+		if ($result && mysqli_num_rows($result) == 1) {
 			$row = mysqli_fetch_array($result);
 			if ($row) {
 

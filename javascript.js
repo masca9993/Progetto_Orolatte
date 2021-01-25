@@ -32,8 +32,6 @@ function closeModal() {
 }
 
 
-
-
 function checkEmail_signup(){
 	 var email = document.getElementById("email").value;
 
@@ -112,7 +110,7 @@ function checkUsername_login(){
 
 function checkPassword_login(){
   
-  var username = document.getElementById("password").value;
+  var password = document.getElementById("password").value;
 
  err=document.getElementById("password_err");
     err.style.display="none";
