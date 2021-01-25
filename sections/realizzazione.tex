@@ -53,8 +53,7 @@
 		\subsubsection{Form}
 		Le pagine di login e signup richiedono di ricevere input da parte dell'utente tramite una form.
 		Anche la pagina prodotti prevede la possibilit\'a di interagire col database tramite una form, bench\'e questa funzionalit\'a sia riservata agli tuenti amministratori.
-		Ogni campo \'e stato contrassegnato con una specifica label e un placeholder che suggerisce all'utente quale tipo di input viene richiesto.
-		Il primo campo dei ogni form \'e inoltre caratterizzato dall'attributo autofocus, consentendo di scrivere immediatamente.
+		Ogni campo \'e stato contrassegnato con una specifica label.
 		Questo potrebbe essere utile in particolare per facilitare l'accessibilit\'a di utenti che navigano da tastiera, i quali non avranno difficolt\'a  a raggiungere il campo.
 		L'input inserito viene controllato sia lato client, tramite un'apposita funzione javascript, sia lato server, in quanto viene fatto l'escape della stringa inserita.
 		Il codice javascript controlla aspetti come la lunghezza dell'input, il pattern (per mezzo di un'espressione regolare) e il tipo di caratteri utilizzati.
@@ -63,8 +62,12 @@
 	\subsection{Accessibilit\'a}
 		Per sviluppare il sito si è seguito lo satndard WCAG 2.0 in modo da renderlo accessibile anche a persone con disabilità.
 
-		Nella maggior parte delle pagine non vi è stata necessità di inserire attributi tabindex poiché l'ordine di navigazione tramite tab risultava già corretto.
-		In alcune pagine però si è preferito definire tale ordine esplicitamente su paragrafi di testo e immagini, in modo da consentire all'utente di navigare l'intera pagina utilizzando il tasto tab, anche laddove non fossero presenti elementi con cui normalmente si potesse interagire.
+		Gli aiuti nascosti presenti all'inizio di ogni pagina e descritti nella sezione \emph{presentazione} possono aiutare nella navigazione utenti che prediligano l'uso della tastiera.
+
+		Nelle pagine non vi è stata necessità di inserire attributi tabindex che avessero valori numerici positivi poiché l'ordine di navigazione tramite tab risultava già corretto.
+		Sono stati aggiunti solo tabindex con valore uguale a zero nei link degli aiuti nascosti, che altrimenti non sarebbero stati utilizzabili.
+
+		Si \'e prestata attenzione all'utilizzo dei colori, im modo tale che i contrasti riusltassero sempre leggibili.
 
 		Nella pagina gallery ogni immagine è fornita di testo alternativo e risulta raggiungibile e cliccabile anche da tastiera
 		Si è pensato che una persona con disabilità visiva totale, ovvero la principale utilizzatrice del web tramite tastiera, abbia accesso al testo alternativo delle immagini direttamente dalla pagina Gallery, e che quindi difficilmente avrà necessità di aprirne l'ingrandimento.
