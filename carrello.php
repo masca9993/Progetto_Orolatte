@@ -91,11 +91,11 @@ if (isset($_POST["rimuovi"])){
 	$queryResult=$dbAccess->diminuisci_tutto($nome,$email);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
-		$strerrore="<p id='errore_aggiunta'>ERRORE DURANTE LA RIMOZIONE, RIPROVA PIÙ TARDI</p>";
+		$strerrore="<p class='errore_aggiunta'>ERRORE DURANTE LA RIMOZIONE, RIPROVA PIÙ TARDI</p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
-		$strerrore="<p id='successo_aggiunta'>PRODOTTO RIMOSSO CON SUCCESSO!</p>";
+		$strerrore="<p class='successo_aggiunta'>PRODOTTO RIMOSSO CON SUCCESSO!</p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		header("Refresh:2");
 	}
@@ -110,7 +110,7 @@ if (isset($_POST["ordina"])){
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
-		$strerrore="<p id='successo_aggiunta'>ORDINE AVVENUTO CON SUCCESSO!</p>";
+		$strerrore="<p class='successo_aggiunta'>ORDINE AVVENUTO CON SUCCESSO!</p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		header("Refresh:2");
 	}
@@ -121,7 +121,7 @@ if (isset($_POST["aggiungi"])){
 		$queryResult=$dbAccess->aggiungi($nome,$_SESSION['email']);
 		$dbAccess->closeDBConnection();
 		if($queryResult==false){
-		$strerrore="<p id='errore_aggiunta'>ERRORE DURANTE L'AGGIUNTA AL CARRELLO, RIPROVA PIÙ TARDI</p>";
+		$strerrore="<p class='errore_aggiunta'>ERRORE DURANTE L'AGGIUNTA AL CARRELLO, RIPROVA PIÙ TARDI</p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 		}
 		else{
@@ -136,7 +136,7 @@ if (isset($_POST["meno"])){
 	$queryResult=$dbAccess->diminuisci($nome,$email);
 	$dbAccess->closeDBConnection();
 	if($queryResult==false){
-		$strerrore="<p id='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
+		$strerrore="<p class='errore_aggiunta'>RIMOZIONE NON RIUSCITA, RIPROVA PIÙ TARDI</p>";
 		$paginaHTML=str_replace("<err/>",$strerrore,$paginaHTML);
 	}
 	else{
